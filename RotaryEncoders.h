@@ -1,5 +1,6 @@
 #include <EncoderButton.h>
-#define ENCODER_COUNT 3
+
+#define ENCODER_COUNT 4
 
 typedef void (*EncoderButtonCallbackFunction)(EncoderButton &);
 

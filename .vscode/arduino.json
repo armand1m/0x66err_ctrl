@@ -1,6 +1,6 @@
 {
     "configuration": "cpu=atmega2560",
     "board": "arduino:avr:mega",
-    "port": "/dev/tty.usbmodem41101",
+    "port": "/dev/tty.usbmodem41401",
     "sketch": "midi-amp.ino"
 }

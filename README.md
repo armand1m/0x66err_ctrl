@@ -17,5 +17,9 @@ Libraries:
    - EncoderButton offers an event-based API for using rotary encoders.
      The library is thin-wrapper built on top of the well-known Encoder library.
      It adds button click support with clickCount by using the Bounce2 library.
+
+  - Control Surface: https://tttapa.github.io/Control-Surface-doc/Doxygen/d8/d4a/md_pages_MIDI-over-USB.html
+
+  - USBMidiKliK: https://github.com/TheKikGen/USBMidiKliK
     
 > NOTE: This is the simple version of the example without optimizing for memory consumption.

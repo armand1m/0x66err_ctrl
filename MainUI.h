@@ -114,22 +114,11 @@ extern gslc_tsElemRef* KnobGaugeText2;
 // Define debug message function
 static int16_t DebugOut(char ch);
 
-// ------------------------------------------------
-// Callback Methods
-// ------------------------------------------------
-bool CbBtnCommon(void* pvGui,void *pvElemRef,gslc_teTouch eTouch,int16_t nX,int16_t nY);
-bool CbCheckbox(void* pvGui, void* pvElemRef, int16_t nSelId, bool bState);
-bool CbDrawScanner(void* pvGui,void* pvElemRef,gslc_teRedrawType eRedraw);
-bool CbKeypad(void* pvGui, void *pvElemRef, int16_t nState, void* pvData);
-bool CbListbox(void* pvGui, void* pvElemRef, int16_t nSelId);
-bool CbSlidePos(void* pvGui,void* pvElemRef,int16_t nPos);
-bool CbSpinner(void* pvGui, void *pvElemRef, int16_t nState, void* pvData);
-bool CbTickScanner(void* pvGui,void* pvScope);
 
 // ------------------------------------------------
 // Create page elements
 // ------------------------------------------------
-void InitGUIslice_gen()
+void initializeGUI()
 {
   gslc_tsElemRef* pElemRef = NULL;
 
@@ -138,14 +127,11 @@ void InitGUIslice_gen()
   // ------------------------------------------------
   // Load Fonts
   // ------------------------------------------------
-//<Load_Fonts !Start!>
-    if (!gslc_FontSet(&m_gui,E_BUILTIN20X32,GSLC_FONTREF_PTR,NULL,4)) { return; }
-    if (!gslc_FontSet(&m_gui,E_BUILTIN5X8,GSLC_FONTREF_PTR,NULL,1)) { return; }
-//<Load_Fonts !End!>
+  if (!gslc_FontSet(&m_gui,E_BUILTIN20X32,GSLC_FONTREF_PTR,NULL,4)) { return; }
+  if (!gslc_FontSet(&m_gui,E_BUILTIN5X8,GSLC_FONTREF_PTR,NULL,1)) { return; }
 
-  gslc_GuiRotate(&m_gui, 3);
+  gslc_GuiRotate(&m_gui, 1);
   
-//<InitGUI !Start!>
   gslc_PageAdd(&m_gui,E_PG_MAIN,m_asPage1Elem,MAX_ELEM_PG_MAIN_RAM,m_asPage1ElemRef,MAX_ELEM_PG_MAIN);
 
   // NOTE: The current page defaults to the first page added. Here we explicitly
@@ -158,7 +144,13 @@ void InitGUIslice_gen()
   // -----------------------------------
   // PAGE: E_PG_MAIN
   
-
+  // Create E_ELEM_TEXT3 text label
+  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT3,E_PG_MAIN,(gslc_tsRect){100,10,288,32},
+    (char*)"MIDI Ampsim", 0, E_BUILTIN20X32);
+  gslc_ElemSetTxtAlign(&m_gui,pElemRef,GSLC_ALIGN_MID_MID);
+  gslc_ElemSetFillEn(&m_gui,pElemRef,false);
+  gslc_ElemSetTxtCol(&m_gui,pElemRef,GSLC_COL_BLACK);
+  AppHeader = pElemRef;
 
   // Create ring gauge E_ELEM_RINGGAUGE1 
   static char m_sRingText1[11] = "0";
@@ -293,19 +285,6 @@ void InitGUIslice_gen()
   gslc_ElemSetFillEn(&m_gui,pElemRef,false);
   gslc_ElemSetTxtCol(&m_gui,pElemRef,GSLC_COL_BLACK);
   KnobGaugeText2 = pElemRef;
-
-  // Create E_ELEM_TEXT3 text label
-  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT3,E_PG_MAIN,(gslc_tsRect){100,10,288,32},
-    (char*)"MIDI Ampsim ",0,E_BUILTIN20X32);
-  gslc_ElemSetTxtAlign(&m_gui,pElemRef,GSLC_ALIGN_MID_MID);
-  gslc_ElemSetFillEn(&m_gui,pElemRef,false);
-  gslc_ElemSetTxtCol(&m_gui,pElemRef,GSLC_COL_BLACK);
-  AppHeader = pElemRef;
-//<InitGUI !End!>
-
-//<Startup !Start!>
-//<Startup !End!>
-
 }
 
-#endif // end _GUISLICE_GEN_H
+#endif

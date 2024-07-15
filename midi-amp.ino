@@ -1,10 +1,14 @@
 #include "RotaryEncoders.h"
-#include "GUISliceProjects_GSLC.h"
+#include "MainUI.h"
+#include <MIDI.h>
+
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, midiSerial);
 
 EncoderButton encoders[ENCODER_COUNT] = {
-  EncoderButton(51, 49, 53),
-  EncoderButton(50, 48, 52),
   EncoderButton(44, 42, 46),
+  EncoderButton(45, 43, 47),
+  EncoderButton(50, 48, 52),
+  EncoderButton(51, 49, 53),
 };
 
 gslc_tsElemRef *AppHeader = NULL;
@@ -19,7 +23,6 @@ gslc_tsElemRef *KnobGauge8 = NULL;
 gslc_tsElemRef *KnobGaugeText1 = NULL;
 gslc_tsElemRef *KnobGaugeText2 = NULL;
 
-// Define debug message function
 static int16_t DebugOut(char ch)
 {
   if (ch == (char)'\n')
@@ -29,38 +32,21 @@ static int16_t DebugOut(char ch)
   return 0;
 }
 
-// ------------------------------------------------
-// Callback Methods
-// ------------------------------------------------
-//<Button Callback !Start!>
-//<Button Callback !End!>
-//<Checkbox Callback !Start!>
-//<Checkbox Callback !End!>
-//<Keypad Callback !Start!>
-//<Keypad Callback !End!>
-//<Spinner Callback !Start!>
-//<Spinner Callback !End!>
-//<Listbox Callback !Start!>
-//<Listbox Callback !End!>
-//<Draw Callback !Start!>
-//<Draw Callback !End!>
-//<Slider Callback !Start!>
-//<Slider Callback !End!>
-//<Tick Callback !Start!>
-//<Tick Callback !End!>
-
 void setup()
 {
   Serial.begin(115200);
   gslc_InitDebug(&DebugOut);
-  InitGUIslice_gen();
+  initializeGUI();
   setupEncoders(encoders, onEncoderSpin);
+
+  Serial.println("Starting MIDI interface..");
+  Serial1.begin(31250);
+  midiSerial.begin(MIDI_CHANNEL_OMNI);
+  Serial.println("MIDI interface initialized.");
 }
 
 void loop()
 {
-  // TODO - Add update code for any text, gauges, or sliders
-
   gslc_Update(&m_gui);
   updateEncoders(encoders);
 }
@@ -78,10 +64,22 @@ gslc_tsElemRef * getElemRefForEncoderKnobGauge(int encoderId) {
     default: return NULL;
   }
 }
+
 void onEncoderSpin(EncoderButton &encoder)
 {
-  // debugRotary(encoder);
-  char knobGaugeString[10];
+  Serial.print("Sending control change: ");
+  Serial.print(encoder.userId());
+  Serial.print(", ");
+  Serial.println(encoder.position());
+
+  unsigned char controlNumber = static_cast<unsigned char>(encoder.userId());
+  unsigned char controlValue = static_cast<unsigned char>(encoder.position());
+  unsigned char channel = static_cast<unsigned char>(1);
+
+  midiSerial.sendControlChange(controlNumber, controlValue, channel);
+  Serial.println("Sent.");
+
+  char knobGaugeString[10]; 
   gslc_tsElemRef* knobGaugeElementReference = getElemRefForEncoderKnobGauge(encoder.userId());
   long position = encoder.position();
 
