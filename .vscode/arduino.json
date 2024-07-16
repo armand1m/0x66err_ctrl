@@ -1,6 +1,6 @@
 {
     "configuration": "cpu=atmega2560",
     "board": "arduino:avr:mega",
-    "port": "/dev/cu.usbmodem2141201",
+    "port": "/dev/cu.usbmodem101",
     "sketch": "0x66err_ctrl.ino"
 }

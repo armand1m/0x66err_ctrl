@@ -47,20 +47,21 @@
 // Enumerations for pages, elements, fonts, images
 // ------------------------------------------------
 //<Enum !Start!>
-enum {E_PG_MAIN,E_PG2};
-enum {E_ELEM_APPHEADER,E_ELEM_KNOB_1,E_ELEM_KNOB_2,E_ELEM_KNOB_3
-      ,E_ELEM_KNOB_4,E_ELEM_RINGGAUGE1,E_ELEM_RINGGAUGE2
-      ,E_ELEM_RINGGAUGE3,E_ELEM_RINGGAUGE4,E_ELEM_SLIDER1
-      ,E_ELEM_SLIDER2,E_ELEM_SLIDER3,E_ELEM_SLIDER4,E_ELEM_SLIDER5
-      ,E_ELEM_SLIDER6,E_ELEM_SLIDER7,E_ELEM_TEXT10,E_ELEM_TEXT11
-      ,E_ELEM_TEXT12,E_ELEM_TEXT13,E_ELEM_TEXT14,E_ELEM_TEXT15
-      ,E_ELEM_TEXT17,E_ELEM_TEXT18,E_ELEM_TEXT19,E_ELEM_TEXT20
-      ,E_ELEM_TEXT21,E_ELEM_TEXT22,E_ELEM_TEXT23,E_ELEM_TEXT9
-      ,E_ELEM_TOGGLE1,E_ELEM_TOGGLE2,E_ELEM_TOGGLE3,E_ELEM_TOGGLE4
-      ,E_ELEM_TOGGLE_TEXT_1,E_ELEM_TOGGLE_TEXT_2,E_ELEM_TOGGLE_TEXT_3
-      ,E_ELEM_TOGGLE_TEXT_4};
+enum {E_PG_MAIN,E_PG_XYMAP};
+enum {E_DRAW_LINE1,E_DRAW_LINE2,E_ELEM_APPHEADER,E_ELEM_BOX1
+      ,E_ELEM_BTN_BACKHOME,E_ELEM_BTN_SEND_X_MSG,E_ELEM_BTN_SEND_Y_MSG
+      ,E_ELEM_KNOB_1,E_ELEM_KNOB_2,E_ELEM_KNOB_3,E_ELEM_KNOB_4
+      ,E_ELEM_RINGGAUGE1,E_ELEM_RINGGAUGE2,E_ELEM_RINGGAUGE3
+      ,E_ELEM_RINGGAUGE4,E_ELEM_SLIDER1,E_ELEM_SLIDER2,E_ELEM_SLIDER3
+      ,E_ELEM_SLIDER4,E_ELEM_SLIDER5,E_ELEM_SLIDER6,E_ELEM_SLIDER7
+      ,E_ELEM_TEXT10,E_ELEM_TEXT11,E_ELEM_TEXT12,E_ELEM_TEXT13
+      ,E_ELEM_TEXT14,E_ELEM_TEXT15,E_ELEM_TEXT17,E_ELEM_TEXT18
+      ,E_ELEM_TEXT19,E_ELEM_TEXT20,E_ELEM_TEXT21,E_ELEM_TEXT22
+      ,E_ELEM_TEXT9,E_ELEM_TOGGLE1,E_ELEM_TOGGLE2,E_ELEM_TOGGLE3
+      ,E_ELEM_TOGGLE4,E_ELEM_TOGGLE_TEXT_1,E_ELEM_TOGGLE_TEXT_2
+      ,E_ELEM_TOGGLE_TEXT_3,E_ELEM_TOGGLE_TEXT_4,E_ELEM_XYMAP_BTN};
 // Must use separate enum for fonts with MAX_FONT at end to use gslc_FontSet.
-enum {E_BUILTIN15X24,E_BUILTIN20X32,E_BUILTIN5X8,MAX_FONT};
+enum {E_BUILTIN20X32,E_BUILTIN5X8,MAX_FONT};
 //<Enum !End!>
 
 // ------------------------------------------------
@@ -73,11 +74,11 @@ enum {E_BUILTIN15X24,E_BUILTIN20X32,E_BUILTIN5X8,MAX_FONT};
 //<ElementDefines !Start!>
 #define MAX_PAGE                2
 
-#define MAX_ELEM_PG_MAIN 37 // # Elems total on page
+#define MAX_ELEM_PG_MAIN 38 // # Elems total on page
 #define MAX_ELEM_PG_MAIN_RAM MAX_ELEM_PG_MAIN // # Elems in RAM
 
-#define MAX_ELEM_PG2 1 // # Elems total on page
-#define MAX_ELEM_PG2_RAM MAX_ELEM_PG2 // # Elems in RAM
+#define MAX_ELEM_PG_XYMAP 6 // # Elems total on page
+#define MAX_ELEM_PG_XYMAP_RAM MAX_ELEM_PG_XYMAP // # Elems in RAM
 //<ElementDefines !End!>
 
 // ------------------------------------------------
@@ -91,8 +92,8 @@ gslc_tsPage                     m_asPage[MAX_PAGE];
 //<GUI_Extra_Elements !Start!>
 gslc_tsElem                     m_asPage1Elem[MAX_ELEM_PG_MAIN_RAM];
 gslc_tsElemRef                  m_asPage1ElemRef[MAX_ELEM_PG_MAIN];
-gslc_tsElem                     m_asPage2Elem[MAX_ELEM_PG2_RAM];
-gslc_tsElemRef                  m_asPage2ElemRef[MAX_ELEM_PG2];
+gslc_tsElem                     m_asPage2Elem[MAX_ELEM_PG_XYMAP_RAM];
+gslc_tsElemRef                  m_asPage2ElemRef[MAX_ELEM_PG_XYMAP];
 gslc_tsXRingGauge               m_sXRingGauge2;
 gslc_tsXRingGauge               m_sXRingGauge1;
 gslc_tsXRingGauge               m_sXRingGauge3;
@@ -120,6 +121,7 @@ gslc_tsXSlider                  m_sXSlider7;
 // Element References for direct access
 //<Extern_References !Start!>
 extern gslc_tsElemRef* AppHeader;
+extern gslc_tsElemRef* BackHomeButton;
 extern gslc_tsElemRef* KnobGauge1;
 extern gslc_tsElemRef* KnobGauge2;
 extern gslc_tsElemRef* KnobGauge3;
@@ -128,10 +130,14 @@ extern gslc_tsElemRef* KnobGaugeText1;
 extern gslc_tsElemRef* KnobGaugeText2;
 extern gslc_tsElemRef* KnobGaugeText3;
 extern gslc_tsElemRef* KnobGaugeText4;
+extern gslc_tsElemRef* SendXMidiMsg;
+extern gslc_tsElemRef* SendYMidiMsg;
 extern gslc_tsElemRef* Toggle1Text;
 extern gslc_tsElemRef* Toggle2Text;
 extern gslc_tsElemRef* Toggle3Text;
 extern gslc_tsElemRef* Toggle4Text;
+extern gslc_tsElemRef* XyMapBox;
+extern gslc_tsElemRef* XyMapButton;
 extern gslc_tsElemRef* m_pElemSlider1;
 extern gslc_tsElemRef* m_pElemSlider1_2;
 extern gslc_tsElemRef* m_pElemSlider1_3;
@@ -173,14 +179,13 @@ void InitGUIslice_gen()
   // Load Fonts
   // ------------------------------------------------
 //<Load_Fonts !Start!>
-    if (!gslc_FontSet(&m_gui,E_BUILTIN15X24,GSLC_FONTREF_PTR,NULL,3)) { return; }
     if (!gslc_FontSet(&m_gui,E_BUILTIN20X32,GSLC_FONTREF_PTR,NULL,4)) { return; }
     if (!gslc_FontSet(&m_gui,E_BUILTIN5X8,GSLC_FONTREF_PTR,NULL,1)) { return; }
 //<Load_Fonts !End!>
 
 //<InitGUI !Start!>
   gslc_PageAdd(&m_gui,E_PG_MAIN,m_asPage1Elem,MAX_ELEM_PG_MAIN_RAM,m_asPage1ElemRef,MAX_ELEM_PG_MAIN);
-  gslc_PageAdd(&m_gui,E_PG2,m_asPage2Elem,MAX_ELEM_PG2_RAM,m_asPage2ElemRef,MAX_ELEM_PG2);
+  gslc_PageAdd(&m_gui,E_PG_XYMAP,m_asPage2Elem,MAX_ELEM_PG_XYMAP_RAM,m_asPage2ElemRef,MAX_ELEM_PG_XYMAP);
 
   // NOTE: The current page defaults to the first page added. Here we explicitly
   //       ensure that the main page is the correct page no matter the add order.
@@ -459,16 +464,50 @@ void InitGUIslice_gen()
     (char*)"And we were programmed just to suffer",0,E_BUILTIN5X8);
   gslc_ElemSetFillEn(&m_gui,pElemRef,false);
   gslc_ElemSetTxtCol(&m_gui,pElemRef,GSLC_COL_WHITE);
+  
+  // create E_ELEM_XYMAP_BTN button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_XYMAP_BTN,E_PG_MAIN,
+    (gslc_tsRect){15,15,80,20},(char*)"XY MAP",0,E_BUILTIN5X8,&CbBtnCommon);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_GRAY,GSLC_COL_GRAY_DK1,GSLC_COL_GRAY);
+  XyMapButton = pElemRef;
 
   // -----------------------------------
-  // PAGE: E_PG2
+  // PAGE: E_PG_XYMAP
   
   
-  // Create E_ELEM_TEXT23 text label
-  pElemRef = gslc_ElemCreateTxt(&m_gui,E_ELEM_TEXT23,E_PG2,(gslc_tsRect){10,140,468,24},
-    (char*)"This page is not ready yet",0,E_BUILTIN15X24);
-  gslc_ElemSetFillEn(&m_gui,pElemRef,false);
-  gslc_ElemSetTxtCol(&m_gui,pElemRef,GSLC_COL_WHITE);
+  // create E_ELEM_BTN_BACKHOME button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_BACKHOME,E_PG_XYMAP,
+    (gslc_tsRect){10,10,80,20},(char*)"Back",0,E_BUILTIN5X8,&CbBtnCommon);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_GRAY,GSLC_COL_GRAY_DK1,GSLC_COL_GRAY);
+  BackHomeButton = pElemRef;
+   
+  // Create E_ELEM_BOX1 box
+  pElemRef = gslc_ElemCreateBox(&m_gui,E_ELEM_BOX1,E_PG_XYMAP,(gslc_tsRect){10,40,460,270});
+  gslc_ElemSetClickEn(&m_gui, pElemRef, true);
+  gslc_ElemSetTouchFunc(&m_gui, pElemRef, &CbBtnCommon);
+  // Set the callback function to update content automatically
+  gslc_ElemSetTickFunc(&m_gui,pElemRef,&CbTickScanner);
+  XyMapBox = pElemRef;
+
+  // Create E_DRAW_LINE1 line 
+  pElemRef = gslc_ElemCreateLine(&m_gui,E_DRAW_LINE1,E_PG_XYMAP,10,175,470,175);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_BLACK,GSLC_COL_GRAY_LT2,GSLC_COL_GRAY_LT2);
+
+  // Create E_DRAW_LINE2 line 
+  pElemRef = gslc_ElemCreateLine(&m_gui,E_DRAW_LINE2,E_PG_XYMAP,240,40,240,310);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_BLACK,GSLC_COL_GRAY_LT2,GSLC_COL_GRAY_LT2);
+  
+  // create E_ELEM_BTN_SEND_X_MSG button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_SEND_X_MSG,E_PG_XYMAP,
+    (gslc_tsRect){300,10,80,20},(char*)"Send X",0,E_BUILTIN5X8,&CbBtnCommon);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_GRAY,GSLC_COL_GRAY_DK1,GSLC_COL_GRAY);
+  SendXMidiMsg = pElemRef;
+  
+  // create E_ELEM_BTN_SEND_Y_MSG button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_SEND_Y_MSG,E_PG_XYMAP,
+    (gslc_tsRect){390,10,80,20},(char*)"Send Y",0,E_BUILTIN5X8,&CbBtnCommon);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_GRAY,GSLC_COL_GRAY_DK1,GSLC_COL_GRAY);
+  SendYMidiMsg = pElemRef;
 //<InitGUI !End!>
 
 //<Startup !Start!>

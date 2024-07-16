@@ -1,1115 +1,482 @@
-[Tue Jul 16 15:37:32 CEST 2024] INFO: Builder ver: 0.17.b24 started java ver: 18.0 osname: Mac OS X osarc: x86_64 osver: 3940671148785664 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Platform: Adafruit_GFX 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/ofl-faq10.txt 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/Noto_readme.txt 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/adafruit_license.txt 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/LICENSE_OFL.txt 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Platform: M5Stack 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Platform: ILI9341_t3 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Platform: TFT_eSPI 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/ofl-faq10.txt 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/Noto_readme.txt 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/adafruit_license.txt 
-[Tue Jul 16 15:37:33 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/LICENSE_OFL.txt 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Platform: UTFT 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Platform: Linux 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: Total number Platforms: 6 number of fonts: 618 
-[Tue Jul 16 15:37:33 CEST 2024] INFO: FontFactory Initialized 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: TV-add page: Node: key=Project$1 enum=E_PROJECT_OPTIONS type=Project 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: TV-add page: Node: key=Page$1 enum=E_PG_MAIN type=Page 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: New Project 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Project Options 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Target IDE: Arduino IDE 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: PlatformIO default_envs:  
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Graphics Library: Adafruit_GFX 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: GUIslice API Theme: GUIslice 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Project's Extra Fonts: [Ljava.lang.String;@3447ec3d 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: TFT Screen Width: 320 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: TFT Screen Height: 240 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Background Color: java.awt.Color[r=0,g=0,b=0] 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Use Background Image?: false 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Target Platform Image Directory: / 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Background Image File:  
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Background Image #defines:  
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Background Image Memory:  
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Background Image Format:  
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Screen Margins: 10 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Horizontal Spacing between widgets: 20 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Vertical Spacing between widgets: 20 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: MAX_STR: 100 
-[Tue Jul 16 15:37:35 CEST 2024] INFO: Screen Rotation [0-3 or -1 default]: -1 
-[Tue Jul 16 15:39:18 CEST 2024] INFO: Toolbar: open 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Open Project: GUISliceProjects.prj Started 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Project Options 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Target IDE: Arduino IDE 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: PlatformIO default_envs:  
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Graphics Library: Adafruit_GFX 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: GUIslice API Theme: GUIslice 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Project's Extra Fonts: [Ljava.lang.String;@54ed57f0 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: TFT Screen Width: 480 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: TFT Screen Height: 320 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Background Color: java.awt.Color[r=0,g=0,b=0] 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Use Background Image?: false 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Target Platform Image Directory: / 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Background Image File:  
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Background Image #defines:  
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Background Image Memory:  
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Background Image Format:  
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Screen Margins: 5 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Horizontal Spacing between widgets: 20 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Vertical Spacing between widgets: 20 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: MAX_STR: 100 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Screen Rotation [0-3 or -1 default]: -1 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: TV-add page: Node: key=Project$1 enum=E_PROJECT_OPTIONS type=Project 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: TV-add page: Node: key=Page$1 enum=E_PG_MAIN type=Page 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 15:39:30 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 15:39:31 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_PAGEPANE:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: TreeView recv: OBJECT_UNSELECT_PAGEPANE:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_TREEVIEW:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
-[Tue Jul 16 15:39:31 CEST 2024] INFO: TreeView recv: TREEVIEW_RESET 
-[Tue Jul 16 15:39:31 CEST 2024] INFO: Opened Project File: GUISliceProjects.prj 
-[Tue Jul 16 15:39:36 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 15:39:36 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 15:39:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:39:37 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:39:37 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:39:37 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:39:45 CEST 2024] INFO: Perform: model: RingGauge$1 Property: 'ElementRef' Changed from->KnobGauge1 to->KnobGauge2 row=6 
-[Tue Jul 16 15:39:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:47 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:52 CEST 2024] INFO: Perform: model: RingGauge$2 Property: 'ElementRef' Changed from->KnobGauge2 to->KnobGauge1 row=6 
-[Tue Jul 16 15:39:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:39:57 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:39:57 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:39:57 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:39:58 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:58 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:58 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:39:58 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:01 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:01 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:01 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:01 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:02 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:02 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:02 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:02 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:05 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:05 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:05 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:06 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:06 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:06 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:06 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:07 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:07 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:07 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:07 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:40:08 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:08 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:08 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:08 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:40:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:40:10 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:40:10 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:40:10 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:40:11 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:40:11 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:40:11 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:40:11 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:40:12 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:40:12 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:40:12 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:40:12 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:40:13 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:40:13 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:40:13 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:40:13 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:40:15 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:40:15 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:40:15 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:40:15 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:40:20 CEST 2024] INFO: Perform: model: Text$3 Property: 'Text' Changed from->0x66err to->0x66err_ctrl row=8 
-[Tue Jul 16 15:40:26 CEST 2024] INFO: Perform: model: Text$3 Property: 'X' Changed from->188 to->180 row=2 
-[Tue Jul 16 15:40:26 CEST 2024] INFO: Perform: model: Text$3 Property: 'Y' Changed from->13 to->10 row=3 
-[Tue Jul 16 15:40:26 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_APPHEADER 
-[Tue Jul 16 15:40:29 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:40:29 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:40:30 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$3 
-[Tue Jul 16 15:40:30 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$3 
-[Tue Jul 16 15:40:31 CEST 2024] INFO: Perform: model: Text$3 Property: 'X' Changed from->191 to->190 row=2 
-[Tue Jul 16 15:40:31 CEST 2024] INFO: Perform: model: Text$3 Property: 'Y' Changed from->10 to->10 row=3 
-[Tue Jul 16 15:40:31 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_APPHEADER 
-[Tue Jul 16 15:40:40 CEST 2024] INFO: Perform: model: Text$3 Property: 'Width' Changed from->190 to->230 row=4 
-[Tue Jul 16 15:40:42 CEST 2024] INFO: Perform: model: Text$3 Property: 'Width' Changed from->230 to->270 row=4 
-[Tue Jul 16 15:40:45 CEST 2024] INFO: Perform: model: Text$3 Property: 'Width' Changed from->270 to->290 row=4 
-[Tue Jul 16 15:40:48 CEST 2024] INFO: Perform: model: Text$3 Property: 'Width' Changed from->290 to->280 row=4 
-[Tue Jul 16 15:40:52 CEST 2024] INFO: Perform: model: Text$3 Property: 'Width' Changed from->280 to->285 row=4 
-[Tue Jul 16 15:40:58 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:40:58 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:40:59 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$1 
-[Tue Jul 16 15:40:59 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$1 
-[Tue Jul 16 15:41:16 CEST 2024] INFO: add next 
-[Tue Jul 16 15:41:16 CEST 2024] INFO: Perform: model: ToggleButton$1 Property: 'On State Color' Changed from->java.awt.Color[r=0,g=0,b=192] to->java.awt.Color[r=192,g=0,b=0] row=9 
-[Tue Jul 16 15:41:32 CEST 2024] INFO: add next 
-[Tue Jul 16 15:41:32 CEST 2024] INFO: Perform: model: ToggleButton$1 Property: 'On State Color' Changed from->java.awt.Color[r=192,g=0,b=0] to->java.awt.Color[r=224,g=0,b=0] row=9 
-[Tue Jul 16 15:41:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$2 
-[Tue Jul 16 15:41:34 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$2 
-[Tue Jul 16 15:41:39 CEST 2024] INFO: Perform: model: ToggleButton$2 Property: 'On State Color' Changed from->java.awt.Color[r=0,g=0,b=192] to->java.awt.Color[r=224,g=0,b=0] row=9 
-[Tue Jul 16 15:41:41 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$3 
-[Tue Jul 16 15:41:41 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$3 
-[Tue Jul 16 15:41:47 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'On State Color' Changed from->java.awt.Color[r=0,g=0,b=192] to->java.awt.Color[r=224,g=0,b=0] row=9 
-[Tue Jul 16 15:41:50 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Circular?' Changed from->true to->false row=11 
-[Tue Jul 16 15:41:50 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Circular?' Changed from->false to->true row=11 
-[Tue Jul 16 15:41:51 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Circular?' Changed from->true to->false row=11 
-[Tue Jul 16 15:41:52 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Circular?' Changed from->false to->true row=11 
-[Tue Jul 16 15:41:55 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Use Flash API?' Changed from->false to->true row=12 
-[Tue Jul 16 15:41:55 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Use Flash API?' Changed from->true to->false row=12 
-[Tue Jul 16 15:41:56 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Use Flash API?' Changed from->false to->true row=12 
-[Tue Jul 16 15:41:57 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Use Flash API?' Changed from->true to->false row=12 
-[Tue Jul 16 15:44:01 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$8 
-[Tue Jul 16 15:44:01 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$8 
-[Tue Jul 16 15:44:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$3 
-[Tue Jul 16 15:44:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$3 
-[Tue Jul 16 15:44:04 CEST 2024] INFO: Toolbar: copy 
-[Tue Jul 16 15:44:04 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_TOGGLE3,E_ELEM_TOGGLE_TEXT_3 
-[Tue Jul 16 15:44:05 CEST 2024] INFO: Toolbar: paste 
-[Tue Jul 16 15:44:05 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_MAIN 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'X' Changed from->11 to->11 row=2 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'Y' Changed from->248 to->248 row=3 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: Perform: model: Text$16 Property: 'X' Changed from->51 to->51 row=2 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: Perform: model: Text$16 Property: 'Y' Changed from->258 to->258 row=3 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TOGGLE4,E_ELEM_TEXT16 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:12 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:13 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:44:13 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:44:14 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:44:14 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:44:17 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'X' Changed from->11 to->11 row=2 
-[Tue Jul 16 15:44:17 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'Y' Changed from->251 to->251 row=3 
-[Tue Jul 16 15:44:17 CEST 2024] INFO: Perform: model: Text$16 Property: 'X' Changed from->51 to->51 row=2 
-[Tue Jul 16 15:44:17 CEST 2024] INFO: Perform: model: Text$16 Property: 'Y' Changed from->261 to->261 row=3 
-[Tue Jul 16 15:44:17 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TOGGLE4,E_ELEM_TEXT16 
-[Tue Jul 16 15:44:18 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:18 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:19 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:44:19 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:44:22 CEST 2024] INFO: Perform: model: Text$16 Property: 'Text' Changed from->Distortion to->Mod row=8 
-[Tue Jul 16 15:44:27 CEST 2024] INFO: Perform: model: Text$16 Property: 'Text' Changed from->Mod to->Custom row=8 
-[Tue Jul 16 15:44:34 CEST 2024] INFO: Perform: model: Text$16 Property: 'Text' Changed from->Custom to->Custom row=8 
-[Tue Jul 16 15:44:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:34 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:44:35 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:44:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:44:37 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:44:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:44:38 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:44:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:39 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:44:44 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$15 Parent: Page$1 
-[Tue Jul 16 15:44:44 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$15 Parent: Page$1 
-[Tue Jul 16 15:44:44 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$15 Parent: Page$1 
-[Tue Jul 16 15:44:44 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$15 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$14 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$14 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$14 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$14 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$13 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$13 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$13 Parent: Page$1 
-[Tue Jul 16 15:44:45 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$13 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$12 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$12 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$12 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$12 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:44:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:44:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:44:52 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:44:52 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:44:52 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:44:53 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:44:53 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:44:53 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:44:53 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$4 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$4 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$4 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$4 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$5 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$5 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$5 Parent: Page$1 
-[Tue Jul 16 15:44:54 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$5 Parent: Page$1 
-[Tue Jul 16 15:45:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:45:25 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:45:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$3 
-[Tue Jul 16 15:45:25 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$3 
-[Tue Jul 16 15:45:27 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:45:27 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:45:29 CEST 2024] INFO: Toolbar: text 
-[Tue Jul 16 15:45:29 CEST 2024] INFO: Perform: Add to page:E_PG_MAIN widget: E_ELEM_TEXT17 
-[Tue Jul 16 15:45:32 CEST 2024] INFO: Perform: model: Text$17 Property: 'X' Changed from->260 to->260 row=2 
-[Tue Jul 16 15:45:32 CEST 2024] INFO: Perform: model: Text$17 Property: 'Y' Changed from->57 to->50 row=3 
-[Tue Jul 16 15:45:32 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT17 
-[Tue Jul 16 15:46:18 CEST 2024] INFO: Perform: model: Text$17 Property: 'Text' Changed from-> to->Cause everyone's too scared to heal row=8 
-[Tue Jul 16 15:46:21 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:46:21 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:46:22 CEST 2024] INFO: Toolbar: copy 
-[Tue Jul 16 15:46:22 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_TEXT17 
-[Tue Jul 16 15:46:22 CEST 2024] INFO: Toolbar: paste 
-[Tue Jul 16 15:46:22 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_MAIN 
-[Tue Jul 16 15:46:24 CEST 2024] INFO: Perform: model: Text$18 Property: 'X' Changed from->261 to->260 row=2 
-[Tue Jul 16 15:46:24 CEST 2024] INFO: Perform: model: Text$18 Property: 'Y' Changed from->66 to->60 row=3 
-[Tue Jul 16 15:46:24 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT18 
-[Tue Jul 16 15:46:31 CEST 2024] INFO: Perform: model: Text$18 Property: 'Text' Changed from->Cause everyone's too scared to heal to->They don't give a fuck how they feel row=8 
-[Tue Jul 16 15:46:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:46:37 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:46:38 CEST 2024] INFO: Toolbar: copy 
-[Tue Jul 16 15:46:38 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_TEXT18 
-[Tue Jul 16 15:46:38 CEST 2024] INFO: Toolbar: paste 
-[Tue Jul 16 15:46:38 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_MAIN 
-[Tue Jul 16 15:46:40 CEST 2024] INFO: Perform: model: Text$19 Property: 'X' Changed from->258 to->250 row=2 
-[Tue Jul 16 15:46:40 CEST 2024] INFO: Perform: model: Text$19 Property: 'Y' Changed from->73 to->70 row=3 
-[Tue Jul 16 15:46:40 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT19 
-[Tue Jul 16 15:46:48 CEST 2024] INFO: Perform: model: Text$19 Property: 'Text' Changed from->They don't give a fuck how they feel to->And I don't know how to deal anymore row=8 
-[Tue Jul 16 15:46:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:46:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:46:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:46:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:46:52 CEST 2024] INFO: Perform: model: Text$17 Property: 'X' Changed from->252 to->250 row=2 
-[Tue Jul 16 15:46:52 CEST 2024] INFO: Perform: model: Text$17 Property: 'Y' Changed from->48 to->40 row=3 
-[Tue Jul 16 15:46:52 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT17 
-[Tue Jul 16 15:46:53 CEST 2024] INFO: Perform: model: Text$17 Property: 'X' Changed from->256 to->250 row=2 
-[Tue Jul 16 15:46:53 CEST 2024] INFO: Perform: model: Text$17 Property: 'Y' Changed from->49 to->40 row=3 
-[Tue Jul 16 15:46:53 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT17 
-[Tue Jul 16 15:46:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:46:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:46:55 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:46:55 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:46:56 CEST 2024] INFO: Perform: model: Text$19 Property: 'X' Changed from->257 to->250 row=2 
-[Tue Jul 16 15:46:56 CEST 2024] INFO: Perform: model: Text$19 Property: 'Y' Changed from->93 to->90 row=3 
-[Tue Jul 16 15:46:56 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT19 
-[Tue Jul 16 15:46:56 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:46:56 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:46:57 CEST 2024] INFO: Perform: model: Text$18 Property: 'X' Changed from->255 to->250 row=2 
-[Tue Jul 16 15:46:57 CEST 2024] INFO: Perform: model: Text$18 Property: 'Y' Changed from->73 to->70 row=3 
-[Tue Jul 16 15:46:57 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT18 
-[Tue Jul 16 15:46:58 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:46:58 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:47:00 CEST 2024] INFO: Perform: model: Text$17 Property: 'X' Changed from->256 to->250 row=2 
-[Tue Jul 16 15:47:00 CEST 2024] INFO: Perform: model: Text$17 Property: 'Y' Changed from->50 to->50 row=3 
-[Tue Jul 16 15:47:00 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT17 
-[Tue Jul 16 15:47:01 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:47:01 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:47:03 CEST 2024] INFO: Perform: model: Text$18 Property: 'X' Changed from->251 to->250 row=2 
-[Tue Jul 16 15:47:03 CEST 2024] INFO: Perform: model: Text$18 Property: 'Y' Changed from->65 to->60 row=3 
-[Tue Jul 16 15:47:03 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT18 
-[Tue Jul 16 15:47:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:47:04 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:47:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:47:05 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:47:06 CEST 2024] INFO: Perform: model: Text$19 Property: 'X' Changed from->251 to->250 row=2 
-[Tue Jul 16 15:47:06 CEST 2024] INFO: Perform: model: Text$19 Property: 'Y' Changed from->74 to->70 row=3 
-[Tue Jul 16 15:47:06 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT19 
-[Tue Jul 16 15:47:08 CEST 2024] INFO: Toolbar: copy 
-[Tue Jul 16 15:47:08 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_TEXT19 
-[Tue Jul 16 15:47:08 CEST 2024] INFO: Toolbar: paste 
-[Tue Jul 16 15:47:08 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_MAIN 
-[Tue Jul 16 15:47:10 CEST 2024] INFO: Perform: model: Text$20 Property: 'X' Changed from->251 to->250 row=2 
-[Tue Jul 16 15:47:10 CEST 2024] INFO: Perform: model: Text$20 Property: 'Y' Changed from->83 to->80 row=3 
-[Tue Jul 16 15:47:10 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT20 
-[Tue Jul 16 15:47:26 CEST 2024] INFO: Perform: model: Text$20 Property: 'Text' Changed from->And I don't know how to deal anymore to->Well maybe the damage is done row=8 
-[Tue Jul 16 15:47:28 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 15:47:28 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 15:47:29 CEST 2024] INFO: Toolbar: copy 
-[Tue Jul 16 15:47:29 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_TEXT20 
-[Tue Jul 16 15:47:29 CEST 2024] INFO: Toolbar: paste 
-[Tue Jul 16 15:47:29 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_MAIN 
-[Tue Jul 16 15:47:30 CEST 2024] INFO: Perform: model: Text$21 Property: 'X' Changed from->253 to->250 row=2 
-[Tue Jul 16 15:47:30 CEST 2024] INFO: Perform: model: Text$21 Property: 'Y' Changed from->93 to->90 row=3 
-[Tue Jul 16 15:47:30 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT21 
-[Tue Jul 16 15:47:36 CEST 2024] INFO: Perform: model: Text$21 Property: 'Text' Changed from->Well maybe the damage is done to->Maybe the darkness has won row=8 
-[Tue Jul 16 15:47:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 15:47:38 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 15:47:38 CEST 2024] INFO: Toolbar: copy 
-[Tue Jul 16 15:47:38 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_TEXT21 
-[Tue Jul 16 15:47:39 CEST 2024] INFO: Toolbar: paste 
-[Tue Jul 16 15:47:39 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_MAIN 
-[Tue Jul 16 15:47:41 CEST 2024] INFO: Perform: model: Text$22 Property: 'X' Changed from->254 to->250 row=2 
-[Tue Jul 16 15:47:41 CEST 2024] INFO: Perform: model: Text$22 Property: 'Y' Changed from->102 to->100 row=3 
-[Tue Jul 16 15:47:41 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT22 
-[Tue Jul 16 15:47:48 CEST 2024] INFO: Perform: model: Text$22 Property: 'Text' Changed from->Maybe the darkness has won to->And we were programmed just to suffer row=8 
-[Tue Jul 16 15:47:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:47:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:47:59 CEST 2024] INFO: add next 
-[Tue Jul 16 15:47:59 CEST 2024] INFO: Perform: model: Text$17 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 15:48:01 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:48:01 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:48:02 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 15:48:02 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 15:48:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 15:48:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 15:48:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:48:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:48:08 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$22 
-[Tue Jul 16 15:48:08 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$22 
-[Tue Jul 16 15:48:13 CEST 2024] INFO: Perform: model: Text$22 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 15:48:15 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$22 
-[Tue Jul 16 15:48:15 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$22 
-[Tue Jul 16 15:48:16 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 15:48:16 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 15:48:22 CEST 2024] INFO: Perform: model: Text$21 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 15:48:23 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 15:48:23 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 15:48:30 CEST 2024] INFO: Perform: model: Text$20 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 15:48:31 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:48:31 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$19 
-[Tue Jul 16 15:48:37 CEST 2024] INFO: Perform: model: Text$19 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 15:48:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:48:38 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$17 
-[Tue Jul 16 15:48:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:48:39 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 15:48:44 CEST 2024] INFO: Perform: model: Text$18 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 15:48:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:48:45 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:48:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:48:47 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:48:49 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$7 
-[Tue Jul 16 15:48:49 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$7 
-[Tue Jul 16 15:48:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$15 
-[Tue Jul 16 15:48:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$15 
-[Tue Jul 16 15:48:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$14 
-[Tue Jul 16 15:48:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$14 
-[Tue Jul 16 15:48:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$6 
-[Tue Jul 16 15:48:51 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$6 
-[Tue Jul 16 15:48:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$5 
-[Tue Jul 16 15:48:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$5 
-[Tue Jul 16 15:48:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$13 
-[Tue Jul 16 15:48:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$13 
-[Tue Jul 16 15:48:55 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$12 
-[Tue Jul 16 15:48:55 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$12 
-[Tue Jul 16 15:49:00 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:00 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:02 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$9 
-[Tue Jul 16 15:49:02 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$9 
-[Tue Jul 16 15:49:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$10 
-[Tue Jul 16 15:49:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$10 
-[Tue Jul 16 15:49:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$11 
-[Tue Jul 16 15:49:05 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$11 
-[Tue Jul 16 15:49:06 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$12 
-[Tue Jul 16 15:49:06 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$12 
-[Tue Jul 16 15:49:07 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$13 
-[Tue Jul 16 15:49:07 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$13 
-[Tue Jul 16 15:49:07 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$14 
-[Tue Jul 16 15:49:07 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$14 
-[Tue Jul 16 15:49:08 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$15 
-[Tue Jul 16 15:49:08 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$15 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$9 Property: 'X' Changed from->141 to->141 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$9 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$10 Property: 'X' Changed from->181 to->181 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$10 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$11 Property: 'X' Changed from->231 to->231 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$11 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$12 Property: 'X' Changed from->281 to->281 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$12 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$13 Property: 'X' Changed from->331 to->331 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$13 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$14 Property: 'X' Changed from->381 to->381 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$14 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$15 Property: 'X' Changed from->431 to->431 row=2 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: model: Text$15 Property: 'Y' Changed from->288 to->288 row=3 
-[Tue Jul 16 15:49:09 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT9,E_ELEM_TEXT10,E_ELEM_TEXT11,E_ELEM_TEXT12,E_ELEM_TEXT13,E_ELEM_TEXT14,E_ELEM_TEXT15 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$9 Property: 'X' Changed from->141 to->141 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$9 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$10 Property: 'X' Changed from->181 to->181 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$10 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$11 Property: 'X' Changed from->231 to->231 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$11 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$12 Property: 'X' Changed from->281 to->281 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$12 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$13 Property: 'X' Changed from->331 to->331 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$13 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$14 Property: 'X' Changed from->381 to->381 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$14 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$15 Property: 'X' Changed from->431 to->431 row=2 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: model: Text$15 Property: 'Y' Changed from->295 to->295 row=3 
-[Tue Jul 16 15:49:10 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TEXT9,E_ELEM_TEXT10,E_ELEM_TEXT11,E_ELEM_TEXT12,E_ELEM_TEXT13,E_ELEM_TEXT14,E_ELEM_TEXT15 
-[Tue Jul 16 15:49:11 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:11 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:12 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$7 
-[Tue Jul 16 15:49:12 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$7 
-[Tue Jul 16 15:49:13 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$1 
-[Tue Jul 16 15:49:13 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$1 
-[Tue Jul 16 15:49:14 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:14 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:15 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$7 
-[Tue Jul 16 15:49:15 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$7 
-[Tue Jul 16 15:49:21 CEST 2024] INFO: Perform: model: Slider$7 Property: 'Width' Changed from->20 to->40 row=4 
-[Tue Jul 16 15:49:25 CEST 2024] INFO: Perform: model: Slider$7 Property: 'Width' Changed from->40 to->20 row=4 
-[Tue Jul 16 15:49:29 CEST 2024] INFO: Perform: model: Slider$7 Property: 'Y' Changed from->130 to->160 row=3 
-[Tue Jul 16 15:49:33 CEST 2024] INFO: Perform: model: Slider$7 Property: 'Y' Changed from->160 to->130 row=3 
-[Tue Jul 16 15:49:39 CEST 2024] INFO: Perform: model: Slider$7 Property: 'Height' Changed from->130 to->150 row=5 
-[Tue Jul 16 15:49:43 CEST 2024] INFO: Perform: model: Slider$7 Property: 'Height' Changed from->150 to->160 row=5 
-[Tue Jul 16 15:49:46 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$6 
-[Tue Jul 16 15:49:46 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$6 
-[Tue Jul 16 15:49:50 CEST 2024] INFO: Perform: model: Slider$6 Property: 'Height' Changed from->130 to->160 row=5 
-[Tue Jul 16 15:49:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:51 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:49:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$5 
-[Tue Jul 16 15:49:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$5 
-[Tue Jul 16 15:49:55 CEST 2024] INFO: Perform: model: Slider$5 Property: 'Height' Changed from->130 to->160 row=5 
-[Tue Jul 16 15:49:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$4 
-[Tue Jul 16 15:49:57 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$4 
-[Tue Jul 16 15:50:02 CEST 2024] INFO: Perform: model: Slider$4 Property: 'Height' Changed from->130 to->160 row=5 
-[Tue Jul 16 15:50:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$3 
-[Tue Jul 16 15:50:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$3 
-[Tue Jul 16 15:50:07 CEST 2024] INFO: Perform: model: Slider$3 Property: 'Height' Changed from->130 to->160 row=5 
-[Tue Jul 16 15:50:08 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$2 
-[Tue Jul 16 15:50:08 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$2 
-[Tue Jul 16 15:50:12 CEST 2024] INFO: Perform: model: Slider$2 Property: 'Height' Changed from->130 to->60 row=5 
-[Tue Jul 16 15:50:16 CEST 2024] INFO: Perform: model: Slider$2 Property: 'Height' Changed from->60 to->160 row=5 
-[Tue Jul 16 15:50:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Slider$1 
-[Tue Jul 16 15:50:25 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Slider$1 
-[Tue Jul 16 15:50:28 CEST 2024] INFO: Perform: model: Slider$1 Property: 'Height' Changed from->130 to->160 row=5 
-[Tue Jul 16 15:50:30 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:50:30 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:50:31 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$6 
-[Tue Jul 16 15:50:31 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$6 
-[Tue Jul 16 15:50:32 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$1 
-[Tue Jul 16 15:50:32 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$1 
-[Tue Jul 16 15:50:32 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$2 
-[Tue Jul 16 15:50:32 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$2 
-[Tue Jul 16 15:50:33 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$7 
-[Tue Jul 16 15:50:33 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$7 
-[Tue Jul 16 15:50:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$3 
-[Tue Jul 16 15:50:34 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$3 
-[Tue Jul 16 15:50:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$8 
-[Tue Jul 16 15:50:35 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$8 
-[Tue Jul 16 15:50:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:50:35 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:50:36 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:50:36 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$1 Property: 'X' Changed from->20 to->20 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$1 Property: 'Y' Changed from->141 to->141 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$2 Property: 'X' Changed from->20 to->20 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$2 Property: 'Y' Changed from->181 to->181 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'X' Changed from->20 to->20 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$3 Property: 'Y' Changed from->221 to->221 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$6 Property: 'X' Changed from->60 to->60 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$6 Property: 'Y' Changed from->151 to->151 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$7 Property: 'X' Changed from->60 to->60 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$7 Property: 'Y' Changed from->191 to->191 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$8 Property: 'X' Changed from->60 to->60 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$8 Property: 'Y' Changed from->231 to->231 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'X' Changed from->21 to->21 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'Y' Changed from->262 to->262 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$16 Property: 'X' Changed from->61 to->61 row=2 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: model: Text$16 Property: 'Y' Changed from->272 to->272 row=3 
-[Tue Jul 16 15:50:44 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_TOGGLE1,E_ELEM_TOGGLE2,E_ELEM_TOGGLE3,E_ELEM_TOGGLE_TEXT_1,E_ELEM_TOGGLE_TEXT_2,E_ELEM_TOGGLE_TEXT_3,E_ELEM_TOGGLE4,E_ELEM_TEXT16 
-[Tue Jul 16 15:50:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:50:45 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:50:55 CEST 2024] INFO: Toolbar: save 
-[Tue Jul 16 15:50:55 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: Toolbar: generateCode 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 15:50:57 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
-[Tue Jul 16 15:51:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:51:10 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:51:10 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:51:10 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:51:14 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:51:14 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:51:14 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:51:14 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:51:17 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'Checked?' Changed from->false to->true row=7 
-[Tue Jul 16 15:51:17 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'Checked?' Changed from->true to->false row=7 
-[Tue Jul 16 15:51:20 CEST 2024] INFO: Perform: model: ToggleButton$4 Property: 'ElementRef' Changed from->m_pElemToggle3_4 to->m_pElemToggle4 row=6 
-[Tue Jul 16 15:51:24 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:24 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:24 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:24 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:25 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:26 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:26 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:26 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:26 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$3 Parent: Page$1 
-[Tue Jul 16 15:51:28 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:28 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: Toolbar: generateCode 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 15:51:36 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
-[Tue Jul 16 15:53:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 15:53:35 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 15:53:39 CEST 2024] INFO: Perform: model: RingGauge$2 Property: 'Clockwise Direction?' Changed from->true to->false row=11 
-[Tue Jul 16 15:54:14 CEST 2024] INFO: Perform: model: RingGauge$2 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=255] to->java.awt.Color[r=255,g=255,b=255] row=22 
-[Tue Jul 16 15:54:26 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:26 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:26 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:26 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:54:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$3 Parent: Page$1 
-[Tue Jul 16 15:54:28 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:28 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:32 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:32 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:32 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:32 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:36 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:36 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:36 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:36 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:38 CEST 2024] INFO: PropManager: WIDGET_CHANGE_ZORDER: RingGauge$1 Parent: Page$1 from: 0 to: 1 
-[Tue Jul 16 15:54:38 CEST 2024] INFO: Controller recv: WIDGET_CHANGE_ZORDER: RingGauge$1 Parent: Page$1 from: 0 to: 1 
-[Tue Jul 16 15:54:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: RingGauge$1 
-[Tue Jul 16 15:54:38 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: RingGauge$1 
-[Tue Jul 16 15:54:38 CEST 2024] INFO: Perform: Change ZOrder: RingGauge$1 from:0 to:1 
-[Tue Jul 16 15:54:38 CEST 2024] INFO: TV-Drag success: Page$1 widget: Node: key=RingGauge$1 enum=E_ELEM_RINGGAUGE2 type=RingGauge from: 0 to: 1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:54:40 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:54:40 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:54:40 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:54:40 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$3 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:41 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:54:43 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:54:43 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:54:43 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:54:43 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: ToggleButton$4 Parent: Page$1 
-[Tue Jul 16 15:54:45 CEST 2024] INFO: PropManager: WIDGET_CHANGE_ZORDER: ToggleButton$4 Parent: Page$1 from: 29 to: 12 
-[Tue Jul 16 15:54:45 CEST 2024] INFO: Controller recv: WIDGET_CHANGE_ZORDER: ToggleButton$4 Parent: Page$1 from: 29 to: 12 
-[Tue Jul 16 15:54:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:54:45 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: ToggleButton$4 
-[Tue Jul 16 15:54:45 CEST 2024] INFO: Perform: Change ZOrder: ToggleButton$4 from:29 to:12 
-[Tue Jul 16 15:54:45 CEST 2024] INFO: TV-Drag success: Page$1 widget: Node: key=ToggleButton$4 enum=E_ELEM_TOGGLE4 type=ToggleButton from: 29 to: 12 
-[Tue Jul 16 15:54:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:54:47 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:54:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:54:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:54:48 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:54:49 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:54:49 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:54:49 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:54:49 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:54:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:54:50 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:54:50 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:54:50 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$7 Parent: Page$1 
-[Tue Jul 16 15:54:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:54:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:54:55 CEST 2024] INFO: PropManager: WIDGET_CHANGE_ZORDER: Text$16 Parent: Page$1 from: 30 to: 16 
-[Tue Jul 16 15:54:55 CEST 2024] INFO: Controller recv: WIDGET_CHANGE_ZORDER: Text$16 Parent: Page$1 from: 30 to: 16 
-[Tue Jul 16 15:54:55 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:54:55 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$16 
-[Tue Jul 16 15:54:55 CEST 2024] INFO: Perform: Change ZOrder: Text$16 from:30 to:16 
-[Tue Jul 16 15:54:55 CEST 2024] INFO: TV-Drag success: Page$1 widget: Node: key=Text$16 enum=E_ELEM_TEXT16 type=Text from: 30 to: 16 
-[Tue Jul 16 15:55:03 CEST 2024] INFO: TreeView recv: WIDGET_ENUM_CHANGE: Text$16 Parent: E_ELEM_TOGGLE_TEXT_4 
-[Tue Jul 16 15:55:03 CEST 2024] INFO: Perform: model: Text$16 Property: 'ENUM' Changed from->E_ELEM_TEXT16 to->E_ELEM_TOGGLE_TEXT_4 row=1 
-[Tue Jul 16 15:55:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:04 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:04 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:04 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:05 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:05 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:05 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:06 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:06 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:06 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:06 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:07 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:55:07 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:55:07 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:55:07 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 15:55:09 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:55:09 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:55:09 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:55:09 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$2 Parent: Page$1 
-[Tue Jul 16 15:55:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$4 Parent: Page$1 
-[Tue Jul 16 15:55:10 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$4 Parent: Page$1 
-[Tue Jul 16 15:55:10 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$4 Parent: Page$1 
-[Tue Jul 16 15:55:10 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$4 Parent: Page$1 
-[Tue Jul 16 15:55:11 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$5 Parent: Page$1 
-[Tue Jul 16 15:55:11 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$5 Parent: Page$1 
-[Tue Jul 16 15:55:11 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$5 Parent: Page$1 
-[Tue Jul 16 15:55:11 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$5 Parent: Page$1 
-[Tue Jul 16 15:55:12 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:12 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:12 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:12 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:26 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:26 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:26 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:26 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:26 CEST 2024] INFO: Perform: model: Text$6 Property: 'ElementRef' Changed from-> to->Toggle1Text row=6 
-[Tue Jul 16 15:55:27 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:27 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$6 Parent: Page$1 
-[Tue Jul 16 15:55:28 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:28 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:29 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:29 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:29 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:29 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$7 Parent: Page$1 
-[Tue Jul 16 15:55:33 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:33 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:33 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:33 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$8 Parent: Page$1 
-[Tue Jul 16 15:55:33 CEST 2024] INFO: Perform: model: Text$7 Property: 'ElementRef' Changed from-> to->Toggle2Text row=6 
-[Tue Jul 16 15:55:37 CEST 2024] INFO: Perform: model: Text$8 Property: 'ElementRef' Changed from-> to->Toggle3Text row=6 
-[Tue Jul 16 15:55:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$16 Parent: Page$1 
-[Tue Jul 16 15:55:38 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$16 Parent: Page$1 
-[Tue Jul 16 15:55:38 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$16 Parent: Page$1 
-[Tue Jul 16 15:55:38 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$16 Parent: Page$1 
-[Tue Jul 16 15:55:41 CEST 2024] INFO: Perform: model: Text$16 Property: 'ElementRef' Changed from-> to->Toggle4Text row=6 
-[Tue Jul 16 15:55:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$1 Parent: Page$1 
-[Tue Jul 16 15:55:47 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$1 Parent: Page$1 
-[Tue Jul 16 15:55:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$1 Parent: Page$1 
-[Tue Jul 16 15:55:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$1 Parent: Page$1 
-[Tue Jul 16 15:55:48 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:55:48 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:55:48 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:55:48 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Slider$2 Parent: Page$1 
-[Tue Jul 16 15:55:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:55:50 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:55:50 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:55:50 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$9 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$10 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:55:51 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$11 Parent: Page$1 
-[Tue Jul 16 15:55:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$22 Parent: Page$1 
-[Tue Jul 16 15:55:52 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$22 Parent: Page$1 
-[Tue Jul 16 15:55:52 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$22 Parent: Page$1 
-[Tue Jul 16 15:55:52 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$22 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:53 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:54 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:54 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:54 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:55 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:55 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:55 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:55 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:56 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:56 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:56 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:56 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$19 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$20 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:57 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$21 Parent: Page$1 
-[Tue Jul 16 15:55:58 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:58 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:58 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:58 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$18 Parent: Page$1 
-[Tue Jul 16 15:55:59 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$17 Parent: Page$1 
-[Tue Jul 16 15:55:59 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$17 Parent: Page$1 
-[Tue Jul 16 15:55:59 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$17 Parent: Page$1 
-[Tue Jul 16 15:55:59 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$17 Parent: Page$1 
-[Tue Jul 16 15:56:01 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:56:01 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 15:56:02 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 15:56:02 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 15:56:16 CEST 2024] INFO: Perform: model: Text$1 Property: 'Font' Changed from->BuiltIn(1x)->5x8pt7b to->BuiltIn(1x)->5x8pt7b row=7 
-[Tue Jul 16 15:56:19 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:56:19 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:56:19 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:56:19 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 15:56:20 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:56:20 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:56:20 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:56:20 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$4 Parent: Page$1 
-[Tue Jul 16 15:56:21 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:56:21 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:56:21 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:56:21 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$1 Parent: Page$1 
-[Tue Jul 16 15:56:24 CEST 2024] INFO: Toolbar: save 
-[Tue Jul 16 15:56:24 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: Toolbar: generateCode 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 15:56:26 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
-[Tue Jul 16 16:02:14 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:14 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:18 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->23 to->20 row=2 
-[Tue Jul 16 16:02:18 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->103 to->100 row=3 
-[Tue Jul 16 16:02:18 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:19 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->26 to->20 row=2 
-[Tue Jul 16 16:02:19 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->102 to->100 row=3 
-[Tue Jul 16 16:02:19 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:20 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->22 to->20 row=2 
-[Tue Jul 16 16:02:20 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->105 to->100 row=3 
-[Tue Jul 16 16:02:20 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:23 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->47 to->40 row=2 
-[Tue Jul 16 16:02:23 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->102 to->100 row=3 
-[Tue Jul 16 16:02:23 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:24 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->28 to->20 row=2 
-[Tue Jul 16 16:02:24 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->101 to->100 row=3 
-[Tue Jul 16 16:02:24 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:25 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->22 to->20 row=2 
-[Tue Jul 16 16:02:25 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->102 to->100 row=3 
-[Tue Jul 16 16:02:25 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:26 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->24 to->20 row=2 
-[Tue Jul 16 16:02:26 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->106 to->100 row=3 
-[Tue Jul 16 16:02:26 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:26 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:02:26 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:02:28 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:28 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:29 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->24 to->20 row=2 
-[Tue Jul 16 16:02:29 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->105 to->100 row=3 
-[Tue Jul 16 16:02:29 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:31 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->28 to->20 row=2 
-[Tue Jul 16 16:02:31 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->111 to->110 row=3 
-[Tue Jul 16 16:02:31 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:32 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->28 to->20 row=2 
-[Tue Jul 16 16:02:32 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->108 to->100 row=3 
-[Tue Jul 16 16:02:32 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:34 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->84 to->80 row=2 
-[Tue Jul 16 16:02:34 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->114 to->110 row=3 
-[Tue Jul 16 16:02:34 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:36 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->88 to->80 row=2 
-[Tue Jul 16 16:02:36 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->105 to->100 row=3 
-[Tue Jul 16 16:02:36 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:40 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:02:40 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:02:41 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:02:41 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:02:42 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 16:02:42 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 16:02:42 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 16:02:42 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$1 Parent: Page$1 
-[Tue Jul 16 16:02:46 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->29 to->20 row=2 
-[Tue Jul 16 16:02:46 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->106 to->100 row=3 
-[Tue Jul 16 16:02:46 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:47 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->21 to->20 row=2 
-[Tue Jul 16 16:02:47 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->108 to->100 row=3 
-[Tue Jul 16 16:02:47 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:49 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->38 to->30 row=2 
-[Tue Jul 16 16:02:49 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->103 to->100 row=3 
-[Tue Jul 16 16:02:49 CEST 2024] INFO: Perform: Drag page:E_PG_MAIN widget:E_ELEM_KNOB_1 
-[Tue Jul 16 16:02:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:02:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:02:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:02:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:02:56 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:56 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:02:57 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:02:58 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:02:58 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:03:00 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:03:00 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:03:01 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$4 
-[Tue Jul 16 16:03:01 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$4 
-[Tue Jul 16 16:03:02 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:03:02 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$2 
-[Tue Jul 16 16:03:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:03:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:03:06 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->100 to->02 row=3 
-[Tue Jul 16 16:03:08 CEST 2024] INFO: Perform: model: Text$1 Property: 'Y' Changed from->2 to->102 row=3 
-[Tue Jul 16 16:03:13 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->30 to->25 row=2 
-[Tue Jul 16 16:03:15 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:03:15 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:03:16 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:03:16 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$1 
-[Tue Jul 16 16:03:20 CEST 2024] INFO: Perform: model: Text$1 Property: 'X' Changed from->25 to->23 row=2 
-[Tue Jul 16 16:03:21 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:03:21 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:03:37 CEST 2024] INFO: Toolbar: page 
-[Tue Jul 16 16:03:37 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$2 
-[Tue Jul 16 16:03:37 CEST 2024] INFO: TV-add page: Node: key=Page$2 enum=E_PG2 type=Page 
-[Tue Jul 16 16:03:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$2 Parent: Root 
-[Tue Jul 16 16:03:37 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$2 Parent: Root 
-[Tue Jul 16 16:03:40 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 16:03:50 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$2 
-[Tue Jul 16 16:03:50 CEST 2024] INFO: Toolbar: basepage 
-[Tue Jul 16 16:03:50 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: BasePage$1 
-[Tue Jul 16 16:03:50 CEST 2024] INFO: TV-add page: Node: key=BasePage$1 enum=E_PG_BASE type=BasePage 
-[Tue Jul 16 16:03:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: BasePage$1 Parent: Root 
-[Tue Jul 16 16:03:50 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: BasePage$1 Parent: Root 
-[Tue Jul 16 16:03:52 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 16:03:53 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: BasePage$1 
-[Tue Jul 16 16:03:57 CEST 2024] INFO: Toolbar: cut 
-[Tue Jul 16 16:04:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: BasePage$1 
-[Tue Jul 16 16:04:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: BasePage$1 
-[Tue Jul 16 16:04:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: BasePage$1 
-[Tue Jul 16 16:04:04 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: BasePage$1 
-[Tue Jul 16 16:04:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: BasePage$1 
-[Tue Jul 16 16:04:04 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: BasePage$1 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: BasePage$1 Parent: Root 
-[Tue Jul 16 16:04:05 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: BasePage$1 Parent: Root 
-[Tue Jul 16 16:04:07 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Project$1 
-[Tue Jul 16 16:04:18 CEST 2024] INFO: Perform: model: Project$1 Property: 'Project's Extra Fonts' Changed from->[Ljava.lang.String;@54ed57f0 to->[Ljava.lang.String;@800037f row=6 
-[Tue Jul 16 16:04:24 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: BasePage$1 
-[Tue Jul 16 16:04:29 CEST 2024] INFO: Menu: delete 
-[Tue Jul 16 16:04:30 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: BasePage$1 
-[Tue Jul 16 16:04:30 CEST 2024] INFO: TV-delete page: Node: key=BasePage$1 enum=null type=BasePage 
-[Tue Jul 16 16:04:30 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
-[Tue Jul 16 16:04:30 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
-[Tue Jul 16 16:04:32 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$2 
-[Tue Jul 16 16:04:32 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 16:04:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$2 Parent: Root 
-[Tue Jul 16 16:04:37 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$2 Parent: Root 
-[Tue Jul 16 16:04:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 16:04:38 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
-[Tue Jul 16 16:04:39 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Project$1 
-[Tue Jul 16 16:04:41 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 16:04:44 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$2 
-[Tue Jul 16 16:04:45 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 16:04:46 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$2 
-[Tue Jul 16 16:04:47 CEST 2024] INFO: Toolbar: text 
-[Tue Jul 16 16:04:47 CEST 2024] INFO: Perform: Add to page:E_PG2 widget: E_ELEM_TEXT23 
-[Tue Jul 16 16:04:51 CEST 2024] INFO: TreeView recv: WIDGET_ENUM_CHANGE: Text$23 Parent: E_ELEM_TEXT23 
-[Tue Jul 16 16:04:51 CEST 2024] INFO: Perform: model: Text$23 Property: 'ENUM' Changed from->E_ELEM_TEXT23 to->E_ELEM_TEXT23 row=1 
-[Tue Jul 16 16:04:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:04:51 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:04:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:04:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:04:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:04:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:04:53 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->228 to->220 row=2 
-[Tue Jul 16 16:04:53 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->132 to->130 row=3 
-[Tue Jul 16 16:04:53 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:04:58 CEST 2024] INFO: Perform: model: Text$23 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=0] to->java.awt.Color[r=255,g=255,b=255] row=15 
-[Tue Jul 16 16:05:06 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:06 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:17 CEST 2024] INFO: Perform: model: Text$23 Property: 'Font' Changed from->BuiltIn(1x)->5x8pt7b to->BuiltIn(4x)->20x32pt7b row=7 
-[Tue Jul 16 16:05:26 CEST 2024] INFO: Perform: model: Text$23 Property: 'Text' Changed from-> to->This page is not ready yet row=8 
-[Tue Jul 16 16:05:29 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->16 to->10 row=2 
-[Tue Jul 16 16:05:29 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->35 to->30 row=3 
-[Tue Jul 16 16:05:29 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:05:35 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:05:36 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:36 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:36 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:05:36 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:05:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:37 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:41 CEST 2024] INFO: Perform: model: Text$23 Property: 'Font' Changed from->BuiltIn(4x)->20x32pt7b to->BuiltIn(3x)->15x24pt7b row=7 
-[Tue Jul 16 16:05:46 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->5 to->0 row=2 
-[Tue Jul 16 16:05:46 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->141 to->140 row=3 
-[Tue Jul 16 16:05:46 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:48 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->11 to->10 row=2 
-[Tue Jul 16 16:05:48 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->145 to->140 row=3 
-[Tue Jul 16 16:05:48 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:49 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->9 to->0 row=2 
-[Tue Jul 16 16:05:49 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->146 to->140 row=3 
-[Tue Jul 16 16:05:49 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:50 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->10 to->10 row=2 
-[Tue Jul 16 16:05:50 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->140 to->140 row=3 
-[Tue Jul 16 16:05:50 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:52 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->6 to->0 row=2 
-[Tue Jul 16 16:05:52 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->142 to->140 row=3 
-[Tue Jul 16 16:05:52 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:54 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->9 to->0 row=2 
-[Tue Jul 16 16:05:54 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->143 to->140 row=3 
-[Tue Jul 16 16:05:54 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:56 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->10 to->10 row=2 
-[Tue Jul 16 16:05:56 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->145 to->140 row=3 
-[Tue Jul 16 16:05:56 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:05:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:05:57 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:05:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:57 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
-[Tue Jul 16 16:05:59 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->5 to->0 row=2 
-[Tue Jul 16 16:05:59 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->147 to->140 row=3 
-[Tue Jul 16 16:05:59 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:06:00 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->10 to->10 row=2 
-[Tue Jul 16 16:06:00 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->131 to->130 row=3 
-[Tue Jul 16 16:06:00 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:06:01 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->8 to->0 row=2 
-[Tue Jul 16 16:06:01 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->130 to->130 row=3 
-[Tue Jul 16 16:06:01 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:06:03 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->9 to->0 row=2 
-[Tue Jul 16 16:06:03 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->150 to->150 row=3 
-[Tue Jul 16 16:06:03 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:06:04 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->6 to->0 row=2 
-[Tue Jul 16 16:06:04 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->149 to->140 row=3 
-[Tue Jul 16 16:06:04 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:06:07 CEST 2024] INFO: Perform: model: Text$23 Property: 'X' Changed from->12 to->10 row=2 
-[Tue Jul 16 16:06:07 CEST 2024] INFO: Perform: model: Text$23 Property: 'Y' Changed from->142 to->140 row=3 
-[Tue Jul 16 16:06:07 CEST 2024] INFO: Perform: Drag page:E_PG2 widget:E_ELEM_TEXT23 
-[Tue Jul 16 16:06:08 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:06:08 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
-[Tue Jul 16 16:06:10 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Project$1 
-[Tue Jul 16 16:06:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Project$1 
-[Tue Jul 16 16:06:10 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Project$1 
-[Tue Jul 16 16:06:11 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
-[Tue Jul 16 16:06:11 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Project$1 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: Toolbar: save 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: Toolbar: generateCode 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 15 Font: BuiltIn(3x)->15x24pt7b include: NULL 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 16:06:28 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
-[Tue Jul 16 16:08:42 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 16:08:42 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 16:08:42 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 16:08:42 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: RingGauge$2 Parent: Page$1 
-[Tue Jul 16 16:08:49 CEST 2024] INFO: Perform: model: RingGauge$2 Property: 'Starting Value' Changed from->0 to->0 row=14 
-[Tue Jul 16 16:09:43 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 16:09:43 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$18 
-[Tue Jul 16 16:09:44 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:09:44 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:09:49 CEST 2024] INFO: Perform: model: Text$20 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=255] to->java.awt.Color[r=224,g=0,b=0] row=15 
-[Tue Jul 16 16:09:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 16:09:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 16:09:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$22 
-[Tue Jul 16 16:09:51 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$22 
-[Tue Jul 16 16:09:53 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:09:53 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:09:56 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:09:56 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:09:57 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:09:57 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: Toolbar: generateCode 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 15 Font: BuiltIn(3x)->15x24pt7b include: NULL 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 16:09:58 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
-[Tue Jul 16 16:10:00 CEST 2024] INFO: Toolbar: save 
-[Tue Jul 16 16:10:00 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
-[Tue Jul 16 16:10:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:10:05 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:10:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:10 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:43 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:43 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:44 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:44 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:44 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:44 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: RingGauge$2 
-[Tue Jul 16 16:10:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:10:45 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:10:53 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:10:53 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$20 
-[Tue Jul 16 16:14:46 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 16:14:46 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$21 
-[Tue Jul 16 16:14:50 CEST 2024] INFO: Perform: model: Text$21 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=255] to->java.awt.Color[r=192,g=0,b=0] row=15 
-[Tue Jul 16 16:14:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:14:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$1 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: Toolbar: save 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: Toolbar: generateCode 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 15 Font: BuiltIn(3x)->15x24pt7b include: NULL 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
-[Tue Jul 16 16:14:56 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
-[Tue Jul 16 16:15:37 CEST 2024] INFO: Builder exit 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Builder ver: 0.17.b24 started java ver: 18.0 osname: Mac OS X osarc: x86_64 osver: 3940671148785664 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Platform: Adafruit_GFX 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/ofl-faq10.txt 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/Noto_readme.txt 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/adafruit_license.txt 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/LICENSE_OFL.txt 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Platform: M5Stack 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Platform: ILI9341_t3 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Platform: TFT_eSPI 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/ofl-faq10.txt 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/Noto_readme.txt 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/adafruit_license.txt 
+[Tue Jul 16 19:15:31 CEST 2024] SEVERE: unable to parse font: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUIsliceBuilder/fonts/gfx/LICENSE_OFL.txt 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Platform: UTFT 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Platform: Linux 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: Total number Platforms: 6 number of fonts: 618 
+[Tue Jul 16 19:15:31 CEST 2024] INFO: FontFactory Initialized 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: TV-add page: Node: key=Project$1 enum=E_PROJECT_OPTIONS type=Project 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: TV-add page: Node: key=Page$1 enum=E_PG_MAIN type=Page 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: New Project 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Project Options 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Target IDE: Arduino IDE 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: PlatformIO default_envs:  
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Graphics Library: Adafruit_GFX 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: GUIslice API Theme: GUIslice 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Project's Extra Fonts: [Ljava.lang.String;@3447ec3d 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: TFT Screen Width: 320 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: TFT Screen Height: 240 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Background Color: java.awt.Color[r=0,g=0,b=0] 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Use Background Image?: false 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Target Platform Image Directory: / 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Background Image File:  
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Background Image #defines:  
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Background Image Memory:  
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Background Image Format:  
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Screen Margins: 10 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Horizontal Spacing between widgets: 20 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Vertical Spacing between widgets: 20 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: MAX_STR: 100 
+[Tue Jul 16 19:15:34 CEST 2024] INFO: Screen Rotation [0-3 or -1 default]: -1 
+[Tue Jul 16 19:15:37 CEST 2024] INFO: Toolbar: open 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Open Project: GUISliceProjects.prj Started 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Project Options 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Target IDE: Arduino IDE 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: PlatformIO default_envs:  
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Graphics Library: Adafruit_GFX 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: GUIslice API Theme: GUIslice 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Project's Extra Fonts: [Ljava.lang.String;@5a959651 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: TFT Screen Width: 480 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: TFT Screen Height: 320 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Background Color: java.awt.Color[r=0,g=0,b=0] 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Use Background Image?: false 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Target Platform Image Directory: / 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Background Image File:  
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Background Image #defines:  
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Background Image Memory:  
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Background Image Format:  
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Screen Margins: 5 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Horizontal Spacing between widgets: 20 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Vertical Spacing between widgets: 20 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: MAX_STR: 100 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Screen Rotation [0-3 or -1 default]: -1 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: TV-add page: Node: key=Project$1 enum=E_PROJECT_OPTIONS type=Project 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Project$1 Parent: Root 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$1 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: TV-add page: Node: key=Page$1 enum=E_PG_MAIN type=Page 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
+[Tue Jul 16 19:15:39 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
+[Tue Jul 16 19:15:40 CEST 2024] INFO: TreeView recv: PAGE_TAB_CHANGE Key: Page$2 
+[Tue Jul 16 19:15:40 CEST 2024] INFO: TV-add page: Node: key=Page$2 enum=E_PG_XYMAP type=Page 
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$2 Parent: Root 
+[Tue Jul 16 19:15:40 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$2 Parent: Root 
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_PAGEPANE:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: TreeView recv: OBJECT_UNSELECT_PAGEPANE:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent:  
+[Tue Jul 16 19:15:40 CEST 2024] INFO: TreeView recv: TREEVIEW_RESET 
+[Tue Jul 16 19:15:40 CEST 2024] INFO: Opened Project File: GUISliceProjects.prj 
+[Tue Jul 16 19:16:06 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
+[Tue Jul 16 19:16:06 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
+[Tue Jul 16 19:16:08 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Text$23 
+[Tue Jul 16 19:16:08 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Text$23 
+[Tue Jul 16 19:16:11 CEST 2024] INFO: Toolbar: cut 
+[Tue Jul 16 19:16:11 CEST 2024] INFO: TV-delete: Node: key=Page$2 enum=null type=Page 
+[Tue Jul 16 19:16:11 CEST 2024] INFO: PropManager: WIDGET_DELETE: Text$23 Parent: Page$2 
+[Tue Jul 16 19:16:11 CEST 2024] INFO: Perform: Cut from page:E_PG_XYMAP widget: E_ELEM_TEXT23 
+[Tue Jul 16 19:16:13 CEST 2024] INFO: Toolbar: box 
+[Tue Jul 16 19:16:13 CEST 2024] INFO: Perform: Add to page:E_PG_XYMAP widget: E_ELEM_BOX1 
+[Tue Jul 16 19:16:16 CEST 2024] INFO: Perform: model: Box$1 Property: 'X' Changed from->7 to->0 row=2 
+[Tue Jul 16 19:16:16 CEST 2024] INFO: Perform: model: Box$1 Property: 'Y' Changed from->32 to->30 row=3 
+[Tue Jul 16 19:16:16 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BOX1 
+[Tue Jul 16 19:16:19 CEST 2024] INFO: Perform: model: Box$1 Property: 'X' Changed from->9 to->0 row=2 
+[Tue Jul 16 19:16:19 CEST 2024] INFO: Perform: model: Box$1 Property: 'Y' Changed from->34 to->30 row=3 
+[Tue Jul 16 19:16:19 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BOX1 
+[Tue Jul 16 19:16:23 CEST 2024] INFO: Perform: model: Box$1 Property: 'X' Changed from->0 to->15 row=2 
+[Tue Jul 16 19:16:26 CEST 2024] INFO: Perform: model: Box$1 Property: 'X' Changed from->15 to->15 row=2 
+[Tue Jul 16 19:16:26 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$2 
+[Tue Jul 16 19:16:26 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$2 
+[Tue Jul 16 19:16:30 CEST 2024] INFO: Perform: model: TextButton$2 Property: 'X' Changed from->5 to->15 row=2 
+[Tue Jul 16 19:16:33 CEST 2024] INFO: Perform: model: TextButton$2 Property: 'X' Changed from->15 to->10 row=2 
+[Tue Jul 16 19:16:35 CEST 2024] INFO: Perform: model: TextButton$2 Property: 'Y' Changed from->5 to->10 row=3 
+[Tue Jul 16 19:16:37 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:16:37 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:16:42 CEST 2024] INFO: Perform: model: Box$1 Property: 'X' Changed from->15 to->10 row=2 
+[Tue Jul 16 19:16:44 CEST 2024] INFO: Perform: model: Box$1 Property: 'Y' Changed from->30 to->50 row=3 
+[Tue Jul 16 19:16:47 CEST 2024] INFO: Perform: model: Box$1 Property: 'Y' Changed from->50 to->35 row=3 
+[Tue Jul 16 19:16:51 CEST 2024] INFO: Perform: model: Box$1 Property: 'Y' Changed from->35 to->40 row=3 
+[Tue Jul 16 19:16:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:16:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:16:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:16:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:16:59 CEST 2024] INFO: Perform: model: Box$1 Property: 'Width' Changed from->300 to->420 row=4 
+[Tue Jul 16 19:17:05 CEST 2024] INFO: Perform: model: Box$1 Property: 'Width' Changed from->420 to->470 row=4 
+[Tue Jul 16 19:17:08 CEST 2024] INFO: Perform: model: Box$1 Property: 'Width' Changed from->470 to->460 row=4 
+[Tue Jul 16 19:17:09 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:09 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:10 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:13 CEST 2024] INFO: Perform: model: Box$1 Property: 'Height' Changed from->150 to->300 row=5 
+[Tue Jul 16 19:17:15 CEST 2024] INFO: Perform: model: Box$1 Property: 'Height' Changed from->300 to->250 row=5 
+[Tue Jul 16 19:17:20 CEST 2024] INFO: Perform: model: Box$1 Property: 'Height' Changed from->250 to->270 row=5 
+[Tue Jul 16 19:17:21 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:21 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:23 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:23 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:24 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:24 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:34 CEST 2024] INFO: Toolbar: line 
+[Tue Jul 16 19:17:34 CEST 2024] INFO: Perform: Add to page:E_PG_XYMAP widget: E_DRAW_LINE1 
+[Tue Jul 16 19:17:40 CEST 2024] INFO: Perform: model: Line$1 Property: 'X Start Point' Changed from->13 to->10 row=2 
+[Tue Jul 16 19:17:40 CEST 2024] INFO: Perform: model: Line$1 Property: 'Y Start Point' Changed from->165 to->160 row=3 
+[Tue Jul 16 19:17:40 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_DRAW_LINE1 
+[Tue Jul 16 19:17:42 CEST 2024] INFO: Perform: model: Line$1 Property: 'X Start Point' Changed from->10 to->10 row=2 
+[Tue Jul 16 19:17:44 CEST 2024] INFO: Perform: model: Line$1 Property: 'X Start Point' Changed from->10 to->10 row=2 
+[Tue Jul 16 19:17:46 CEST 2024] INFO: Perform: model: Line$1 Property: 'Line Length' Changed from->50 to->460 row=4 
+[Tue Jul 16 19:17:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:47 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:48 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:48 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:48 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:48 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:50 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:50 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:17:51 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:51 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:17:52 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:17:52 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:17:56 CEST 2024] INFO: Perform: model: Line$1 Property: 'Y Start Point' Changed from->160 to->200 row=3 
+[Tue Jul 16 19:17:58 CEST 2024] INFO: Perform: model: Line$1 Property: 'Y Start Point' Changed from->200 to->50 row=3 
+[Tue Jul 16 19:18:01 CEST 2024] INFO: Perform: model: Line$1 Property: 'Y Start Point' Changed from->50 to->150 row=3 
+[Tue Jul 16 19:18:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:12 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:12 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:15 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:15 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:22 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:22 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:24 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:24 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:29 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:29 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:40 CEST 2024] INFO: Perform: model: Line$1 Property: 'Y Start Point' Changed from->150 to->175 row=3 
+[Tue Jul 16 19:18:42 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:42 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:43 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:43 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:18:44 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:44 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:45 CEST 2024] INFO: Toolbar: line 
+[Tue Jul 16 19:18:45 CEST 2024] INFO: Perform: Add to page:E_PG_XYMAP widget: E_DRAW_LINE2 
+[Tue Jul 16 19:18:47 CEST 2024] INFO: Perform: model: Line$2 Property: 'Vertical?' Changed from->false to->true row=5 
+[Tue Jul 16 19:18:51 CEST 2024] INFO: Perform: model: Line$2 Property: 'X Start Point' Changed from->250 to->250 row=2 
+[Tue Jul 16 19:18:51 CEST 2024] INFO: Perform: model: Line$2 Property: 'Y Start Point' Changed from->258 to->250 row=3 
+[Tue Jul 16 19:18:51 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_DRAW_LINE2 
+[Tue Jul 16 19:18:53 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:53 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:18:55 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:18:55 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:00 CEST 2024] INFO: Perform: model: Line$2 Property: 'Line Length' Changed from->50 to->270 row=4 
+[Tue Jul 16 19:19:02 CEST 2024] INFO: Perform: Drag Failed 
+[Tue Jul 16 19:19:04 CEST 2024] INFO: Perform: Drag Failed 
+[Tue Jul 16 19:19:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:04 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:05 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:05 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:05 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:09 CEST 2024] INFO: Perform: Drag Failed 
+[Tue Jul 16 19:19:10 CEST 2024] INFO: Perform: Drag Failed 
+[Tue Jul 16 19:19:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:10 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:11 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:11 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:12 CEST 2024] INFO: Perform: Drag Failed 
+[Tue Jul 16 19:19:14 CEST 2024] INFO: Perform: Drag Failed 
+[Tue Jul 16 19:19:22 CEST 2024] INFO: Perform: model: Line$2 Property: 'X Start Point' Changed from->250 to->40 row=2 
+[Tue Jul 16 19:19:27 CEST 2024] INFO: Perform: model: Line$2 Property: 'Y Start Point' Changed from->250 to->40 row=3 
+[Tue Jul 16 19:19:30 CEST 2024] INFO: Perform: model: Line$2 Property: 'X Start Point' Changed from->40 to->250 row=2 
+[Tue Jul 16 19:19:31 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:31 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:34 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:35 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:35 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:42 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:42 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:19:53 CEST 2024] INFO: Perform: model: Line$2 Property: 'X Start Point' Changed from->250 to->240 row=2 
+[Tue Jul 16 19:19:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:19:54 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:19:54 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:19:57 CEST 2024] INFO: Toolbar: save 
+[Tue Jul 16 19:19:57 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: Toolbar: generateCode 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 19:19:59 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
+[Tue Jul 16 19:20:03 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:20:03 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:20:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:20:04 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:20:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:20:25 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:40:58 CEST 2024] INFO: Perform: model: Box$1 Property: 'Corners Rounded?' Changed from->false to->true row=7 
+[Tue Jul 16 19:41:04 CEST 2024] INFO: Perform: model: Box$1 Property: 'ElementRef' Changed from-> to->XyMapBox row=6 
+[Tue Jul 16 19:41:04 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:41:04 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:41:06 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:41:06 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:41:08 CEST 2024] INFO: Perform: model: Box$1 Property: 'Corners Rounded?' Changed from->true to->false row=7 
+[Tue Jul 16 19:41:09 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:41:09 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Page$2 
+[Tue Jul 16 19:41:09 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:41:09 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 19:41:12 CEST 2024] INFO: Perform: model: Box$1 Property: 'Touch Enabled?' Changed from->false to->true row=8 
+[Tue Jul 16 19:41:15 CEST 2024] INFO: Perform: model: Box$1 Property: 'Draw Function' Changed from->false to->true row=10 
+[Tue Jul 16 19:41:16 CEST 2024] INFO: Perform: model: Box$1 Property: 'Draw Function' Changed from->true to->false row=10 
+[Tue Jul 16 19:41:18 CEST 2024] INFO: Perform: model: Box$1 Property: 'Draw Function' Changed from->false to->true row=10 
+[Tue Jul 16 19:41:19 CEST 2024] INFO: Perform: model: Box$1 Property: 'Draw Function' Changed from->true to->false row=10 
+[Tue Jul 16 19:41:20 CEST 2024] INFO: Perform: model: Box$1 Property: 'Tick Function' Changed from->false to->true row=11 
+[Tue Jul 16 19:41:21 CEST 2024] INFO: Perform: model: Box$1 Property: 'Tick Function' Changed from->true to->false row=11 
+[Tue Jul 16 19:41:21 CEST 2024] INFO: Perform: model: Box$1 Property: 'Tick Function' Changed from->false to->true row=11 
+[Tue Jul 16 19:41:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:41:25 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:41:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:41:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:41:27 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:41:27 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:41:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:41:27 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:41:30 CEST 2024] INFO: Toolbar: save 
+[Tue Jul 16 19:41:30 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: Toolbar: generateCode 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 19:41:32 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
+[Tue Jul 16 19:44:18 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:44:18 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$2 
+[Tue Jul 16 19:44:20 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:44:20 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:25 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:26 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
+[Tue Jul 16 19:44:26 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Page$1 Parent: Root 
+[Tue Jul 16 19:44:28 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:28 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:28 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:29 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:29 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:29 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:29 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$2 Parent: Page$2 
+[Tue Jul 16 19:44:30 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:30 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:30 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:30 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:31 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:31 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:31 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:31 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:32 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$1 Parent: Page$2 
+[Tue Jul 16 19:44:33 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:33 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:33 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:33 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 19:44:34 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:34 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:34 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 19:44:34 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Box$1 Parent: Page$2 
+[Tue Jul 16 22:17:18 CEST 2024] INFO: Perform: model: Box$1 Property: 'X' Changed from->10 to->10 row=2 
+[Tue Jul 16 22:17:18 CEST 2024] INFO: Perform: model: Box$1 Property: 'Y' Changed from->40 to->40 row=3 
+[Tue Jul 16 22:17:18 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BOX1 
+[Tue Jul 16 22:17:19 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 22:17:19 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Box$1 
+[Tue Jul 16 22:17:19 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 22:17:19 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: Line$1 
+[Tue Jul 16 22:17:24 CEST 2024] INFO: Perform: model: Line$1 Property: 'Fill Color' Changed from->java.awt.Color[r=192,g=192,b=192] to->java.awt.Color[r=192,g=192,b=192] row=6 
+[Tue Jul 16 23:04:10 CEST 2024] INFO: Toolbar: text 
+[Tue Jul 16 23:04:10 CEST 2024] INFO: Perform: Add to page:E_PG_XYMAP widget: E_ELEM_TEXT24 
+[Tue Jul 16 23:04:11 CEST 2024] INFO: Perform: model: Text$24 Property: 'X' Changed from->140 to->140 row=2 
+[Tue Jul 16 23:04:11 CEST 2024] INFO: Perform: model: Text$24 Property: 'Y' Changed from->10 to->10 row=3 
+[Tue Jul 16 23:04:11 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_TEXT24 
+[Tue Jul 16 23:04:12 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:04:12 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:04:12 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:04:12 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PropManager: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:13 CEST 2024] INFO: PagePane: OBJECT_UNSELECT_TREEVIEW:  Parent: Page$2 
+[Tue Jul 16 23:04:14 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:14 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:14 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:14 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:15 CEST 2024] INFO: Toolbar: cut 
+[Tue Jul 16 23:04:15 CEST 2024] INFO: TV-delete: Node: key=Page$2 enum=null type=Page 
+[Tue Jul 16 23:04:15 CEST 2024] INFO: PropManager: WIDGET_DELETE: Text$24 Parent: Page$2 
+[Tue Jul 16 23:04:15 CEST 2024] INFO: Perform: Cut from page:E_PG_XYMAP widget: E_ELEM_TEXT24 
+[Tue Jul 16 23:04:18 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$2 
+[Tue Jul 16 23:04:18 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$2 
+[Tue Jul 16 23:04:18 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$2 
+[Tue Jul 16 23:04:18 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$2 
+[Tue Jul 16 23:04:19 CEST 2024] INFO: Toolbar: copy 
+[Tue Jul 16 23:04:19 CEST 2024] INFO: Perform: Copy Widgets: E_ELEM_BTN_BACKHOME 
+[Tue Jul 16 23:04:20 CEST 2024] INFO: Toolbar: paste 
+[Tue Jul 16 23:04:20 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_XYMAP 
+[Tue Jul 16 23:04:23 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'X' Changed from->306 to->300 row=2 
+[Tue Jul 16 23:04:23 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Y' Changed from->9 to->0 row=3 
+[Tue Jul 16 23:04:23 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN3 
+[Tue Jul 16 23:04:24 CEST 2024] INFO: Toolbar: paste 
+[Tue Jul 16 23:04:24 CEST 2024] INFO: Perform: Paste Widgets on page:E_PG_XYMAP 
+[Tue Jul 16 23:04:27 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'X' Changed from->390 to->390 row=2 
+[Tue Jul 16 23:04:27 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Y' Changed from->10 to->10 row=3 
+[Tue Jul 16 23:04:27 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN4 
+[Tue Jul 16 23:04:29 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:04:29 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:04:31 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'X' Changed from->298 to->290 row=2 
+[Tue Jul 16 23:04:31 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Y' Changed from->10 to->10 row=3 
+[Tue Jul 16 23:04:31 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN3 
+[Tue Jul 16 23:04:33 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:04:33 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:04:35 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'X' Changed from->392 to->390 row=2 
+[Tue Jul 16 23:04:35 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Y' Changed from->9 to->0 row=3 
+[Tue Jul 16 23:04:35 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN4 
+[Tue Jul 16 23:04:37 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'X' Changed from->388 to->380 row=2 
+[Tue Jul 16 23:04:37 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Y' Changed from->9 to->0 row=3 
+[Tue Jul 16 23:04:37 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN4 
+[Tue Jul 16 23:04:38 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'X' Changed from->386 to->380 row=2 
+[Tue Jul 16 23:04:38 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Y' Changed from->12 to->10 row=3 
+[Tue Jul 16 23:04:38 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN4 
+[Tue Jul 16 23:04:41 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'X' Changed from->391 to->390 row=2 
+[Tue Jul 16 23:04:41 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Y' Changed from->10 to->10 row=3 
+[Tue Jul 16 23:04:41 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN4 
+[Tue Jul 16 23:04:42 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:04:42 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:04:44 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'X' Changed from->300 to->300 row=2 
+[Tue Jul 16 23:04:44 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Y' Changed from->11 to->10 row=3 
+[Tue Jul 16 23:04:44 CEST 2024] INFO: Perform: Drag page:E_PG_XYMAP widget:E_ELEM_BTN3 
+[Tue Jul 16 23:04:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:04:45 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:05:44 CEST 2024] INFO: TreeView recv: WIDGET_ENUM_CHANGE: TextButton$4 Parent: E_ELEM_BTN_SEND_Y_MSG 
+[Tue Jul 16 23:05:44 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'ENUM' Changed from->E_ELEM_BTN4 to->E_ELEM_BTN_SEND_Y_MSG row=1 
+[Tue Jul 16 23:05:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:05:45 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:05:46 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:05:46 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:05:56 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'ElementRef' Changed from->BackHomeButton4 to->SendYMidiMsg row=6 
+[Tue Jul 16 23:06:09 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Label' Changed from->Back to->Send Y row=8 
+[Tue Jul 16 23:06:10 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:06:10 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:06:15 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Label' Changed from->Back to->Send X row=8 
+[Tue Jul 16 23:06:18 CEST 2024] INFO: TreeView recv: WIDGET_ENUM_CHANGE: TextButton$3 Parent: E_ELEM_BTN 
+[Tue Jul 16 23:06:18 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'ENUM' Changed from->E_ELEM_BTN3 to->E_ELEM_BTN row=1 
+[Tue Jul 16 23:06:28 CEST 2024] INFO: TreeView recv: WIDGET_ENUM_CHANGE: TextButton$3 Parent: E_ELEM_BTN_SEND_X_MSG 
+[Tue Jul 16 23:06:28 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'ENUM' Changed from->E_ELEM_BTN to->E_ELEM_BTN_SEND_X_MSG row=1 
+[Tue Jul 16 23:06:35 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'ElementRef' Changed from->BackHomeButton3 to->SendXMidiMsg row=6 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:39 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:44 CEST 2024] INFO: Toolbar: save 
+[Tue Jul 16 23:06:44 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
+[Tue Jul 16 23:06:45 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:45 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:45 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:45 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$4 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:06:46 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: Line$2 Parent: Page$2 
+[Tue Jul 16 23:06:47 CEST 2024] INFO: PropManager: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:47 CEST 2024] INFO: Controller recv: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:47 CEST 2024] INFO: PagePane: OBJECT_SELECTED_TREEVIEW: TextButton$3 Parent: Page$2 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: Toolbar: generateCode 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 23:06:49 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 
+[Tue Jul 16 23:08:17 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Jump Page ENUM' Changed from->E_PG_MAIN to-> row=16 
+[Tue Jul 16 23:08:20 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Hide Popup Page?' Changed from->false to->true row=18 
+[Tue Jul 16 23:08:26 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Text Color' Changed from->java.awt.Color[r=255,g=255,b=255] to->java.awt.Color[r=255,g=255,b=255] row=20 
+[Tue Jul 16 23:08:31 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:08:31 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:08:36 CEST 2024] INFO: Perform: model: TextButton$4 Property: 'Jump Page ENUM' Changed from->E_PG_MAIN to-> row=16 
+[Tue Jul 16 23:08:38 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:08:38 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$3 
+[Tue Jul 16 23:08:40 CEST 2024] INFO: Perform: model: TextButton$3 Property: 'Hide Popup Page?' Changed from->true to->false row=18 
+[Tue Jul 16 23:08:42 CEST 2024] INFO: PropManager: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:08:42 CEST 2024] INFO: TreeView recv: OBJECT_SELECTED_PAGEPANE: TextButton$4 
+[Tue Jul 16 23:08:44 CEST 2024] INFO: Toolbar: save 
+[Tue Jul 16 23:08:44 CEST 2024] INFO: Saved Project into GUISliceProjects.prj 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: Toolbar: generateCode 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: doCodeGen for: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: file: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino is valid 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 5 Font: BuiltIn(1x)->5x8pt7b include: NULL 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: FontsPipe: Platform: Adafruit_GFX Category: FONT_GLCD Family: Builtin style: PLAIN size: 20 Font: BuiltIn(4x)->20x32pt7b include: NULL 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/.DS_Store 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects_GSLC.h 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.prj 
+[Tue Jul 16 23:08:45 CEST 2024] INFO: found: /Users/amagalhaes/Documents/Arduino/0x66err_ctrl/tooling/GUISliceProjects/GUISliceProjects.ino 

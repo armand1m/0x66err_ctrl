@@ -22,6 +22,7 @@
 // Save some element references for direct access
 //<Save_References !Start!>
 gslc_tsElemRef* AppHeader         = NULL;
+gslc_tsElemRef* BackHomeButton    = NULL;
 gslc_tsElemRef* KnobGauge1        = NULL;
 gslc_tsElemRef* KnobGauge2        = NULL;
 gslc_tsElemRef* KnobGauge3        = NULL;
@@ -30,10 +31,14 @@ gslc_tsElemRef* KnobGaugeText1    = NULL;
 gslc_tsElemRef* KnobGaugeText2    = NULL;
 gslc_tsElemRef* KnobGaugeText3    = NULL;
 gslc_tsElemRef* KnobGaugeText4    = NULL;
+gslc_tsElemRef* SendXMidiMsg      = NULL;
+gslc_tsElemRef* SendYMidiMsg      = NULL;
 gslc_tsElemRef* Toggle1Text       = NULL;
 gslc_tsElemRef* Toggle2Text       = NULL;
 gslc_tsElemRef* Toggle3Text       = NULL;
 gslc_tsElemRef* Toggle4Text       = NULL;
+gslc_tsElemRef* XyMapBox          = NULL;
+gslc_tsElemRef* XyMapButton       = NULL;
 gslc_tsElemRef* m_pElemSlider1    = NULL;
 gslc_tsElemRef* m_pElemSlider1_2  = NULL;
 gslc_tsElemRef* m_pElemSlider1_3  = NULL;
@@ -88,6 +93,20 @@ bool CbBtnCommon(void* pvGui,void *pvElemRef,gslc_teTouch eTouch,int16_t nX,int1
         if (gslc_ElemXTogglebtnGetState(&m_gui, m_pElemToggle4)) {
           ;
         }
+        break;
+      case E_ELEM_XYMAP_BTN:
+        gslc_SetPageCur(&m_gui, E_PG_XYMAP);
+        break;
+      case E_ELEM_BTN_BACKHOME:
+        gslc_SetPageCur(&m_gui, E_PG_MAIN);
+        break;
+      case E_ELEM_BOX1:
+        break;
+      case E_ELEM_BTN_SEND_X_MSG:
+        gslc_SetPageCur(&m_gui, E_PG_MAIN);
+        break;
+      case E_ELEM_BTN_SEND_Y_MSG:
+        gslc_SetPageCur(&m_gui, E_PG_MAIN);
         break;
 //<Button Enums !End!>
       default:
@@ -154,8 +173,17 @@ bool CbSlidePos(void* pvGui,void* pvElemRef,int16_t nPos)
 
   return true;
 }
-//<Tick Callback !Start!>
-//<Tick Callback !End!>
+
+bool CbTickScanner(void* pvGui,void* pvScope)
+{
+  gslc_tsGui*     pGui      = (gslc_tsGui*)(pvGui);
+  gslc_tsElemRef* pElemRef  = (gslc_tsElemRef*)(pvScope);
+  gslc_tsElem*    pElem     = gslc_GetElemFromRef(pGui,pElemRef);
+
+  //TODO add your custom code here 
+
+  return true;
+}
 
 void setup()
 {

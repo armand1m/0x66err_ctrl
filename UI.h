@@ -32,7 +32,7 @@
 // ------------------------------------------------
 //<Fonts !Start!>
 #if defined(DRV_DISP_TFT_ESPI)
-#error E_PROJECT_OPTIONS tab->Graphics Library should be TFT_eSPI
+  #error E_PROJECT_OPTIONS tab->Graphics Library should be TFT_eSPI
 #endif
 #include <Adafruit_GFX.h>
 //<Fonts !End!>
@@ -47,49 +47,21 @@
 // Enumerations for pages, elements, fonts, images
 // ------------------------------------------------
 //<Enum !Start!>
-enum { E_PG_MAIN, E_PG2 };
-enum {
-  E_ELEM_APPHEADER,
-  E_ELEM_KNOB_1,
-  E_ELEM_KNOB_2,
-  E_ELEM_KNOB_3,
-  E_ELEM_KNOB_4,
-  E_ELEM_RINGGAUGE1,
-  E_ELEM_RINGGAUGE2,
-  E_ELEM_RINGGAUGE3,
-  E_ELEM_RINGGAUGE4,
-  E_ELEM_SLIDER1,
-  E_ELEM_SLIDER2,
-  E_ELEM_SLIDER3,
-  E_ELEM_SLIDER4,
-  E_ELEM_SLIDER5,
-  E_ELEM_SLIDER6,
-  E_ELEM_SLIDER7,
-  E_ELEM_TEXT10,
-  E_ELEM_TEXT11,
-  E_ELEM_TEXT12,
-  E_ELEM_TEXT13,
-  E_ELEM_TEXT14,
-  E_ELEM_TEXT15,
-  E_ELEM_TEXT17,
-  E_ELEM_TEXT18,
-  E_ELEM_TEXT19,
-  E_ELEM_TEXT20,
-  E_ELEM_TEXT21,
-  E_ELEM_TEXT22,
-  E_ELEM_TEXT23,
-  E_ELEM_TEXT9,
-  E_ELEM_TOGGLE1,
-  E_ELEM_TOGGLE2,
-  E_ELEM_TOGGLE3,
-  E_ELEM_TOGGLE4,
-  E_ELEM_TOGGLE_TEXT_1,
-  E_ELEM_TOGGLE_TEXT_2,
-  E_ELEM_TOGGLE_TEXT_3,
-  E_ELEM_TOGGLE_TEXT_4
-};
+enum {E_PG_MAIN,E_PG_XYMAP};
+enum {E_DRAW_LINE1,E_DRAW_LINE2,E_ELEM_APPHEADER,E_ELEM_BOX1
+      ,E_ELEM_BTN_BACKHOME,E_ELEM_BTN_SEND_X_MSG,E_ELEM_BTN_SEND_Y_MSG
+      ,E_ELEM_KNOB_1,E_ELEM_KNOB_2,E_ELEM_KNOB_3,E_ELEM_KNOB_4
+      ,E_ELEM_RINGGAUGE1,E_ELEM_RINGGAUGE2,E_ELEM_RINGGAUGE3
+      ,E_ELEM_RINGGAUGE4,E_ELEM_SLIDER1,E_ELEM_SLIDER2,E_ELEM_SLIDER3
+      ,E_ELEM_SLIDER4,E_ELEM_SLIDER5,E_ELEM_SLIDER6,E_ELEM_SLIDER7
+      ,E_ELEM_TEXT10,E_ELEM_TEXT11,E_ELEM_TEXT12,E_ELEM_TEXT13
+      ,E_ELEM_TEXT14,E_ELEM_TEXT15,E_ELEM_TEXT17,E_ELEM_TEXT18
+      ,E_ELEM_TEXT19,E_ELEM_TEXT20,E_ELEM_TEXT21,E_ELEM_TEXT22
+      ,E_ELEM_TEXT9,E_ELEM_TOGGLE1,E_ELEM_TOGGLE2,E_ELEM_TOGGLE3
+      ,E_ELEM_TOGGLE4,E_ELEM_TOGGLE_TEXT_1,E_ELEM_TOGGLE_TEXT_2
+      ,E_ELEM_TOGGLE_TEXT_3,E_ELEM_TOGGLE_TEXT_4,E_ELEM_XYMAP_BTN};
 // Must use separate enum for fonts with MAX_FONT at end to use gslc_FontSet.
-enum { E_BUILTIN15X24, E_BUILTIN20X32, E_BUILTIN5X8, MAX_FONT };
+enum {E_BUILTIN20X32,E_BUILTIN5X8,MAX_FONT};
 //<Enum !End!>
 
 // ------------------------------------------------
@@ -100,45 +72,46 @@ enum { E_BUILTIN15X24, E_BUILTIN20X32, E_BUILTIN5X8, MAX_FONT };
 // Define the maximum number of elements and pages
 // ------------------------------------------------
 //<ElementDefines !Start!>
-#define MAX_PAGE 2
+#define MAX_PAGE                2
 
-#define MAX_ELEM_PG_MAIN 37                   // # Elems total on page
+#define MAX_ELEM_PG_MAIN 38 // # Elems total on page
 #define MAX_ELEM_PG_MAIN_RAM MAX_ELEM_PG_MAIN // # Elems in RAM
 
-#define MAX_ELEM_PG2 1                // # Elems total on page
-#define MAX_ELEM_PG2_RAM MAX_ELEM_PG2 // # Elems in RAM
+#define MAX_ELEM_PG_XYMAP 6 // # Elems total on page
+#define MAX_ELEM_PG_XYMAP_RAM MAX_ELEM_PG_XYMAP // # Elems in RAM
 //<ElementDefines !End!>
 
 // ------------------------------------------------
 // Create element storage
 // ------------------------------------------------
-gslc_tsGui m_gui;
-gslc_tsDriver m_drv;
-gslc_tsFont m_asFont[MAX_FONT];
-gslc_tsPage m_asPage[MAX_PAGE];
+gslc_tsGui                      m_gui;
+gslc_tsDriver                   m_drv;
+gslc_tsFont                     m_asFont[MAX_FONT];
+gslc_tsPage                     m_asPage[MAX_PAGE];
 
 //<GUI_Extra_Elements !Start!>
-gslc_tsElem m_asPage1Elem[MAX_ELEM_PG_MAIN_RAM];
-gslc_tsElemRef m_asPage1ElemRef[MAX_ELEM_PG_MAIN];
-gslc_tsElem m_asPage2Elem[MAX_ELEM_PG2_RAM];
-gslc_tsElemRef m_asPage2ElemRef[MAX_ELEM_PG2];
-gslc_tsXRingGauge m_sXRingGauge2;
-gslc_tsXRingGauge m_sXRingGauge1;
-gslc_tsXRingGauge m_sXRingGauge3;
-gslc_tsXRingGauge m_sXRingGauge4;
-gslc_tsXTogglebtn m_asXToggle1;
-gslc_tsXTogglebtn m_asXToggle2;
-gslc_tsXTogglebtn m_asXToggle3;
-gslc_tsXTogglebtn m_asXToggle4;
-gslc_tsXSlider m_sXSlider1;
-gslc_tsXSlider m_sXSlider2;
-gslc_tsXSlider m_sXSlider3;
-gslc_tsXSlider m_sXSlider4;
-gslc_tsXSlider m_sXSlider5;
-gslc_tsXSlider m_sXSlider6;
-gslc_tsXSlider m_sXSlider7;
+gslc_tsElem                     m_asPage1Elem[MAX_ELEM_PG_MAIN_RAM];
+gslc_tsElemRef                  m_asPage1ElemRef[MAX_ELEM_PG_MAIN];
+gslc_tsElem                     m_asPage2Elem[MAX_ELEM_PG_XYMAP_RAM];
+gslc_tsElemRef                  m_asPage2ElemRef[MAX_ELEM_PG_XYMAP];
+gslc_tsXRingGauge               m_sXRingGauge2;
+gslc_tsXRingGauge               m_sXRingGauge1;
+gslc_tsXRingGauge               m_sXRingGauge3;
+gslc_tsXRingGauge               m_sXRingGauge4;
+gslc_tsXTogglebtn               m_asXToggle1;
+gslc_tsXTogglebtn               m_asXToggle2;
+gslc_tsXTogglebtn               m_asXToggle3;
+gslc_tsXTogglebtn               m_asXToggle4;
+gslc_tsXSlider                  m_sXSlider1;
+gslc_tsXSlider                  m_sXSlider2;
+gslc_tsXSlider                  m_sXSlider3;
+gslc_tsXSlider                  m_sXSlider4;
+gslc_tsXSlider                  m_sXSlider5;
+gslc_tsXSlider                  m_sXSlider6;
+gslc_tsXSlider                  m_sXSlider7;
 
-#define MAX_STR 100
+#define MAX_STR                 100
+
 
 //<GUI_Extra_Elements !End!>
 
@@ -149,6 +122,7 @@ gslc_tsXSlider m_sXSlider7;
 // Element References for direct access
 //<Extern_References !Start!>
 extern gslc_tsElemRef *AppHeader;
+extern gslc_tsElemRef *BackHomeButton;
 extern gslc_tsElemRef *KnobGauge1;
 extern gslc_tsElemRef *KnobGauge2;
 extern gslc_tsElemRef *KnobGauge3;
@@ -161,6 +135,12 @@ extern gslc_tsElemRef *Toggle1Text;
 extern gslc_tsElemRef *Toggle2Text;
 extern gslc_tsElemRef *Toggle3Text;
 extern gslc_tsElemRef *Toggle4Text;
+extern gslc_tsElemRef* SendXMidiMsg;
+extern gslc_tsElemRef* SendYMidiMsg;
+extern gslc_tsElemRef *XyMapBox;
+extern gslc_tsElemRef *XyMapBoxHorizontalLine;
+extern gslc_tsElemRef *XyMapBoxVerticalLine;
+extern gslc_tsElemRef *XyMapButton;
 extern gslc_tsElemRef *m_pElemSlider1;
 extern gslc_tsElemRef *m_pElemSlider1_2;
 extern gslc_tsElemRef *m_pElemSlider1_3;
@@ -172,6 +152,8 @@ extern gslc_tsElemRef *m_pElemToggle1;
 extern gslc_tsElemRef *m_pElemToggle2;
 extern gslc_tsElemRef *m_pElemToggle3;
 extern gslc_tsElemRef *m_pElemToggle4;
+extern int16_t xyMapCurrentY;
+extern int16_t xyMapCurrentX;
 //<Extern_References !End!>
 
 // Define debug message function
@@ -189,6 +171,13 @@ bool CbListbox(void *pvGui, void *pvElemRef, int16_t nSelId);
 bool CbSlidePos(void *pvGui, void *pvElemRef, int16_t nPos);
 bool CbSpinner(void *pvGui, void *pvElemRef, int16_t nState, void *pvData);
 bool CbTickScanner(void *pvGui, void *pvScope);
+bool CbTouch(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX,
+             int16_t nY);
+
+void renderXYMap(gslc_tsColor color) {
+  gslc_DrawLine(&m_gui, 12, xyMapCurrentY, 468, xyMapCurrentY, color);
+  gslc_DrawLine(&m_gui, xyMapCurrentX, 42, xyMapCurrentX, 308, color);
+}
 
 // ------------------------------------------------
 // Create page elements
@@ -204,9 +193,6 @@ void InitGUIslice_gen() {
   // Load Fonts
   // ------------------------------------------------
   //<Load_Fonts !Start!>
-  if (!gslc_FontSet(&m_gui, E_BUILTIN15X24, GSLC_FONTREF_PTR, NULL, 3)) {
-    return;
-  }
   if (!gslc_FontSet(&m_gui, E_BUILTIN20X32, GSLC_FONTREF_PTR, NULL, 4)) {
     return;
   }
@@ -218,8 +204,8 @@ void InitGUIslice_gen() {
   //<InitGUI !Start!>
   gslc_PageAdd(&m_gui, E_PG_MAIN, m_asPage1Elem, MAX_ELEM_PG_MAIN_RAM,
                m_asPage1ElemRef, MAX_ELEM_PG_MAIN);
-  gslc_PageAdd(&m_gui, E_PG2, m_asPage2Elem, MAX_ELEM_PG2_RAM, m_asPage2ElemRef,
-               MAX_ELEM_PG2);
+  gslc_PageAdd(&m_gui, E_PG_XYMAP, m_asPage2Elem, MAX_ELEM_PG_XYMAP_RAM,
+               m_asPage2ElemRef, MAX_ELEM_PG_XYMAP);
 
   // NOTE: The current page defaults to the first page added. Here we explicitly
   //       ensure that the main page is the correct page no matter the add
@@ -539,15 +525,43 @@ void InitGUIslice_gen() {
   gslc_ElemSetFillEn(&m_gui, pElemRef, false);
   gslc_ElemSetTxtCol(&m_gui, pElemRef, GSLC_COL_WHITE);
 
-  // -----------------------------------
-  // PAGE: E_PG2
+  // create E_ELEM_XYMAP_BTN button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(
+      &m_gui, E_ELEM_XYMAP_BTN, E_PG_MAIN, (gslc_tsRect){15, 15, 80, 20},
+      (char *)"XY MAP", 0, E_BUILTIN5X8, &CbBtnCommon);
+  gslc_ElemSetCol(&m_gui, pElemRef, GSLC_COL_GRAY, GSLC_COL_GRAY_DK1,
+                  GSLC_COL_GRAY);
+  XyMapButton = pElemRef;
 
-  // Create E_ELEM_TEXT23 text label
-  pElemRef = gslc_ElemCreateTxt(
-      &m_gui, E_ELEM_TEXT23, E_PG2, (gslc_tsRect){10, 140, 468, 24},
-      (char *)"This page is not ready yet", 0, E_BUILTIN15X24);
-  gslc_ElemSetFillEn(&m_gui, pElemRef, false);
-  gslc_ElemSetTxtCol(&m_gui, pElemRef, GSLC_COL_WHITE);
+  // -----------------------------------
+  // PAGE: E_PG_XYMAP
+
+  // create E_ELEM_BTN_BACKHOME button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(
+      &m_gui, E_ELEM_BTN_BACKHOME, E_PG_XYMAP, (gslc_tsRect){10, 10, 80, 20},
+      (char *)"Back", 0, E_BUILTIN5X8, &CbBtnCommon);
+  gslc_ElemSetCol(&m_gui, pElemRef, GSLC_COL_GRAY, GSLC_COL_GRAY_DK1,
+                  GSLC_COL_GRAY);
+  BackHomeButton = pElemRef;
+
+  // Create E_ELEM_BOX1 box
+  pElemRef = gslc_ElemCreateBox(&m_gui, E_ELEM_BOX1, E_PG_XYMAP,
+                                (gslc_tsRect){10, 40, 460, 270});
+  gslc_ElemSetClickEn(&m_gui, pElemRef, true);
+  gslc_ElemSetTouchFunc(&m_gui, pElemRef, &CbTouch);
+  XyMapBox = pElemRef;
+
+  // create E_ELEM_BTN_SEND_X_MSG button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_SEND_X_MSG,E_PG_XYMAP,
+    (gslc_tsRect){300,10,80,20},(char*)"Send X",0,E_BUILTIN5X8,&CbBtnCommon);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_GRAY,GSLC_COL_GRAY_DK1,GSLC_COL_GRAY);
+  SendXMidiMsg = pElemRef;
+  
+  // create E_ELEM_BTN_SEND_Y_MSG button with text label
+  pElemRef = gslc_ElemCreateBtnTxt(&m_gui,E_ELEM_BTN_SEND_Y_MSG,E_PG_XYMAP,
+    (gslc_tsRect){390,10,80,20},(char*)"Send Y",0,E_BUILTIN5X8,&CbBtnCommon);
+  gslc_ElemSetCol(&m_gui,pElemRef,GSLC_COL_GRAY,GSLC_COL_GRAY_DK1,GSLC_COL_GRAY);
+  SendYMidiMsg = pElemRef;
   //<InitGUI !End!>
 
   //<Startup !Start!>

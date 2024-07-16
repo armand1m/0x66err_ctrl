@@ -1,6 +1,7 @@
 #include "UI.h"
 
 gslc_tsElemRef *AppHeader = NULL;
+gslc_tsElemRef *BackHomeButton = NULL;
 gslc_tsElemRef *KnobGauge1 = NULL;
 gslc_tsElemRef *KnobGauge2 = NULL;
 gslc_tsElemRef *KnobGauge3 = NULL;
@@ -13,6 +14,10 @@ gslc_tsElemRef *Toggle1Text = NULL;
 gslc_tsElemRef *Toggle2Text = NULL;
 gslc_tsElemRef *Toggle3Text = NULL;
 gslc_tsElemRef *Toggle4Text = NULL;
+gslc_tsElemRef *XyMapBox = NULL;
+gslc_tsElemRef *XyMapBoxHorizontalLine = NULL;
+gslc_tsElemRef *XyMapBoxVerticalLine = NULL;
+gslc_tsElemRef *XyMapButton = NULL;
 gslc_tsElemRef *m_pElemSlider1 = NULL;
 gslc_tsElemRef *m_pElemSlider1_2 = NULL;
 gslc_tsElemRef *m_pElemSlider1_3 = NULL;
@@ -24,6 +29,10 @@ gslc_tsElemRef *m_pElemToggle1 = NULL;
 gslc_tsElemRef *m_pElemToggle2 = NULL;
 gslc_tsElemRef *m_pElemToggle3 = NULL;
 gslc_tsElemRef *m_pElemToggle4 = NULL;
+int16_t xyMapCurrentX = 240;
+int16_t xyMapCurrentY = 175;
+gslc_tsElemRef* SendXMidiMsg      = NULL;
+gslc_tsElemRef* SendYMidiMsg      = NULL;
 
 gslc_tsElemRef *getElemRefForEncoderKnobGauge(int encoderId) {
   switch (encoderId) {

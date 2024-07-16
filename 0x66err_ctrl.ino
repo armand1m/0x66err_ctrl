@@ -78,11 +78,35 @@ void onEncoderSpin(EncoderButton &encoder) {
   gslc_ElemSetTxtStr(&m_gui, knobGaugeElementReference, knobGaugeString);
 }
 
+/**
+ * This is the callback for the toggles on the screen only.
+ * This function primarily identifies which toggle was pressed and sends the
+ * corresponding MIDI CC message.
+ */
 bool CbBtnCommon(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX,
                  int16_t nY) {
   gslc_tsGui *pGui = (gslc_tsGui *)(pvGui);
   gslc_tsElemRef *pElemRef = (gslc_tsElemRef *)(pvElemRef);
   gslc_tsElem *pElem = gslc_GetElemFromRef(pGui, pElemRef);
+
+  switch (pElem->nId) {
+  case E_ELEM_XYMAP_BTN:
+    gslc_SetPageCur(&m_gui, E_PG_XYMAP);
+    return true;
+
+  case E_ELEM_BTN_BACKHOME:
+    gslc_SetPageCur(&m_gui, E_PG_MAIN);
+    return true;
+  
+  case E_ELEM_BTN_SEND_X_MSG:
+    sendCC(xy_map_midi_cc[0], map(xyMapCurrentX, 12, 468, 0, 127), 1);
+    return true;
+
+  case E_ELEM_BTN_SEND_Y_MSG:
+    sendCC(xy_map_midi_cc[1], map(xyMapCurrentY, 42, 308, 127, 0), 1);
+    return true;
+  }
+
   int index = getElemRefCCIndexById(pElem->nId);
 
   if (eTouch == GSLC_TOUCH_UP_IN) {
@@ -113,6 +137,56 @@ bool CbSlidePos(void *pvGui, void *pvElemRef, int16_t nPos) {
   int channel = 1;
 
   sendCC(controlNumber, controlValue, channel);
+
+  return true;
+}
+
+bool CbTickScanner(void *pvGui, void *pvScope) {
+  gslc_tsGui *pGui = (gslc_tsGui *)(pvGui);
+  gslc_tsElemRef *pElemRef = (gslc_tsElemRef *)(pvScope);
+  gslc_tsElem *pElem = gslc_GetElemFromRef(pGui, pElemRef);
+
+  // TODO add your custom code here
+
+  return true;
+}
+// Example logarithmic mapping function
+float mapLog(float x, float in_min, float in_max, float out_min, float out_max) {
+  return out_min + (out_max - out_min) * ((log(x) - log(in_min)) / (log(in_max) - log(in_min)));
+}
+// Touch event callback function
+bool CbTouch(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX,
+             int16_t nY) {
+  if (eTouch == GSLC_TOUCH_DOWN_IN || eTouch == GSLC_TOUCH_MOVE_IN ||
+      eTouch == GSLC_TOUCH_UP_IN) {
+
+    // Limit the touch coordinates to the box boundaries
+    if (nX < 12)
+      nX = 12;
+
+    if (nX > 468)
+      nX = 468;
+
+    if (nY < 42)
+      nY = 42;
+
+    if (nY > 308)
+      nY = 308;
+
+    // Erase previous lines
+    renderXYMap(GSLC_COL_BLACK);
+
+    // Update current line positions
+    xyMapCurrentX = nX;
+    xyMapCurrentY = nY;
+
+    // Draw new lines at the touch coordinates
+    renderXYMap(GSLC_COL_GRAY_LT2);
+
+    // Send midi codes
+    sendCC(xy_map_midi_cc[0], mapLog(xyMapCurrentX, 12, 468, 0, 127), 1);
+    sendCC(xy_map_midi_cc[1], map(xyMapCurrentY, 42, 308, 125, -21), 1);
+  }
 
   return true;
 }
