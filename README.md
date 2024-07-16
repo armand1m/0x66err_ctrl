@@ -2,7 +2,7 @@
 
 > this is a project in progress. consider this very unstable and quirky.
 
-![Initial prototype](https://github.com/armand1m/0x66err_ctrl/blob/main/assets/ctrl.jpg)
+![Initial prototype](https://github.com/armand1m/0x66err_ctrl/blob/main/assets/ctrl.jpeg)
 
 0x66err_ctrl is a homemade midi controller on top of Arduino Mega 2560 R3.
 
