@@ -1,0 +1,2 @@
+JAVA_VERSION="18.0.2.1"
+MODULES="java.base java.datatransfer java.xml java.prefs java.desktop java.logging JRibbonMenu java.transaction.xa java.sql com.google.gson java.compiler builder.merged.module org.fife.RSyntaxTextArea builder"
