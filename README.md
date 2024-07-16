@@ -55,7 +55,7 @@ cd ./tooling/GUIsliceBuilder
 
 Then you can open the project at `tooling/GUISliceProjects/GUISliceProject.prj`
 
-![Project](https://github.com/armand1m/0x66err_ctrl/blob/main/assets/uiproject.jpeg)
+![Project](https://github.com/armand1m/0x66err_ctrl/blob/main/assets/uiproject.png)
 
 #### Code Generation
 
