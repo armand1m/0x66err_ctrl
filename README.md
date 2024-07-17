@@ -4,7 +4,7 @@
 
 ![Initial prototype](https://github.com/armand1m/0x66err_ctrl/blob/main/assets/ctrl.jpeg)
 
-https://github.com/armand1m/0x66err_ctrl/blob/main/assets/xymap.mp4
+https://github.com/armand1m/0x66err_ctrl/raw/main/assets/xymap.mp4
 
 0x66err_ctrl is a homemade midi controller on top of Arduino Mega 2560 R3.
 
