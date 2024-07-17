@@ -3,7 +3,7 @@
 > this is a project in progress. consider this very unstable and quirky.
 
 ![Initial prototype](https://github.com/armand1m/0x66err_ctrl/blob/main/assets/ctrl.jpeg)
-
+<video src="https://github.com/armand1m/0x66err_ctrl/blob/main/assets/xymap.mp4"></video>
 0x66err_ctrl is a homemade midi controller on top of Arduino Mega 2560 R3.
 
 It features a LCD 3.5" 480x320 touchscreen and 4 rotary encoders (with 8 being planned in the future).
@@ -14,15 +14,14 @@ In the future, it might include some drumpads as well based on Adafruit Trellis.
 - [x] 7-band EQ on Touchscreen
 - [x] 3 toggles (working both on touchscreen and on knob press)
 - [x] 4 rotary encoders for knob control 
-- [x] single page control
+- [x] multi page control
+- [x] touchscreen XY map for Autofilter control _(x being frequency and y being resonance)_
 
 ### Future:
 
-- [ ] Multipage control
 - [ ] 8 rotary encoders
 - [ ] 9-band EQ on Touchscreen
 - [ ] 9-band EQ physical module
-- [ ] Touchscreen XY map for Autofilter control _(x being frequency and y being resonance)_
 - [ ] Momentary gates _(to enable things like killswitches)_
 - [ ] 4x4 drumpad physical module
 - [ ] Preset selection screen

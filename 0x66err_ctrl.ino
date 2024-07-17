@@ -1,11 +1,11 @@
 // Define this flag when building the firmware before flashing HIDUINO
 #define HIDUINO
 
-#include "Loggers.h"
-#include "MidiCCMaps.h"
-#include "RotaryEncoders.h"
-#include "UI.h"
-#include "UIReferences.h"
+#include "src/Loggers.h"
+#include "src/MidiCCMaps.h"
+#include "src/RotaryEncoders.h"
+#include "src/UI.h"
+#include "src/UIReferences.h"
 #include <MIDI.h>
 
 #ifdef HIDUINO
@@ -41,7 +41,6 @@ void sendCC(int controlNumber, int controlValue, int channel) {
 void onEncoderClick(EncoderButton &encoder) {
   int index = encoder.userId();
   gslc_tsElemRef *toggleElementReference = getElemRefForToggle(index);
-
   bool state = !gslc_ElemXTogglebtnGetState(&m_gui, toggleElementReference);
   gslc_ElemXTogglebtnSetState(&m_gui, toggleElementReference, state);
 
@@ -97,7 +96,7 @@ bool CbBtnCommon(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX,
   case E_ELEM_BTN_BACKHOME:
     gslc_SetPageCur(&m_gui, E_PG_MAIN);
     return true;
-  
+
   case E_ELEM_BTN_SEND_X_MSG:
     sendCC(xy_map_midi_cc[0], map(xyMapCurrentX, 12, 468, 0, 127), 1);
     return true;
@@ -150,10 +149,7 @@ bool CbTickScanner(void *pvGui, void *pvScope) {
 
   return true;
 }
-// Example logarithmic mapping function
-float mapLog(float x, float in_min, float in_max, float out_min, float out_max) {
-  return out_min + (out_max - out_min) * ((log(x) - log(in_min)) / (log(in_max) - log(in_min)));
-}
+
 // Touch event callback function
 bool CbTouch(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX,
              int16_t nY) {
@@ -184,7 +180,8 @@ bool CbTouch(void *pvGui, void *pvElemRef, gslc_teTouch eTouch, int16_t nX,
     renderXYMap(GSLC_COL_GRAY_LT2);
 
     // Send midi codes
-    sendCC(xy_map_midi_cc[0], mapLog(xyMapCurrentX, 12, 468, 0, 127), 1);
+    // sendCC(xy_map_midi_cc[0], mapLog(xyMapCurrentX, 12, 468, 0, 127), 1);
+    sendCC(xy_map_midi_cc[0], map(xyMapCurrentX, 12, 468, 0, 132), 1);
     sendCC(xy_map_midi_cc[1], map(xyMapCurrentY, 42, 308, 125, -21), 1);
   }
 
