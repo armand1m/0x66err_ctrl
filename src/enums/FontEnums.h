@@ -1,0 +1,6 @@
+#ifndef FONTENUMS_H
+#define FONTENUMS_H
+
+enum { E_BUILTIN20X32, E_BUILTIN5X8, MAX_FONT };
+
+#endif // FONTENUMS_H

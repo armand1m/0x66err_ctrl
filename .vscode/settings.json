@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "fontenums.h": "c",
+        "stdbool.h": "c",
+        "guislice.h": "c",
+        "guicontext.h": "c",
+        "xringgauge.h": "c"
+    }
+}

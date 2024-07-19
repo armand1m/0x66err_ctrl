@@ -1,34 +1,15 @@
-static int16_t DebugOut(char ch) {
-#ifdef HIDUINO
-  // noop
-#else
-  if (ch == (char)'\n')
-    Serial.println("");
-  else
-    Serial.write(ch);
-#endif
+#ifndef LOGGERS_H
+#define LOGGERS_H
 
-  return 0;
-}
-
-static void log(const String &message) {
-#ifdef HIDUINO
-  // noop
-#else
-  if (message.equals("\n")) {
-    Serial.println("");
-  } else {
-    Serial.print(message);
-  }
+static void log(const String& message)
+{
+#ifndef HIDUINO
+    if (message.equals("\n")) {
+        Serial.println("");
+    } else {
+        Serial.print(message);
+    }
 #endif
 }
 
-static void logControlChange(int controlNumber, int controlValue, int channel) {
-  log("Control Change: ");
-  log(String(controlNumber));
-  log(", ");
-  log(String(controlValue));
-  log(", ");
-  log(String(channel));
-  log("\n");
-}
+#endif // LOGGERS_H

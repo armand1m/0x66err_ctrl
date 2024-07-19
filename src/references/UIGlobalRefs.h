@@ -1,4 +1,8 @@
-#include "UI.h"
+#ifndef UIGLOBALREFS_H
+#define UIGLOBALREFS_H
+
+#include "ExternComponents.h"
+#include "../enums/ComponentEnums.h"
 
 gslc_tsElemRef *AppHeader = NULL;
 gslc_tsElemRef *BackHomeButton = NULL;
@@ -34,7 +38,7 @@ int16_t xyMapCurrentY = 175;
 gslc_tsElemRef *SendXMidiMsg = NULL;
 gslc_tsElemRef *SendYMidiMsg = NULL;
 
-gslc_tsElemRef *getElemRefForEncoderKnobGauge(int encoderId) {
+gslc_tsElemRef *get_gauge_ref_by_encoder_id(int encoderId) {
   switch (encoderId) {
   case 0:
     return KnobGauge1;
@@ -49,7 +53,7 @@ gslc_tsElemRef *getElemRefForEncoderKnobGauge(int encoderId) {
   }
 }
 
-gslc_tsElemRef *getElemRefForToggle(int encoderId) {
+gslc_tsElemRef *get_toggle_ref_by_encoder_id(int encoderId) {
   switch (encoderId) {
   case 0:
     return m_pElemToggle1;
@@ -64,36 +68,7 @@ gslc_tsElemRef *getElemRefForToggle(int encoderId) {
   }
 }
 
-gslc_tsElemRef *getElemRefById(int16_t id) {
-  switch (id) {
-  case E_ELEM_TOGGLE1:
-    return m_pElemToggle1;
-  case E_ELEM_TOGGLE2:
-    return m_pElemToggle2;
-  case E_ELEM_TOGGLE3:
-    return m_pElemToggle3;
-  case E_ELEM_TOGGLE4:
-    return m_pElemToggle4;
-  case E_ELEM_SLIDER1:
-    return m_pElemSlider1;
-  case E_ELEM_SLIDER2:
-    return m_pElemSlider1_2;
-  case E_ELEM_SLIDER3:
-    return m_pElemSlider1_3;
-  case E_ELEM_SLIDER4:
-    return m_pElemSlider1_4;
-  case E_ELEM_SLIDER5:
-    return m_pElemSlider1_5;
-  case E_ELEM_SLIDER6:
-    return m_pElemSlider1_6;
-  case E_ELEM_SLIDER7:
-    return m_pElemSlider1_7;
-  default:
-    return NULL;
-  }
-}
-
-int getElemRefCCIndexById(int16_t id) {
+int get_cc_index_by_element_id(int16_t id) {
   switch (id) {
   // toggle_midi_cc
   case E_ELEM_TOGGLE1:
@@ -124,3 +99,5 @@ int getElemRefCCIndexById(int16_t id) {
     return -1;
   }
 }
+
+#endif // UIGLOBALREFS_H

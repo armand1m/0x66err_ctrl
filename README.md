@@ -60,14 +60,9 @@ Then you can open the project at `tooling/GUISliceProjects/GUISliceProject.prj`
 
 #### Code Generation
 
-The GUISliceBuilder features code generation.
+The GUISliceBuilder features code generation and that can be used to get positions and all of that.
 
-Once generated, do the following:
-
-- Copy the contents of `tooling/GUISliceProjects/GUISliceProjects_GSLC.h` into `UI.h` and save it.
-- Copy the Program Globals in `tooling/GUISliceProjects/GUISliceProjects.ino` into `UIReferences.h`. Replace the previous ones.
-
-I might work on some better structure to allow for more dynamic updates of the UI without so much hassle.
+However, the code structure in the project is wrapped into my own "react-like" abstraction so I have an easier time updating and implementing new features. You'll probably have to convert some of that and make it match.
 
 ### Rotary Encoders
 
