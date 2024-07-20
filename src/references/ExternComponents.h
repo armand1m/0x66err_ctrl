@@ -1,7 +1,7 @@
 #ifndef EXTERNSLICE_H
 #define EXTERNSLICE_H
 
-#include <GUISlice.h>
+#include <GUIslice.h>
 
 extern gslc_tsElemRef* AppHeader;
 extern gslc_tsElemRef* BackHomeButton;
