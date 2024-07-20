@@ -11,7 +11,7 @@
 #include <Adafruit_GFX.h>
 
 #include "pages/MainPage.h"
-#include "pages/XyMapPage.h"
+#include "pages/XYMapPage.h"
 
 // GUIslice debug function definition
 static int16_t DebugOut(char ch)
