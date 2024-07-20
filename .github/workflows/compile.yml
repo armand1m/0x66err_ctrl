@@ -15,6 +15,8 @@ jobs:
         with:
           enable-deltas-report: true
           fqbn: arduino:avr:mega
+          sketch-paths: |
+            - ./
           libraries: |
             - name: Bounce2
             - name: Encoder

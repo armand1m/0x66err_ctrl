@@ -41,12 +41,12 @@ gslc_tsElemRef* createXYMap(XYMapProps props)
     gslc_tsGui* gui = props.context.gui;
 
     gslc_tsElemRef* instance = createBox({
-      .context = props.context,
-      .id = props.id,
-      .position = props.position,
-      .on_touch = props.on_touch,
+        .context = props.context,
+        .id = props.id,
+        .position = props.position,
+        .on_touch = props.on_touch,
     });
-    
+
     renderXYMapLines({
         .context = props.context,
         .bounds = props.position,
