@@ -27,6 +27,8 @@ jobs:
             - name: Adafruit BusIO
             - name: Adafruit GFX Library
             - name: GUIslice
+              source-path: ./libraries/GUISliceReady
+              destination-name: GUIslice
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
