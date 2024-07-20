@@ -4,8 +4,8 @@
 #include "../context/GuiContext.h"
 #include "../enums/FontEnums.h"
 #include "../references/UIGlobalRefs.h"
-#include "Text.h"
 #include "GUIslice.h"
+#include "Text.h"
 #include "elem/XTogglebtn.h"
 
 typedef struct ToggleProps {
@@ -43,7 +43,7 @@ ToggleElements createToggle(ToggleProps props)
             },
             .text = props.label,
             .font = NULL,
-            .align = TextAlign::LEFT
+            .align = TextAlign::LEFT,
         }),
     };
 

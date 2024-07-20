@@ -1,6 +1,8 @@
 #ifndef MAIN_PAGE_H
 #define MAIN_PAGE_H
 
+#define CONCAT(arg1, arg2) arg1##arg2
+
 #include "../components/Button.h"
 #include "../components/RingGauge.h"
 #include "../components/Slider.h"
@@ -60,50 +62,48 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     return true;
 }
 
-void render_bmth_quote()
-{
-    createText({ .context = mainpage_context,
-        .id = E_ELEM_TEXT17,
-        .position = { 250, 50, 210, 8 },
-        .text = "Cause everyone's too scared to heal" });
+#define quote(index, txt, col)                                \
+    createText((TextProps) {                                  \
+        .context = mainpage_context,                          \
+        .id = CONCAT(QUOTE_TEXT_, index),                     \
+        .position = { 250, 50 + (10 * (index - 1)), 210, 8 }, \
+        .text = txt,                                          \
+        .font = NULL,                                         \
+        .align = TextAlign::LEFT,                             \
+        .color = col })
 
-    createText({ .context = mainpage_context,
-        .id = E_ELEM_TEXT18,
-        .position = { 250, 60, 216, 8 },
-        .text = "They don't give a fuck how they feel" });
+#define gauge(index, gauge_label)                                                     \
+    RingGaugeElements CONCAT(ring_gauge_, index) = createRingGauge((RingGaugeProps) { \
+        .context = mainpage_context,                                                  \
+        .id = CONCAT(E_ELEM_RINGGAUGE, index),                                        \
+        .position = { 15 + (60 * (index - 1)), 50, 45, 45 },                          \
+        .ring_text = "0",                                                             \
+        .label = gauge_label,                                                         \
+        .label_id = CONCAT(E_ELEM_KNOB_, index),                                      \
+        .state = CONCAT(&RingGaugeState, index) });                                   \
+    CONCAT(KnobGauge, index) = CONCAT(ring_gauge_, index).ring_gauge;                 \
+    CONCAT(KnobGaugeText, index) = CONCAT(ring_gauge_, index).label;
 
-    createText({ .context = mainpage_context,
-        .id = E_ELEM_TEXT19,
-        .position = { 250, 70, 216, 8 },
-        .text = "And I don't know how to deal anymore" });
+#define toggle(index, toggle_label)                                                     \
+    ToggleElements CONCAT(toggle_, index) = createToggle({ .context = mainpage_context, \
+        .id = CONCAT(E_ELEM_TOGGLE, index),                                             \
+        .position = { 15, 140 + (40 * (index - 1)), 35, 20 },                           \
+        .label = toggle_label,                                                          \
+        .label_id = CONCAT(E_ELEM_TOGGLE_TEXT_, index),                                 \
+        .state = CONCAT(&ToggleState, index),                                           \
+        .on_touch = &on_toggle_press });                                                \
+    CONCAT(Toggle, index) = CONCAT(toggle_, index).toggle;                              \
+    CONCAT(ToggleText, index) = CONCAT(toggle_, index).label;
 
-    createText({
-        .context = mainpage_context,
-        .id = E_ELEM_TEXT20,
-        .position = { 250, 80, 174, 8 },
-        .text = "Well maybe the damage is done",
-        .font = NULL,
-        .align = TextAlign::CENTER,
-        .color = &GSLC_COL_RED_DK1,
-    });
-
-    createText({
-        .context = mainpage_context,
-        .id = E_ELEM_TEXT21,
-        .position = { 250, 90, 156, 8 },
-        .text = "Maybe the darkness has won",
-        .font = NULL,
-        .align = TextAlign::CENTER,
-        .color = &GSLC_COL_RED_DK2,
-    });
-
-    createText({
-        .context = mainpage_context,
-        .id = E_ELEM_TEXT22,
-        .position = { 250, 100, 222, 8 },
-        .text = "And we were programmed just to suffer",
-    });
-}
+#define slider(index, slider_label)                                                     \
+    SliderElements CONCAT(slider_, index) = createSlider({ .context = mainpage_context, \
+        .id = CONCAT(E_ELEM_SLIDER, index),                                             \
+        .position = { 140 + (50 * (index - 1)), 130, 20, 160 },                         \
+        .label = slider_label,                                                          \
+        .label_id = CONCAT(EQ_SLIDER_TEXT_, index),                                     \
+        .state = CONCAT(&SliderState, index),                                           \
+        .on_change = &on_slide_change });                                               \
+    CONCAT(EqSlider, index) = CONCAT(slider_, index).slider;
 
 void render_header()
 {
@@ -118,187 +118,40 @@ void render_header()
     XyMapButton = createButton({
         .context = mainpage_context,
         .id = E_ELEM_XYMAP_BTN,
-        .position = { 15, 15, 80, 20 },
+        .position = { 15, 10, 80, 20 },
         .text = "XY MAP",
-        .callback = &on_xymap_button_press,
+        .on_press = &on_xymap_button_press,
     });
 
-    render_bmth_quote();
-}
-
-void render_ring_gauges()
-{
-    RingGaugeElements ring_gauge_1 = createRingGauge({ .context = mainpage_context,
-        .id = E_ELEM_RINGGAUGE1,
-        .position = { 14, 54, 45, 45 },
-        .ring_text = "0",
-        .label = "Gain",
-        .label_id = E_ELEM_KNOB_1,
-        .state = &m_sXRingGauge1 });
-
-    KnobGauge1 = ring_gauge_1.ring_gauge;
-    KnobGaugeText1 = ring_gauge_1.label;
-
-    RingGaugeElements ring_gauge_2 = createRingGauge({ .context = mainpage_context,
-        .id = E_ELEM_RINGGAUGE2,
-        .position = { 73, 54, 45, 45 },
-        .ring_text = "0",
-        .label = "Low",
-        .label_id = E_ELEM_KNOB_2,
-        .state = &m_sXRingGauge2 });
-
-    KnobGauge2 = ring_gauge_2.ring_gauge;
-    KnobGaugeText2 = ring_gauge_2.label;
-
-    RingGaugeElements ring_gauge_3 = createRingGauge({ .context = mainpage_context,
-        .id = E_ELEM_RINGGAUGE3,
-        .position = { 132, 54, 45, 45 },
-        .ring_text = "0",
-        .label = "Mid",
-        .label_id = E_ELEM_KNOB_3,
-        .state = &m_sXRingGauge3 });
-
-    KnobGauge3 = ring_gauge_3.ring_gauge;
-    KnobGaugeText3 = ring_gauge_3.label;
-
-    RingGaugeElements ring_gauge_4 = createRingGauge({ .context = mainpage_context,
-        .id = E_ELEM_RINGGAUGE4,
-        .position = { 191, 54, 45, 45 },
-        .ring_text = "0",
-        .label = "High",
-        .label_id = E_ELEM_KNOB_4,
-        .state = &m_sXRingGauge4 });
-
-    KnobGauge4 = ring_gauge_4.ring_gauge;
-    KnobGaugeText4 = ring_gauge_4.label;
-}
-
-void render_toggles()
-{
-    ToggleElements toggle_1 = createToggle({ .context = mainpage_context,
-        .id = E_ELEM_TOGGLE1,
-        .position = { 20, 141, 35, 20 },
-        .label = "Octaver",
-        .label_id = E_ELEM_TOGGLE_TEXT_1,
-        .state = &m_asXToggle1,
-        .on_touch = &on_toggle_press });
-
-    m_pElemToggle1 = toggle_1.toggle;
-    Toggle1Text = toggle_1.label;
-
-    ToggleElements toggle_2 = createToggle({ .context = mainpage_context,
-        .id = E_ELEM_TOGGLE2,
-        .position = { 20, 181, 35, 20 },
-        .label = "Overdrive",
-        .label_id = E_ELEM_TOGGLE_TEXT_2,
-        .state = &m_asXToggle2,
-        .on_touch = &on_toggle_press });
-
-    m_pElemToggle2 = toggle_2.toggle;
-    Toggle2Text = toggle_2.label;
-
-    ToggleElements toggle_3 = createToggle({ .context = mainpage_context,
-        .id = E_ELEM_TOGGLE3,
-        .position = { 20, 221, 35, 20 },
-        .label = "Distortion",
-        .label_id = E_ELEM_TOGGLE_TEXT_3,
-        .state = &m_asXToggle3,
-        .on_touch = &on_toggle_press });
-
-    m_pElemToggle3 = toggle_3.toggle;
-    Toggle3Text = toggle_3.label;
-
-    ToggleElements toggle_4 = createToggle({ .context = mainpage_context,
-        .id = E_ELEM_TOGGLE4,
-        .position = { 20, 262, 35, 20 },
-        .label = "Custom",
-        .label_id = E_ELEM_TOGGLE_TEXT_4,
-        .state = &m_asXToggle4,
-        .on_touch = &on_toggle_press });
-
-    m_pElemToggle4 = toggle_4.toggle;
-    Toggle4Text = toggle_4.label;
-}
-
-void render_equalizer()
-{
-    SliderElements slider_1 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER1,
-        .position = { 140, 130, 20, 160 },
-        .label = "65hz",
-        .label_id = E_ELEM_TEXT9,
-        .state = &m_sXSlider1,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1 = slider_1.slider;
-
-    SliderElements slider_2 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER2,
-        .position = { 190, 130, 20, 160 },
-        .label = "125hz",
-        .label_id = E_ELEM_TEXT10,
-        .state = &m_sXSlider2,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1_2 = slider_2.slider;
-
-    SliderElements slider_3 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER3,
-        .position = { 240, 130, 20, 160 },
-        .label = "250hz",
-        .label_id = E_ELEM_TEXT11,
-        .state = &m_sXSlider3,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1_3 = slider_3.slider;
-
-    SliderElements slider_4 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER4,
-        .position = { 290, 130, 20, 160 },
-        .label = "500hz",
-        .label_id = E_ELEM_TEXT12,
-        .state = &m_sXSlider4,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1_4 = slider_4.slider;
-
-    SliderElements slider_5 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER5,
-        .position = { 340, 130, 20, 160 },
-        .label = "1kHz",
-        .label_id = E_ELEM_TEXT13,
-        .state = &m_sXSlider5,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1_5 = slider_5.slider;
-
-    SliderElements slider_6 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER6,
-        .position = { 390, 130, 20, 160 },
-        .label = "2kHz",
-        .label_id = E_ELEM_TEXT14,
-        .state = &m_sXSlider6,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1_6 = slider_6.slider;
-
-    SliderElements slider_7 = createSlider({ .context = mainpage_context,
-        .id = E_ELEM_SLIDER7,
-        .position = { 440, 130, 20, 160 },
-        .label = "4kHz",
-        .label_id = E_ELEM_TEXT15,
-        .state = &m_sXSlider7,
-        .on_change = &on_slide_change });
-
-    m_pElemSlider1_7 = slider_7.slider;
+    quote(1, "Cause everyone's too scared to heal", &GSLC_COL_WHITE);
+    quote(2, "They don't give a fuck how they feel", &GSLC_COL_WHITE);
+    quote(3, "And I don't know how to deal anymore", &GSLC_COL_WHITE);
+    quote(4, "Well maybe the damage is done", &GSLC_COL_RED_DK1);
+    quote(5, "Maybe the darkness has won", &GSLC_COL_RED_DK2);
+    quote(6, "And we were programmed just to suffer", &GSLC_COL_WHITE);
 }
 
 void render_main_page()
 {
     render_header();
-    render_ring_gauges();
-    render_toggles();
-    render_equalizer();
+
+    gauge(1, "Gain");
+    gauge(2, "Low");
+    gauge(3, "Mid");
+    gauge(4, "High");
+
+    toggle(1, "Octaver");
+    toggle(2, "Overdrive");
+    toggle(3, "Distortion");
+    toggle(4, "Custom");
+
+    slider(1, "65hz");
+    slider(2, "125hz");
+    slider(3, "250hz");
+    slider(4, "500hz");
+    slider(5, "1kHz");
+    slider(6, "2kHz");
+    slider(7, "4kHz");
 }
 
 #endif // MAIN_PAGE_H

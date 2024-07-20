@@ -4,14 +4,14 @@
 #include "../context/GuiContext.h"
 #include "../enums/FontEnums.h"
 #include "GUIslice.h"
-#include "elem/XSlider.h"
 #include "Text.h"
+#include "elem/XSlider.h"
 
 typedef struct SliderProps {
     GuiContext context;
     int16_t id;
     gslc_tsRect position;
-    char * label;
+    char* label;
     int16_t label_id;
     gslc_tsXSlider* state;
     GSLC_CB_XSLIDER_POS on_change;

@@ -56,7 +56,7 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     bool should_capture_event = touch_event == GSLC_TOUCH_DOWN_IN || touch_event == GSLC_TOUCH_MOVE_IN || touch_event == GSLC_TOUCH_UP_IN;
 
     if (!should_capture_event) {
-      return true;
+        return true;
     }
 
     nX = clamp(nX, x_start_limit, x_end_limit);
@@ -86,9 +86,9 @@ void render_xy_map_page()
     BackHomeButton = createButton({
         .context = xymap_page_context,
         .id = E_ELEM_BTN_BACKHOME,
-        .position = { 10, 10, 80, 20 },
+        .position = { 15, 10, 80, 20 },
         .text = "Back",
-        .callback = &on_back_press,
+        .on_press = &on_back_press,
     });
 
     SendXMidiMsg = createButton({
@@ -96,7 +96,7 @@ void render_xy_map_page()
         .id = E_ELEM_BTN_SEND_X_MSG,
         .position = { 300, 10, 80, 20 },
         .text = "Send X",
-        .callback = &on_sendx_press,
+        .on_press = &on_sendx_press,
     });
 
     SendYMidiMsg = createButton({
@@ -104,7 +104,7 @@ void render_xy_map_page()
         .id = E_ELEM_BTN_SEND_Y_MSG,
         .position = { 390, 10, 80, 20 },
         .text = "Send Y",
-        .callback = &on_sendy_press,
+        .on_press = &on_sendy_press,
     });
 
     XyMapBox = createXYMap({

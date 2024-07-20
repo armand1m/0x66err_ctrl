@@ -7,6 +7,7 @@
 
 typedef enum {
     LEFT,
+    TOP_LEFT,
     CENTER,
 } TextAlign;
 struct TextProps {
@@ -17,18 +18,20 @@ struct TextProps {
     int16_t* font;
     TextAlign align;
     gslc_tsColor* color;
+    GSLC_CB_TOUCH on_touch;
 };
 
 unsigned int get_text_align(TextAlign align)
 {
-    switch (align)
-    {
-      case LEFT:
-          return GSLC_ALIGN_MID_LEFT;
-      case CENTER:
-          return GSLC_ALIGN_TOP_MID;
-      default:
-          return GSLC_ALIGN_TOP_MID;
+    switch (align) {
+    case LEFT:
+        return GSLC_ALIGN_MID_LEFT;
+    case TOP_LEFT:
+        return GSLC_ALIGN_TOP_LEFT;
+    case CENTER:
+        return GSLC_ALIGN_TOP_MID;
+    default:
+        return GSLC_ALIGN_TOP_MID;
     }
 }
 
@@ -46,6 +49,7 @@ gslc_tsElemRef* createText(TextProps props)
     gslc_ElemSetTxtAlign(gui, instance, get_text_align(props.align));
     gslc_ElemSetFillEn(gui, instance, false);
     gslc_ElemSetTxtCol(gui, instance, color);
+    gslc_ElemSetTouchFunc(gui, instance, props.on_touch);
 
     return instance;
 }

@@ -18,20 +18,24 @@ gslc_tsElem m_asPage1Elem[MAX_ELEM_PG_MAIN_RAM];
 gslc_tsElemRef m_asPage1ElemRef[MAX_ELEM_PG_MAIN];
 gslc_tsElem m_asPage2Elem[MAX_ELEM_PG_XYMAP_RAM];
 gslc_tsElemRef m_asPage2ElemRef[MAX_ELEM_PG_XYMAP];
-gslc_tsXRingGauge m_sXRingGauge1;
-gslc_tsXRingGauge m_sXRingGauge2;
-gslc_tsXRingGauge m_sXRingGauge3;
-gslc_tsXRingGauge m_sXRingGauge4;
-gslc_tsXTogglebtn m_asXToggle1;
-gslc_tsXTogglebtn m_asXToggle2;
-gslc_tsXTogglebtn m_asXToggle3;
-gslc_tsXTogglebtn m_asXToggle4;
-gslc_tsXSlider m_sXSlider1;
-gslc_tsXSlider m_sXSlider2;
-gslc_tsXSlider m_sXSlider3;
-gslc_tsXSlider m_sXSlider4;
-gslc_tsXSlider m_sXSlider5;
-gslc_tsXSlider m_sXSlider6;
-gslc_tsXSlider m_sXSlider7;
+
+gslc_tsXRingGauge RingGaugeState1;
+gslc_tsXRingGauge RingGaugeState2;
+gslc_tsXRingGauge RingGaugeState3;
+gslc_tsXRingGauge RingGaugeState4;
+gslc_tsXTogglebtn ToggleState1;
+gslc_tsXTogglebtn ToggleState2;
+gslc_tsXTogglebtn ToggleState3;
+gslc_tsXTogglebtn ToggleState4;
+gslc_tsXSlider SliderState1;
+gslc_tsXSlider SliderState2;
+gslc_tsXSlider SliderState3;
+gslc_tsXSlider SliderState4;
+gslc_tsXSlider SliderState5;
+gslc_tsXSlider SliderState6;
+gslc_tsXSlider SliderState7;
+
+int16_t xyMapCurrentX = 240;
+int16_t xyMapCurrentY = 175;
 
 #endif // _UISTATE_H_

@@ -1,0 +1,34 @@
+name: Compile Firmware
+on:
+  - push
+  - pull_request
+
+jobs:
+  compile-sketches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      # See: https://github.com/arduino/compile-sketches#readme
+      - name: Compile sketches
+        uses: arduino/compile-sketches@v1
+        with:
+          enable-deltas-report: true
+          fqbn: arduino:avr:mega
+          libraries: |
+            - name: Bounce2
+            - name: Encoder
+            - name: EncoderButton
+            - name: MIDI_Library 
+            - name: MCUFRIEND_kbv
+            - name: Adafruit_TouchScreen
+            - name: Adafruit_BusIO
+            - name: Adafruit_GFX_Library
+            - name: GUIslice
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: sketches-reports
+          path: sketches-reports
+      - name: Report size deltas 
+        uses: arduino/report-size-deltas@v1

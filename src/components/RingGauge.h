@@ -5,8 +5,8 @@
 #include "../enums/FontEnums.h"
 #include "../references/UIGlobalRefs.h"
 #include "GUIslice.h"
-#include "elem/XRingGauge.h"
 #include "Text.h"
+#include "elem/XRingGauge.h"
 
 typedef struct RingGaugeProps {
     GuiContext context;
@@ -42,7 +42,7 @@ RingGaugeElements createRingGauge(RingGaugeProps props)
         .label = createText({
             .context = props.context,
             .id = props.label_id,
-            .position = (gslc_tsRect){props.position.x, props.position.y + 50, 50, 10},
+            .position = (gslc_tsRect) { props.position.x, props.position.y + 50, 50, 10 },
             .text = props.label,
             .font = NULL,
             .align = TextAlign::CENTER,
