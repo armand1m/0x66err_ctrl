@@ -3,7 +3,8 @@
 
 #include "../context/GuiContext.h"
 #include "../enums/FontEnums.h"
-#include "../references/ExternComponents.h"
+#include "../state/UIState.h"
+#include "Box.h"
 
 typedef struct XYMapProps {
     GuiContext context;
@@ -39,10 +40,13 @@ gslc_tsElemRef* createXYMap(XYMapProps props)
 {
     gslc_tsGui* gui = props.context.gui;
 
-    gslc_tsElemRef* instance = gslc_ElemCreateBox(gui, props.id, props.context.page, props.position);
-    gslc_ElemSetClickEn(gui, instance, true);
-    gslc_ElemSetTouchFunc(gui, instance, props.on_touch);
-
+    gslc_tsElemRef* instance = createBox({
+      .context = props.context,
+      .id = props.id,
+      .position = props.position,
+      .on_touch = props.on_touch,
+    });
+    
     renderXYMapLines({
         .context = props.context,
         .bounds = props.position,
