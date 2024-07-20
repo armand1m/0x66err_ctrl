@@ -6,6 +6,7 @@
 
 #include "../constants/MaxElements.h"
 #include "../enums/FontEnums.h"
+#include "XYMapState.h"
 #include "elem/XRingGauge.h"
 #include "elem/XSlider.h"
 #include "elem/XTogglebtn.h"
@@ -34,8 +35,9 @@ gslc_tsXSlider SliderState4;
 gslc_tsXSlider SliderState5;
 gslc_tsXSlider SliderState6;
 gslc_tsXSlider SliderState7;
-
-int16_t xyMapCurrentX = 240;
-int16_t xyMapCurrentY = 175;
+XYMapState XyMapState1 = {
+    .x = 240,
+    .y = 175,
+};
 
 #endif // _UISTATE_H_

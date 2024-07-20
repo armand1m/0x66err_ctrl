@@ -21,7 +21,7 @@ typedef struct XYMapLinesProps {
     bool erase;
 } XYMapLinesProps;
 
-void renderXYMapLines(XYMapLinesProps props)
+void render_xymap_lines(XYMapLinesProps props)
 {
     gslc_tsGui* gui = props.context.gui;
 
@@ -32,8 +32,8 @@ void renderXYMapLines(XYMapLinesProps props)
 
     gslc_tsColor color = props.erase ? GSLC_COL_BLACK : props.color;
 
-    gslc_DrawLine(gui, x_start_limit, xyMapCurrentY, x_end_limit, xyMapCurrentY, color);
-    gslc_DrawLine(gui, xyMapCurrentX, y_start_limit, xyMapCurrentX, y_end_limit, color);
+    gslc_DrawLine(gui, x_start_limit, XyMapState1.y, x_end_limit, XyMapState1.y, color);
+    gslc_DrawLine(gui, XyMapState1.x, y_start_limit, XyMapState1.x, y_end_limit, color);
 }
 
 gslc_tsElemRef* createXYMap(XYMapProps props)
@@ -47,7 +47,7 @@ gslc_tsElemRef* createXYMap(XYMapProps props)
         .on_touch = props.on_touch,
     });
 
-    renderXYMapLines({
+    render_xymap_lines({
         .context = props.context,
         .bounds = props.position,
         .color = props.color,

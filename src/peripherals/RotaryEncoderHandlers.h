@@ -34,11 +34,11 @@ void on_encoder_spin(EncoderButton& encoder)
         .value = encoder.position(),
     });
 
-    int controlValue = encoder.position();
-    int controlNumber = knob_midi_cc[encoder.userId()];
+    int control_value = encoder.position();
+    int control_number = knob_midi_cc[encoder.userId()];
     int channel = 1;
 
-    send_midi_cc(controlNumber, controlValue, channel);
+    send_midi_cc(control_number, control_value, channel);
 }
 
 #endif // ROTARY_ENCODER_HANDLERS_H

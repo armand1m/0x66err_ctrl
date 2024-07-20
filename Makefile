@@ -1,21 +1,73 @@
-# Define the format target
-.PHONY: format
-format:
-	@echo "Running clang-format on all header files..."
-	@find . -type d \( -name "tooling" \) -prune -o -name "*.h" -print | xargs clang-format -i -style=WebKit
+# Define the board type, port, and FQBN (Fully Qualified Board Name)
+BOARD_FQBN = arduino:avr:mega
 
-# Add other targets as needed
-.PHONY: all
-all: format
-	@echo "Building project..."
-	# Add your build commands here
+# Change this to your Arduino port
+PORT = /dev/cu.usbmodem2143101  
 
-.PHONY: clean
+# Set your desired baud rate
+BAUD = 115200  
+
+# Project directories and files
+SRC_DIR = .
+BUILD_DIR = build
+LIB_DIR = libraries
+
+# Change this to your main .ino file
+SKETCH = $(SRC_DIR)/0x66err_ctrl.ino  
+
+# Libraries to include (you can add more libraries as needed)
+EXTERNAL_LIBRARIES = "Bounce2" "Encoder" "EncoderButton" "MIDI Library" "MCUFRIEND_kbv" "Adafruit TouchScreen" "Adafruit BusIO" "Adafruit GFX Library"
+
+# Arduino CLI command
+ARDUINO_CLI = arduino-cli
+
+# Ignore directories when running clang-format
+IGNORE_DIRS := ./tooling ./libraries
+
+.PHONY: all build upload clean format serial
+
+# Helper function to build the ignore pattern for find
+define build_ignore_pattern
+$(foreach dir,$(IGNORE_DIRS),-path $(dir) -prune -o)
+endef
+
+# Default target: build and upload
+all: build upload
+
+# Build the project
+build: 
+	@echo "Installing libraries..."
+	@$(ARDUINO_CLI) lib install $(EXTERNAL_LIBRARIES)
+	@echo "Building the project..."
+	@$(ARDUINO_CLI) compile --fqbn $(BOARD_FQBN) --build-path $(BUILD_DIR) --libraries $(LIB_DIR) $(SKETCH)
+
+# Upload the project to the board
+upload:
+	@echo "Uploading to the board..."
+	@$(ARDUINO_CLI) upload -p $(PORT) --fqbn $(BOARD_FQBN) $(SKETCH)
+
+# Clean build files
 clean:
-	@echo "Cleaning up..."
-	# Add your clean commands here
+	@echo "Cleaning build files..."
+	@rm -rf $(BUILD_DIR)/*
 
-.PHONY: test
-test:
-	@echo "Running tests..."
-	# Add your test commands here
+# Additional targets for convenience
+install_libs:
+	@echo "Installing libraries..."
+	@$(ARDUINO_CLI) lib install $(EXTERNAL_LIBRARIES)
+
+list_boards:
+	@$(ARDUINO_CLI) board list
+
+list_cores:
+	@$(ARDUINO_CLI) core list
+
+# Format the code
+format:
+	@echo "Running clang-format on all files, ignoring $(IGNORE_DIRS)..."
+	@find . $(call build_ignore_pattern) -name "*.h" -exec clang-format -i -style=WebKit {} +
+
+# Open serial monitor using screen
+serial:
+	@echo "Opening serial monitor on port $(PORT) with baud rate $(BAUD)..."
+	@TERM=vt100 screen $(PORT) $(BAUD)

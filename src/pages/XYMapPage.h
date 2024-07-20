@@ -39,14 +39,14 @@ bool on_back_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch to
 bool on_sendx_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t nX, int16_t nY)
 {
-    send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(xyMapCurrentX), 1);
+    send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(XyMapState1.x), 1);
     return true;
 }
 
 bool on_sendy_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t nX, int16_t nY)
 {
-    send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(xyMapCurrentY), 1);
+    send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(XyMapState1.y), 1);
     return true;
 }
 
@@ -62,21 +62,21 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     nX = clamp(nX, x_start_limit, x_end_limit);
     nY = clamp(nY, y_start_limit, y_end_limit);
 
-    renderXYMapLines({ .context = xymap_page_context,
+    render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
         .erase = true });
 
-    xyMapCurrentX = nX;
-    xyMapCurrentY = nY;
+    XyMapState1.x = nX;
+    XyMapState1.y = nY;
 
-    renderXYMapLines({ .context = xymap_page_context,
+    render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
         .erase = false });
 
-    send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(xyMapCurrentX), 1);
-    send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(xyMapCurrentY), 1);
+    send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(XyMapState1.x), 1);
+    send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(XyMapState1.y), 1);
 
     return true;
 }

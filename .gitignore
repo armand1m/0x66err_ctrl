@@ -1,1 +1,2 @@
-./tooling/GUISliceProjects/gui_backup/*
+tooling/GUISliceProjects/gui_backup/*
+build/*

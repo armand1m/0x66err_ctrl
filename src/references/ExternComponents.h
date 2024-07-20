@@ -1,6 +1,7 @@
 #ifndef EXTERNSLICE_H
 #define EXTERNSLICE_H
 
+#include "../state/XYMapState.h"
 #include <GUIslice.h>
 
 extern gslc_tsElemRef* AppHeader;
@@ -30,11 +31,10 @@ extern gslc_tsElemRef* EqSlider4;
 extern gslc_tsElemRef* EqSlider5;
 extern gslc_tsElemRef* EqSlider6;
 extern gslc_tsElemRef* EqSlider7;
-extern gslc_tsElemRef* m_pElemToggle1;
-extern gslc_tsElemRef* m_pElemToggle2;
-extern gslc_tsElemRef* m_pElemToggle3;
-extern gslc_tsElemRef* m_pElemToggle4;
-extern int16_t xyMapCurrentY;
-extern int16_t xyMapCurrentX;
+extern gslc_tsElemRef* Toggle1;
+extern gslc_tsElemRef* Toggle2;
+extern gslc_tsElemRef* Toggle3;
+extern gslc_tsElemRef* Toggle4;
+extern XYMapState XyMapState1;
 
 #endif // EXTERNSLICE_H

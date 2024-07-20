@@ -34,6 +34,47 @@ In the future, it might include some drumpads as well based on Adafruit Trellis.
 - [4 Rotary encoders](https://www.amazon.nl/WayinTop-Roterende-Encoder-Module-Drukknop/dp/B07T3672VK)
 - [Arduino Mega 2560 R3](https://store.arduino.cc/products/arduino-mega-2560-rev3)
 
+## Building
+
+This project comes with a `Makefile` that helps a lot with managing and building the firmware. 
+
+### Setup 
+
+**Important:** Make sure you have `clang-format` and `arduino-cli` installed in the host.
+
+You probably will need to change the `PORT` in the `Makefile` to match the device in your host. 
+
+You can use `make list_boards` to list the available connected ports.
+
+Once that is all in place, you can use the commands:
+
+```sh
+# will build the firmware
+make build
+
+# will upload the firmware
+make upload
+
+# will do both by default
+make
+```
+
+It also offers other utilities
+
+```sh
+# will format the whole code
+make format
+
+# will install all external dependencies
+make install_libs
+
+# will clean the build folder
+make clean
+
+# will connect and render serial messages (make sure to set the correct PORT and BAUD rate)
+make serial
+```
+
 ## Libraries
 
 ### UI and Touchscreen Events
