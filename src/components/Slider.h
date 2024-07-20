@@ -5,16 +5,24 @@
 #include "../enums/FontEnums.h"
 #include "GUIslice.h"
 #include "elem/XSlider.h"
+#include "Text.h"
 
-struct SliderProps {
+typedef struct SliderProps {
     GuiContext context;
     int16_t id;
     gslc_tsRect position;
+    char * label;
+    int16_t label_id;
     gslc_tsXSlider* state;
-    bool (*callback)(void* pvGui, void* pvElemRef, int16_t nPos);
-};
+    GSLC_CB_XSLIDER_POS on_change;
+} SliderProps;
 
-gslc_tsElemRef* createSlider(SliderProps props)
+typedef struct SliderElements {
+    gslc_tsElemRef* slider;
+    gslc_tsElemRef* label;
+} SliderElements;
+
+SliderElements createSlider(SliderProps props)
 {
     gslc_tsGui* gui = props.context.gui;
 
@@ -23,9 +31,24 @@ gslc_tsElemRef* createSlider(SliderProps props)
 
     gslc_ElemXSliderSetStyle(gui, instance, false, GSLC_COL_BLUE, 10, 5,
         GSLC_COL_RED_DK1);
-    gslc_ElemXSliderSetPosFunc(gui, instance, props.callback);
+    gslc_ElemXSliderSetPosFunc(gui, instance, props.on_change);
 
-    return instance;
+    SliderElements elements = {
+        .slider = instance,
+        .label = createText({
+            .context = props.context,
+            .id = props.label_id,
+            .position = {
+                .x = props.position.x,
+                .y = props.position.y + 167,
+                .w = props.position.w + 10,
+                .h = props.position.h - 152,
+            },
+            .text = props.label,
+        }),
+    };
+
+    return elements;
 }
 
 #endif // SLIDER_H

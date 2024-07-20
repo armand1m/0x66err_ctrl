@@ -6,16 +6,24 @@
 #include "../references/UIGlobalRefs.h"
 #include "GUIslice.h"
 #include "elem/XRingGauge.h"
+#include "Text.h"
 
 typedef struct RingGaugeProps {
     GuiContext context;
     int16_t id;
     gslc_tsRect position;
     char* ring_text;
+    char* label;
+    int16_t label_id;
     gslc_tsXRingGauge* state;
 } RingGaugeProps;
 
-gslc_tsElemRef* createRingGauge(RingGaugeProps props)
+typedef struct RingGaugeElements {
+    gslc_tsElemRef* ring_gauge;
+    gslc_tsElemRef* label;
+} RingGaugeElements;
+
+RingGaugeElements createRingGauge(RingGaugeProps props)
 {
     gslc_tsGui* gui = props.context.gui;
     gslc_tsElemRef* instance = gslc_ElemXRingGaugeCreate(
@@ -29,7 +37,19 @@ gslc_tsElemRef* createRingGauge(RingGaugeProps props)
     gslc_ElemXRingGaugeSetColorInactive(gui, instance, GSLC_COL_GRAY);
     gslc_ElemSetTxtCol(gui, instance, GSLC_COL_WHITE);
 
-    return instance;
+    RingGaugeElements elements = {
+        .ring_gauge = instance,
+        .label = createText({
+            .context = props.context,
+            .id = props.label_id,
+            .position = (gslc_tsRect){props.position.x, props.position.y + 50, 50, 10},
+            .text = props.label,
+            .font = NULL,
+            .align = TextAlign::CENTER,
+        }),
+    };
+
+    return elements;
 }
 
 typedef struct UpdateRingGaugeProps {
