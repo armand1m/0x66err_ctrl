@@ -13,45 +13,41 @@
 
 GuiContext xymap_page_context = { .gui = &m_gui, .page = E_PG_XYMAP };
 gslc_tsRect xymap_position = { 10, 40, 460, 270 };
-
-int16_t x_start_limit = xymap_position.x + 2;
-int16_t x_end_limit = xymap_position.w + 8;
-int16_t y_start_limit = xymap_position.y + 2;
-int16_t y_end_limit = xymap_position.h + 38;
+XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
 long map_x_to_midi_cc(int16_t x)
 {
-    return map(x, x_start_limit, x_end_limit, 0, 136);
+    return map(x, bounds.x_start, bounds.x_end, 0, 136);
 }
 
 long map_y_to_midi_cc(int16_t y)
 {
-    return map(y, y_start_limit, y_end_limit, 125, -21);
+    return map(y, bounds.y_start, bounds.y_end, 125, -21);
 }
 
 bool on_back_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t nX, int16_t nY)
+    int16_t _touch_x, int16_t _touch_y)
 {
     gslc_SetPageCur(&m_gui, E_PG_MAIN);
     return true;
 }
 
 bool on_sendx_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t nX, int16_t nY)
+    int16_t _touch_x, int16_t _touch_y)
 {
     send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(XyMapState1.x), 1);
     return true;
 }
 
 bool on_sendy_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t nX, int16_t nY)
+    int16_t _touch_x, int16_t _touch_y)
 {
     send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(XyMapState1.y), 1);
     return true;
 }
 
 bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t nX, int16_t nY)
+    int16_t touch_x, int16_t touch_y)
 {
     bool should_capture_event = touch_event == GSLC_TOUCH_DOWN_IN || touch_event == GSLC_TOUCH_MOVE_IN || touch_event == GSLC_TOUCH_UP_IN;
 
@@ -59,16 +55,16 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
         return true;
     }
 
-    nX = clamp(nX, x_start_limit, x_end_limit);
-    nY = clamp(nY, y_start_limit, y_end_limit);
+    touch_x = clamp(touch_x, bounds.x_start, bounds.x_end);
+    touch_y = clamp(touch_y, bounds.y_start, bounds.y_end);
 
     render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
         .erase = true });
 
-    XyMapState1.x = nX;
-    XyMapState1.y = nY;
+    XyMapState1.x = touch_x;
+    XyMapState1.y = touch_y;
 
     render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,

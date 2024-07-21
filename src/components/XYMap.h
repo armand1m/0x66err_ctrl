@@ -21,19 +21,31 @@ typedef struct XYMapLinesProps {
     bool erase;
 } XYMapLinesProps;
 
+typedef struct XYMapLineBounds {
+    int16_t x_start;
+    int16_t x_end;
+    int16_t y_start;
+    int16_t y_end;
+} XYMapLineBounds;
+
+XYMapLineBounds create_xymap_line_bounds(gslc_tsRect rect)
+{
+    return {
+        .x_start = rect.x + 2,
+        .x_end = rect.w + 8,
+        .y_start = rect.y + 2,
+        .y_end = rect.h + 38,
+    };
+}
+
 void render_xymap_lines(XYMapLinesProps props)
 {
     gslc_tsGui* gui = props.context.gui;
-
-    int16_t x_start_limit = props.bounds.x + 2;
-    int16_t x_end_limit = props.bounds.w + 8;
-    int16_t y_start_limit = props.bounds.y + 2;
-    int16_t y_end_limit = props.bounds.h + 38;
-
     gslc_tsColor color = props.erase ? GSLC_COL_BLACK : props.color;
+    XYMapLineBounds bounds = create_xymap_line_bounds(props.bounds);
 
-    gslc_DrawLine(gui, x_start_limit, XyMapState1.y, x_end_limit, XyMapState1.y, color);
-    gslc_DrawLine(gui, XyMapState1.x, y_start_limit, XyMapState1.x, y_end_limit, color);
+    gslc_DrawLine(gui, bounds.x_start, XyMapState1.y, bounds.x_end, XyMapState1.y, color);
+    gslc_DrawLine(gui, XyMapState1.x, bounds.y_start, XyMapState1.x, bounds.y_end, color);
 }
 
 gslc_tsElemRef* createXYMap(XYMapProps props)

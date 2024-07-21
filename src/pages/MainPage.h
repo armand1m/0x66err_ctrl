@@ -20,14 +20,14 @@
 GuiContext mainpage_context = { .gui = &m_gui, .page = E_PG_MAIN };
 
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t nX, int16_t nY)
+    int16_t _touch_x, int16_t _touch_y)
 {
     gslc_SetPageCur(&m_gui, E_PG_XYMAP);
     return true;
 }
 
 bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t nX, int16_t nY)
+    int16_t _touch_x, int16_t _touch_y)
 {
     gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
     gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);

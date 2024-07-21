@@ -10,6 +10,7 @@ typedef enum {
     TOP_LEFT,
     CENTER,
 } TextAlign;
+
 struct TextProps {
     GuiContext context;
     int16_t id;

@@ -49,6 +49,7 @@ ToggleElements createToggle(ToggleProps props)
 
     return elements;
 }
+
 typedef struct UpdateToggleStateProps {
     gslc_tsGui* gui;
     gslc_tsElemRef* element;
