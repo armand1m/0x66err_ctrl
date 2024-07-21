@@ -1,5 +1,5 @@
 // Define this flag when building the firmware before flashing HIDUINO
-// #define HIDUINO
+#define HIDUINO 1
 
 #include "src/Loggers.h"
 #include "src/UI.h"
@@ -11,10 +11,7 @@
 
 void setup()
 {
-#ifndef HIDUINO
     gslc_InitDebug(&DebugOut);
-#endif
-
     midi_transport_begin();
     render();
     setup_encoders(encoders, on_encoder_spin, on_encoder_click);
@@ -22,6 +19,7 @@ void setup()
 
 void loop()
 {
-    gslc_Update(&m_gui);
+    midiSerial.read();
+    gslc_Update(&gui_global);
     update_encoders(encoders);
 }

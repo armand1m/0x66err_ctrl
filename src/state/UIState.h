@@ -11,14 +11,21 @@
 #include "elem/XSlider.h"
 #include "elem/XTogglebtn.h"
 
-gslc_tsGui m_gui;
-gslc_tsDriver m_drv;
-gslc_tsFont m_asFont[MAX_FONT];
-gslc_tsPage m_asPage[MAX_PAGE];
-gslc_tsElem m_asPage1Elem[MAX_ELEM_PG_MAIN_RAM];
-gslc_tsElemRef m_asPage1ElemRef[MAX_ELEM_PG_MAIN];
-gslc_tsElem m_asPage2Elem[MAX_ELEM_PG_XYMAP_RAM];
-gslc_tsElemRef m_asPage2ElemRef[MAX_ELEM_PG_XYMAP];
+#define CONCAT(base, arg) base##arg
+#define CONCAT3(base, arg1, arg2) base##arg1##arg2
+
+#define CREATE_PAGE_REFS(page_id, ref)                                       \
+    gslc_tsElem CONCAT(ref, PageElem)[CONCAT3(MAX_ELEM_PG_, page_id, _RAM)]; \
+    gslc_tsElemRef CONCAT(ref, PageElemRef)[CONCAT(MAX_ELEM_PG_, page_id)];
+
+gslc_tsGui gui_global;
+gslc_tsDriver gui_driver;
+gslc_tsFont FontStore[MAX_FONT];
+gslc_tsPage PageStore[MAX_PAGE];
+
+CREATE_PAGE_REFS(MAIN, Main);
+CREATE_PAGE_REFS(XYMAP, XYMap);
+CREATE_PAGE_REFS(DEBUG, Debug);
 
 gslc_tsXRingGauge RingGaugeState1;
 gslc_tsXRingGauge RingGaugeState2;

@@ -2,6 +2,8 @@
 #define UIGLOBALREFS_H
 
 #include "../enums/ComponentEnums.h"
+#include "../midi/CCMaps.h"
+#include "../peripherals/RotaryEncoders.h"
 #include "ExternComponents.h"
 
 gslc_tsElemRef* AppHeader = NULL;
@@ -33,6 +35,76 @@ gslc_tsElemRef* Toggle3 = NULL;
 gslc_tsElemRef* Toggle4 = NULL;
 gslc_tsElemRef* SendXMidiMsg = NULL;
 gslc_tsElemRef* SendYMidiMsg = NULL;
+gslc_tsElemRef* DebugText = NULL;
+
+EncoderButton get_encoder_by_cc_number(int cc_number)
+{
+    switch (cc_number) {
+    case KNOB_CC_1:
+        return encoders[0];
+    case KNOB_CC_2:
+        return encoders[1];
+    case KNOB_CC_3:
+        return encoders[2];
+    case KNOB_CC_4:
+        return encoders[3];
+    default:
+        return NULL;
+    }
+}
+gslc_tsElemRef* get_toggle_by_cc_number(int cc_number)
+{
+    switch (cc_number) {
+    case TOGGLE_CC_1:
+        return Toggle1;
+    case TOGGLE_CC_2:
+        return Toggle2;
+    case TOGGLE_CC_3:
+        return Toggle3;
+    case TOGGLE_CC_4:
+        return Toggle4;
+    default:
+        return NULL;
+    }
+}
+
+gslc_tsElemRef* get_slider_by_cc_number(int cc_number)
+{
+    switch (cc_number) {
+    case SLIDER_CC_1:
+        return EqSlider1;
+    case SLIDER_CC_2:
+        return EqSlider2;
+    case SLIDER_CC_3:
+        return EqSlider3;
+    case SLIDER_CC_4:
+        return EqSlider4;
+    case SLIDER_CC_5:
+        return EqSlider5;
+    case SLIDER_CC_6:
+        return EqSlider6;
+    case SLIDER_CC_7:
+        return EqSlider7;
+    default:
+        return NULL;
+    }
+}
+
+gslc_tsElemRef* get_gauge_by_cc_number(int cc_number)
+{
+    switch (cc_number) {
+    case KNOB_CC_1:
+        return KnobGauge1;
+    case KNOB_CC_2:
+        return KnobGauge2;
+    case KNOB_CC_3:
+        return KnobGauge3;
+    case KNOB_CC_4:
+        return KnobGauge4;
+    default:
+        return NULL;
+    }
+}
 
 gslc_tsElemRef* get_gauge_ref_by_encoder_id(int encoderId)
 {

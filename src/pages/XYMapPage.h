@@ -11,7 +11,7 @@
 #include "../state/UIState.h"
 #include "../utils/clamp.h"
 
-GuiContext xymap_page_context = { .gui = &m_gui, .page = E_PG_XYMAP };
+GuiContext xymap_page_context = { .gui = &gui_global, .page = E_PG_XYMAP };
 gslc_tsRect xymap_position = { 10, 40, 460, 270 };
 XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
@@ -28,7 +28,7 @@ long map_y_to_midi_cc(int16_t y)
 bool on_back_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    gslc_SetPageCur(&m_gui, E_PG_MAIN);
+    gslc_SetPageCur(&gui_global, E_PG_MAIN);
     return true;
 }
 

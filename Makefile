@@ -5,7 +5,7 @@ BOARD_FQBN = arduino:avr:mega
 PORT = /dev/cu.usbmodem2143101  
 
 # Set your desired baud rate
-BAUD = 115200  
+BAUD = 31250  
 
 # Project directories and files
 SRC_DIR = .
@@ -16,7 +16,7 @@ LIB_DIR = libraries
 SKETCH = $(SRC_DIR)/0x66err_ctrl.ino  
 
 # Libraries to include (you can add more libraries as needed)
-EXTERNAL_LIBRARIES = "Bounce2" "Encoder" "EncoderButton" "MIDI Library" "MCUFRIEND_kbv" "Adafruit TouchScreen" "Adafruit BusIO" "Adafruit GFX Library"
+EXTERNAL_LIBRARIES = "Bounce2" "Encoder" "MIDI Library" "MCUFRIEND_kbv" "Adafruit TouchScreen" "Adafruit BusIO" "Adafruit GFX Library"
 
 # Arduino CLI command
 ARDUINO_CLI = arduino-cli
@@ -56,9 +56,11 @@ install_libs:
 	@echo "Installing libraries..."
 	@$(ARDUINO_CLI) lib install $(EXTERNAL_LIBRARIES)
 
+# List all available boards and cores
 list_boards:
 	@$(ARDUINO_CLI) board list
 
+# List all available cores
 list_cores:
 	@$(ARDUINO_CLI) core list
 
@@ -71,3 +73,18 @@ format:
 serial:
 	@echo "Opening serial monitor on port $(PORT) with baud rate $(BAUD)..."
 	@TERM=vt100 screen $(PORT) $(BAUD)
+
+# Stop the serial monitor
+stop_serial:
+	@echo "Stopping serial monitor..."
+	@killall screen
+
+# flash the HIDUINO firmware into the atmega16u2
+flash_hiduino:
+	@echo "Changing directory to ./tooling/hiduino and running flashmidi.sh..."
+	@cd ./tooling/hiduino && ./flashmidi.sh
+
+# flash the original firmware back into the atmega16u2
+flash_original:
+	@echo "Changing directory to ./tooling/hiduino and running flashoriginal.sh..."
+	@cd ./tooling/hiduino && ./flashoriginal.sh

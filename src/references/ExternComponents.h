@@ -35,6 +35,7 @@ extern gslc_tsElemRef* Toggle1;
 extern gslc_tsElemRef* Toggle2;
 extern gslc_tsElemRef* Toggle3;
 extern gslc_tsElemRef* Toggle4;
+extern gslc_tsElemRef* DebugText;
 extern XYMapState XyMapState1;
 
 #endif // EXTERNSLICE_H

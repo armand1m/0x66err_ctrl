@@ -17,12 +17,12 @@
 #include "../references/UIGlobalRefs.h"
 #include "../state/UIState.h"
 
-GuiContext mainpage_context = { .gui = &m_gui, .page = E_PG_MAIN };
+GuiContext mainpage_context = { .gui = &gui_global, .page = E_PG_MAIN };
 
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    gslc_SetPageCur(&m_gui, E_PG_XYMAP);
+    gslc_SetPageCur(&gui_global, E_PG_XYMAP);
     return true;
 }
 
@@ -36,7 +36,7 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     int index = get_cc_index_by_element_id(element->nId);
 
     if (touch_event == GSLC_TOUCH_UP_IN) {
-        if (gslc_ElemXTogglebtnGetState(&m_gui, element_ref)) {
+        if (gslc_ElemXTogglebtnGetState(&gui_global, element_ref)) {
             send_midi_cc(toggle_midi_cc[index], 127, 1);
         } else {
             send_midi_cc(toggle_midi_cc[index], 0, 1);
@@ -53,11 +53,11 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
     int index = get_cc_index_by_element_id(element->nId);
 
-    int controlNumber = slider_midi_cc[index];
-    int controlValue = map(slider_position, 0, 100, 127, 0);
+    int control_number = slider_midi_cc[index];
+    int control_value = map(slider_position, 0, 100, 127, 0);
     int channel = 1;
 
-    send_midi_cc(controlNumber, controlValue, channel);
+    send_midi_cc(control_number, control_value, channel);
 
     return true;
 }

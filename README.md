@@ -18,6 +18,7 @@ In the future, it might include some drumpads as well based on Adafruit Trellis.
 - [x] 4 rotary encoders for knob control 
 - [x] multi page control
 - [x] touchscreen XY map for Autofilter control _(x being frequency and y being resonance)_
+- [x] receives MIDI messages
 
 ### Future:
 

@@ -50,6 +50,18 @@ ToggleElements createToggle(ToggleProps props)
     return elements;
 }
 
+typedef struct SetToggleStateProps {
+    gslc_tsGui* gui;
+    gslc_tsElemRef* element;
+    bool value;
+} SetToggleStateProps;
+
+bool set_toggle_state(SetToggleStateProps props)
+{
+    gslc_ElemXTogglebtnSetState(props.gui, props.element, props.value);
+    return props.value;
+}
+
 typedef struct UpdateToggleStateProps {
     gslc_tsGui* gui;
     gslc_tsElemRef* element;
@@ -57,9 +69,12 @@ typedef struct UpdateToggleStateProps {
 
 bool switch_toggle_state(UpdateToggleStateProps props)
 {
-    bool state = !gslc_ElemXTogglebtnGetState(props.gui, props.element);
-    gslc_ElemXTogglebtnSetState(props.gui, props.element, state);
-    return state;
+    bool new_value = !gslc_ElemXTogglebtnGetState(props.gui, props.element);
+    return set_toggle_state({
+        .gui = props.gui,
+        .element = props.element,
+        .value = new_value,
+    });
 }
 
 #endif // TOGGLE_H

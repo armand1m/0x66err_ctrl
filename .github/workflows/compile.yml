@@ -20,12 +20,14 @@ jobs:
           libraries: |
             - name: Bounce2
             - name: Encoder
-            - name: EncoderButton
             - name: MIDI Library 
             - name: MCUFRIEND_kbv
             - name: Adafruit TouchScreen
             - name: Adafruit BusIO
             - name: Adafruit GFX Library
+            - name: EncoderButton
+              source-path: ./libraries/EncoderButton
+              destination-name: EncoderButton
             - name: GUIslice
               source-path: ./libraries/GUIslice
               destination-name: GUIslice

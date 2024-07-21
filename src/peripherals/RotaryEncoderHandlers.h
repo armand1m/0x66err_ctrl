@@ -15,7 +15,7 @@ void on_encoder_click(EncoderButton& encoder)
     int index = encoder.userId();
     gslc_tsElemRef* element = get_toggle_ref_by_encoder_id(index);
 
-    if (switch_toggle_state({ .gui = &m_gui, .element = element })) {
+    if (switch_toggle_state({ .gui = &gui_global, .element = element })) {
         return send_midi_cc(toggle_midi_cc[index], 127, 1);
     }
 
@@ -29,7 +29,7 @@ void on_encoder_spin(EncoderButton& encoder)
     gslc_tsElemRef* element = get_gauge_ref_by_encoder_id(encoder.userId());
 
     update_ring_gauge({
-        .gui = &m_gui,
+        .gui = &gui_global,
         .element = element,
         .value = encoder.position(),
     });
