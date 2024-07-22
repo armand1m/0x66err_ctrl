@@ -73,11 +73,12 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
         .color = col })
 
 #define gauge(index, gauge_label)                                                     \
+    static char CONCAT(ring_gauge_text_, index)[XRING_STR_MAX] = "0";                 \
     RingGaugeElements CONCAT(ring_gauge_, index) = createRingGauge((RingGaugeProps) { \
         .context = mainpage_context,                                                  \
         .id = CONCAT(E_ELEM_RINGGAUGE, index),                                        \
         .position = { 15 + (60 * (index - 1)), 50, 45, 45 },                          \
-        .ring_text = "0",                                                             \
+        .ring_text = CONCAT(ring_gauge_text_, index),                                 \
         .label = gauge_label,                                                         \
         .label_id = CONCAT(E_ELEM_KNOB_, index),                                      \
         .state = CONCAT(&RingGaugeState, index) });                                   \

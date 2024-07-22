@@ -26,16 +26,17 @@ void on_encoder_spin(EncoderButton& encoder)
 {
     limit_encoder_positions(encoder);
 
-    gslc_tsElemRef* element = get_gauge_ref_by_encoder_id(encoder.userId());
+    int id = encoder.userId();
+    gslc_tsElemRef* element = get_gauge_ref_by_encoder_id(id);
 
     update_ring_gauge({
-        .gui = &gui_global,
-        .element = element,
-        .value = encoder.position(),
+        &gui_global,
+        element,
+        encoder.position(),
     });
 
     int control_value = encoder.position();
-    int control_number = knob_midi_cc[encoder.userId()];
+    int control_number = knob_midi_cc[id];
     int channel = 1;
 
     send_midi_cc(control_number, control_value, channel);

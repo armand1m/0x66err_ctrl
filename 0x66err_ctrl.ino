@@ -11,15 +11,15 @@
 
 void setup()
 {
-    gslc_InitDebug(&DebugOut);
     midi_transport_begin();
-    render();
+    debug_user_interface();
+    setup_user_interface();
     setup_encoders(encoders, on_encoder_spin, on_encoder_click);
 }
 
 void loop()
 {
     midiSerial.read();
-    gslc_Update(&gui_global);
+    update_user_interface();
     update_encoders(encoders);
 }

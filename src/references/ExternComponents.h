@@ -1,7 +1,6 @@
 #ifndef EXTERNSLICE_H
 #define EXTERNSLICE_H
 
-#include "../state/XYMapState.h"
 #include <GUIslice.h>
 
 extern gslc_tsElemRef* AppHeader;
@@ -36,6 +35,5 @@ extern gslc_tsElemRef* Toggle2;
 extern gslc_tsElemRef* Toggle3;
 extern gslc_tsElemRef* Toggle4;
 extern gslc_tsElemRef* DebugText;
-extern XYMapState XyMapState1;
 
 #endif // EXTERNSLICE_H

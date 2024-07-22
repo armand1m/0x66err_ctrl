@@ -10,12 +10,10 @@
 
 #include <Adafruit_GFX.h>
 
-#define CONCAT(base, arg) base##arg
-#define CONCAT3(base, arg1, arg2) base##arg1##arg2
+#include "pages/Pages.h"
 
-#include "pages/DebugPage.h"
-#include "pages/MainPage.h"
-#include "pages/XYMapPage.h"
+#define update_user_interface() gslc_Update(&gui_global);
+#define debug_user_interface() gslc_InitDebug(&DebugOut);
 
 // GUIslice debug function definition
 static int16_t DebugOut(char ch)
@@ -43,39 +41,13 @@ bool setup_fonts()
     return builtin20x32_font_loaded && builtin5x8_font_loaded;
 }
 
-#define register_page(page_id, ref)           \
-    gslc_PageAdd(&gui_global,                 \
-        CONCAT(E_PG_, page_id),               \
-        CONCAT(ref, Elem),                    \
-        CONCAT3(MAX_ELEM_PG_, page_id, _RAM), \
-        CONCAT(ref, ElemRef),                 \
-        CONCAT(MAX_ELEM_PG_, page_id));
-
-void register_pages()
-{
-    register_page(MAIN, MainPage);
-    register_page(XYMAP, XYMapPage);
-    register_page(DEBUG, DebugPage);
-}
-
-void set_main_page(int16_t page_id) { gslc_SetPageCur(&gui_global, page_id); }
-void set_background_color(gslc_tsColor color)
-{
-    gslc_SetBkgndColor(&gui_global, color);
-}
-
-void render()
+void setup_user_interface()
 {
     if (!initialize() || !setup_fonts()) {
         return;
     }
 
-    register_pages();
-    set_main_page(E_PG_MAIN);
-    set_background_color(GSLC_COL_BLACK);
-    render_main_page();
-    render_xy_map_page();
-    render_debug_page();
+    setup_pages();
 }
 
 #endif // end UI_H

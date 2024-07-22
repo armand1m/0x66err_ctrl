@@ -162,11 +162,12 @@ void EncoderButton::useQuadPrecision(bool prec) { positionDivider = (prec?1:4); 
 void EncoderButton::resetPosition(long pos) {
   if (pos == 0) {
     encoder->readAndReset();
+    encoderPosition = 0;
   } else {
     encoder->write(pos*positionDivider);
+    encoderPosition = pos;
   }
 
-  encoderPosition = pos;
   currentPosition = pos;
 }
 

@@ -28,13 +28,15 @@ RingGaugeElements createRingGauge(RingGaugeProps props)
     gslc_tsGui* gui = props.context.gui;
     gslc_tsElemRef* instance = gslc_ElemXRingGaugeCreate(
         gui, props.id, props.context.page, props.state, props.position,
-        props.ring_text, 11, E_BUILTIN5X8);
+        props.ring_text, XRING_STR_MAX, E_BUILTIN5X8);
 
     gslc_ElemXRingGaugeSetValRange(gui, instance, 0, 100);
     gslc_ElemXRingGaugeSetVal(gui, instance, 0);
     gslc_ElemXRingGaugeSetAngleRange(gui, instance, 0, 360, 0);
     gslc_ElemXRingGaugeSetColorActiveFlat(gui, instance, GSLC_COL_RED_DK1);
     gslc_ElemXRingGaugeSetColorInactive(gui, instance, GSLC_COL_GRAY);
+    // gslc_ElemXRingGaugeSetQuality(gui, instance, 360);
+    // gslc_ElemXRingGaugeSetThickness(gui, instance, 10);
     gslc_ElemSetTxtCol(gui, instance, GSLC_COL_WHITE);
 
     RingGaugeElements elements = {
@@ -60,12 +62,11 @@ typedef struct UpdateRingGaugeProps {
 
 void update_ring_gauge(UpdateRingGaugeProps props)
 {
-    char knob_gauge_str[10];
+    char ring_text[XRING_STR_MAX];
     long rendered_position = map(props.value, 0, 127, 0, 100);
-    snprintf(knob_gauge_str, sizeof(knob_gauge_str), "%ld", rendered_position);
-
+    snprintf(ring_text, XRING_STR_MAX, "%ld", rendered_position);
     gslc_ElemXRingGaugeSetVal(props.gui, props.element, rendered_position);
-    gslc_ElemSetTxtStr(props.gui, props.element, knob_gauge_str);
+    gslc_ElemSetTxtStr(props.gui, props.element, ring_text);
 }
 
 #endif // RINGGAUGEPROPS_H

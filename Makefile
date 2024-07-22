@@ -32,7 +32,7 @@ $(foreach dir,$(IGNORE_DIRS),-path $(dir) -prune -o)
 endef
 
 # Default target: build and upload
-all: build upload
+all: clean format build upload
 
 # Build the project
 build: 
