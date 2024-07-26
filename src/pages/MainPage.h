@@ -36,11 +36,8 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     int index = get_cc_index_by_element_id(element->nId);
 
     if (touch_event == GSLC_TOUCH_UP_IN) {
-        if (gslc_ElemXTogglebtnGetState(&gui_global, element_ref)) {
-            send_midi_cc(toggle_midi_cc[index], 127, 1);
-        } else {
-            send_midi_cc(toggle_midi_cc[index], 0, 1);
-        }
+        int value = get_toggle_state(element_ref) ? 127 : 0;
+        send_midi_cc(toggle_midi_cc[index], value, active_channel_state.channel);
     }
 
     return true;
@@ -55,9 +52,39 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
 
     int control_number = slider_midi_cc[index];
     int control_value = map(slider_position, 0, 100, 127, 0);
-    int channel = 1;
 
-    send_midi_cc(control_number, control_value, channel);
+    send_midi_cc(control_number, control_value, active_channel_state.channel);
+
+    return true;
+}
+
+bool on_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
+    int16_t _touch_x, int16_t _touch_y)
+{
+    gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
+    gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
+    gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
+
+    if (touch_event == GSLC_TOUCH_UP_IN) {
+        active_channel_state.channel = get_channel_number_by_element_id(element->nId);
+
+        // deactivate old channel button
+        toggle_button_active({
+            .context = mainpage_context,
+            .element = active_channel_state.active_element,
+            .active = false,
+        });
+
+        // replace active element with new channel button
+        active_channel_state.active_element = element_ref;
+
+        // activate new channel button
+        toggle_button_active({
+            .context = mainpage_context,
+            .element = element_ref,
+            .active = true,
+        });
+    }
 
     return true;
 }
@@ -99,12 +126,20 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
 #define slider(index, slider_label)                                                     \
     SliderElements CONCAT(slider_, index) = createSlider({ .context = mainpage_context, \
         .id = CONCAT(E_ELEM_SLIDER, index),                                             \
-        .position = { 140 + (50 * (index - 1)), 130, 20, 160 },                         \
+        .position = { 140 + (50 * (index - 1)), 130, 20, 140 },                         \
         .label = slider_label,                                                          \
         .label_id = CONCAT(EQ_SLIDER_TEXT_, index),                                     \
         .state = CONCAT(&SliderState, index),                                           \
         .on_change = &on_slide_change });                                               \
     CONCAT(EqSlider, index) = CONCAT(slider_, index).slider;
+
+#define channel_button(index, channel_label)                   \
+    createButton({ .context = mainpage_context,                \
+        .id = CONCAT(E_ELEM_BTN_CHANNEL_, index),              \
+        .position = { 50 + (100 * (index - 1)), 295, 80, 20 }, \
+        .text = channel_label,                                 \
+        .on_press = &on_channel_toggle,                        \
+        .is_active = active_channel_state.channel == index });
 
 void render_header()
 {
@@ -116,13 +151,12 @@ void render_header()
         .text = "0x66err_ctrl",
         .font = &big_text });
 
-    XyMapButton = createButton({
-        .context = mainpage_context,
+    XyMapButton = createButton({ .context = mainpage_context,
         .id = E_ELEM_XYMAP_BTN,
         .position = { 15, 10, 80, 20 },
         .text = "XY MAP",
         .on_press = &on_xymap_button_press,
-    });
+        .is_active = false });
 
     quote(1, "Cause everyone's too scared to heal", &GSLC_COL_WHITE);
     quote(2, "They don't give a fuck how they feel", &GSLC_COL_WHITE);
@@ -135,6 +169,12 @@ void render_header()
 void render_main_page()
 {
     render_header();
+
+    active_channel_state.channel = 1;
+    active_channel_state.active_element = channel_button(1, "Channel 1");
+    channel_button(2, "Channel 2");
+    // channel_button(3, "Channel 3");
+    // channel_button(4, "Channel 4");
 
     gauge(1, "Gain");
     gauge(2, "Low");

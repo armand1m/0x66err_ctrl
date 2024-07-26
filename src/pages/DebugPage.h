@@ -25,13 +25,12 @@ void render_debug_page()
         .position = { 30, 30, 300, 300 },
         .text = "debug text goes here" });
 
-    createButton({
-        .context = debug_page_context,
+    createButton({ .context = debug_page_context,
         .id = E_ELEM_BTN_BACKHOME_DEBUG,
         .position = { 10, 10, 80, 20 },
         .text = "Back",
         .on_press = &on_backhome_press,
-    });
+        .is_active = false });
 }
 
 #endif // DEBUG_PAGE_H

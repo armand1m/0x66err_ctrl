@@ -16,7 +16,7 @@ void on_encoder_click(EncoderButton& encoder)
     gslc_tsElemRef* element = get_toggle_ref_by_encoder_id(index);
 
     if (switch_toggle_state({ .gui = &gui_global, .element = element })) {
-        return send_midi_cc(toggle_midi_cc[index], 127, 1);
+        return send_midi_cc(toggle_midi_cc[index], 127, active_channel_state.channel);
     }
 
     send_midi_cc(toggle_midi_cc[index], 0, 1);
@@ -37,9 +37,8 @@ void on_encoder_spin(EncoderButton& encoder)
 
     int control_value = encoder.position();
     int control_number = knob_midi_cc[id];
-    int channel = 1;
 
-    send_midi_cc(control_number, control_value, channel);
+    send_midi_cc(control_number, control_value, active_channel_state.channel);
 }
 
 #endif // ROTARY_ENCODER_HANDLERS_H

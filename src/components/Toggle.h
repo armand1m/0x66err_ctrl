@@ -38,8 +38,8 @@ ToggleElements createToggle(ToggleProps props)
             .position = {
                 .x = props.position.x + 40,
                 .y = props.position.y + 7,
-                .w = props.position.w + 7,
-                .h = props.position.h - 12,
+                .w = 42,
+                .h = 8,
             },
             .text = props.label,
             .font = NULL,
@@ -76,5 +76,7 @@ bool switch_toggle_state(UpdateToggleStateProps props)
         .value = new_value,
     });
 }
+
+#define get_toggle_state(element) gslc_ElemXTogglebtnGetState(&gui_global, element)
 
 #endif // TOGGLE_H

@@ -6,6 +6,7 @@
 
 #include "../constants/MaxElements.h"
 #include "../enums/FontEnums.h"
+#include "ActiveChannelState.h"
 #include "XYMapState.h"
 #include "elem/XRingGauge.h"
 #include "elem/XSlider.h"
@@ -46,5 +47,6 @@ XYMapState XyMapState1 = {
     .x = 240,
     .y = 175,
 };
+ActiveChannelState active_channel_state;
 
 #endif // _UISTATE_H_

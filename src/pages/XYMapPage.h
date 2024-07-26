@@ -85,6 +85,7 @@ void render_xy_map_page()
         .position = { 15, 10, 80, 20 },
         .text = "Back",
         .on_press = &on_back_press,
+        .is_active = false,
     });
 
     SendXMidiMsg = createButton({
@@ -93,6 +94,7 @@ void render_xy_map_page()
         .position = { 300, 10, 80, 20 },
         .text = "Send X",
         .on_press = &on_sendx_press,
+        .is_active = false,
     });
 
     SendYMidiMsg = createButton({
@@ -101,6 +103,7 @@ void render_xy_map_page()
         .position = { 390, 10, 80, 20 },
         .text = "Send Y",
         .on_press = &on_sendy_press,
+        .is_active = false,
     });
 
     XyMapBox = createXYMap({

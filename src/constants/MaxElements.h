@@ -3,7 +3,7 @@
 
 #define MAX_PAGE 3
 
-#define MAX_ELEM_PG_MAIN 38 // # Elems total on page
+#define MAX_ELEM_PG_MAIN 40 // # Elems total on page
 #define MAX_ELEM_PG_MAIN_RAM MAX_ELEM_PG_MAIN // # Elems in RAM
 
 #define MAX_ELEM_PG_XYMAP 6 // # Elems total on page

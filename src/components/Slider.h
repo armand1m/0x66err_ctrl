@@ -40,9 +40,9 @@ SliderElements createSlider(SliderProps props)
             .id = props.label_id,
             .position = {
                 .x = props.position.x,
-                .y = props.position.y + 167,
-                .w = props.position.w + 10,
-                .h = props.position.h - 152,
+                .y = props.position.y + 144,
+                .w = 30,
+                .h = 8,
             },
             .text = props.label,
         }),
