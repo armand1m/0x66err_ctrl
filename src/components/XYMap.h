@@ -3,7 +3,7 @@
 
 #include "../context/GuiContext.h"
 #include "../enums/FontEnums.h"
-#include "../state/UIState.h"
+#include "../state/XYMapState.h"
 #include "Box.h"
 
 typedef struct XYMapProps {
@@ -18,6 +18,7 @@ typedef struct XYMapLinesProps {
     GuiContext context;
     gslc_tsRect bounds;
     gslc_tsColor color;
+    XYMapState state;
     bool erase;
 } XYMapLinesProps;
 
@@ -44,8 +45,8 @@ void render_xymap_lines(XYMapLinesProps props)
     gslc_tsColor color = props.erase ? GSLC_COL_BLACK : props.color;
     XYMapLineBounds bounds = create_xymap_line_bounds(props.bounds);
 
-    gslc_DrawLine(gui, bounds.x_start, XyMapState1.y, bounds.x_end, XyMapState1.y, color);
-    gslc_DrawLine(gui, XyMapState1.x, bounds.y_start, XyMapState1.x, bounds.y_end, color);
+    gslc_DrawLine(gui, bounds.x_start, props.state.y, bounds.x_end, props.state.y, color);
+    gslc_DrawLine(gui, props.state.x, bounds.y_start, props.state.x, bounds.y_end, color);
 }
 
 gslc_tsElemRef* createXYMap(XYMapProps props)

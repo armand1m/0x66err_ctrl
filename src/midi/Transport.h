@@ -67,8 +67,6 @@ void handleSysEx(byte* data, unsigned length)
         snprintf(byteStr, sizeof(byteStr), "%02X ", data[i]);
         strcat(receivedMessage, byteStr);
     }
-
-    gslc_ElemSetTxtStr(&gui_global, DebugText, receivedMessage);
 }
 
 void setup_midi_handlers()

@@ -17,7 +17,7 @@ GuiContext xymap_page_context = { .gui = &gui_global, .page = E_PG_XYMAP };
 gslc_tsRect xymap_position = { 10, 40, 460, 230 };
 XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
-#define map_x_to_midi_cc(x) map(x, bounds.x_start, bounds.x_end, 0, 136)
+#define map_x_to_midi_cc(x) map(x, bounds.x_start, bounds.x_end, 0, 133)
 #define map_y_to_midi_cc(y) map(y, bounds.y_start, bounds.y_end, 125, -21)
 
 bool on_back_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
@@ -56,6 +56,7 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
+        .state = XyMapState1,
         .erase = true });
 
     XyMapState1.x = touch_x;
@@ -64,6 +65,7 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
+        .state = XyMapState1,
         .erase = false });
 
     send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), xymap_channel_state.channel);

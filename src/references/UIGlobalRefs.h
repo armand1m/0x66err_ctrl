@@ -35,7 +35,6 @@ gslc_tsElemRef* Toggle3 = NULL;
 gslc_tsElemRef* Toggle4 = NULL;
 gslc_tsElemRef* SendXMidiMsg = NULL;
 gslc_tsElemRef* SendYMidiMsg = NULL;
-gslc_tsElemRef* DebugText = NULL;
 
 int get_channel_number_by_element_id(int16_t element_id)
 {

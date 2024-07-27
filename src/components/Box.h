@@ -2,7 +2,6 @@
 #define BOX_H
 
 #include "../context/GuiContext.h"
-#include "GUIslice.h"
 
 typedef struct BoxProps {
     GuiContext context;

@@ -1,6 +1,9 @@
 #ifndef UI_H
 #define UI_H
 
+#define DBG_TOUCH
+#define DBG_FRAME_RATE
+
 #include "GUIslice.h"
 #include "GUIslice_drv.h"
 
