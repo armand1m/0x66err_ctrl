@@ -30,14 +30,14 @@ bool on_back_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch to
 bool on_sendx_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), active_channel_state.channel);
+    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), xymap_channel_state.channel);
     return true;
 }
 
 bool on_sendy_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), active_channel_state.channel);
+    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), xymap_channel_state.channel);
     return true;
 }
 
@@ -66,16 +66,49 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
         .color = GSLC_COL_GRAY_LT2,
         .erase = false });
 
-    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), active_channel_state.channel);
-    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), active_channel_state.channel);
+    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), xymap_channel_state.channel);
+    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), xymap_channel_state.channel);
+
+    return true;
+}
+
+bool on_xymap_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
+    int16_t _touch_x, int16_t _touch_y)
+{
+    gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
+    gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
+    gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
+
+    if (touch_event == GSLC_TOUCH_UP_IN) {
+        xymap_channel_state.channel = get_channel_number_by_element_id(element->nId);
+
+        // deactivate old channel button
+        toggle_button_active({
+            .context = xymap_page_context,
+            .element = xymap_channel_state.active_element,
+            .active = false,
+        });
+
+        // replace active element with new channel button
+        xymap_channel_state.active_element = element_ref;
+
+        // activate new channel button
+        toggle_button_active({
+            .context = xymap_page_context,
+            .element = xymap_channel_state.active_element,
+            .active = true,
+        });
+    }
 
     return true;
 }
 
 void render_xy_map_page()
 {
-    render_channel_toggle({
+    xymap_channel_state = render_channel_toggle({
         .context = xymap_page_context,
+        .state = xymap_channel_state,
+        .on_toggle = &on_xymap_channel_toggle,
         .channelid_1 = E_ELEM_XYMAP_BTN_CHANNEL_1,
         .channelid_2 = E_ELEM_XYMAP_BTN_CHANNEL_2,
         .channelid_3 = E_ELEM_XYMAP_BTN_CHANNEL_3,
@@ -109,13 +142,13 @@ void render_xy_map_page()
         .is_active = false,
     });
 
-    XyMapBox = createXYMap({
-        .context = xymap_page_context,
-        .id = E_ELEM_XYMAP_BOX,
-        .position = xymap_position,
-        .on_touch = &on_xymap_touch,
-        .color = GSLC_COL_GRAY_LT2,
-    });
+    // XyMapBox = createXYMap({
+    //     .context = xymap_page_context,
+    //     .id = E_ELEM_XYMAP_BOX,
+    //     .position = xymap_position,
+    //     .on_touch = &on_xymap_touch,
+    //     .color = GSLC_COL_GRAY_LT2,
+    // });
 }
 
 #endif // XYMAPPAGE_H

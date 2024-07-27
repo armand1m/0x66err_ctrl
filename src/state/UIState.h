@@ -46,6 +46,7 @@ XYMapState XyMapState1 = {
     .x = 240,
     .y = 175,
 };
-ActiveChannelState active_channel_state;
+ActiveChannelState mainpage_channel_state;
+ActiveChannelState xymap_channel_state;
 
 #endif // _UISTATE_H_
