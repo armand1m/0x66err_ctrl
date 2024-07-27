@@ -59,13 +59,6 @@ gslc_tsElemRef* createXYMap(XYMapProps props)
         .on_touch = props.on_touch,
     });
 
-    render_xymap_lines({
-        .context = props.context,
-        .bounds = props.position,
-        .color = props.color,
-        .erase = false,
-    });
-
     return instance;
 }
 

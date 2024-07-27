@@ -4,6 +4,7 @@
 #define CONCAT(arg1, arg2) arg1##arg2
 
 #include "../components/Button.h"
+#include "../components/ChannelToggle.h"
 #include "../components/RingGauge.h"
 #include "../components/Slider.h"
 #include "../components/Text.h"
@@ -16,13 +17,14 @@
 #include "../references/ExternComponents.h"
 #include "../references/UIGlobalRefs.h"
 #include "../state/UIState.h"
+#include "PageHandlers.h"
 
 GuiContext mainpage_context = { .gui = &gui_global, .page = E_PG_MAIN };
 
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    gslc_SetPageCur(&gui_global, E_PG_XYMAP);
+    set_current_page(E_PG_XYMAP);
     return true;
 }
 
@@ -32,7 +34,6 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
     gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
     gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
-
     int index = get_cc_index_by_element_id(element->nId);
 
     if (touch_event == GSLC_TOUCH_UP_IN) {
@@ -54,37 +55,6 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     int control_value = map(slider_position, 0, 100, 127, 0);
 
     send_midi_cc(control_number, control_value, active_channel_state.channel);
-
-    return true;
-}
-
-bool on_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
-    int16_t _touch_x, int16_t _touch_y)
-{
-    gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
-    gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
-    gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
-
-    if (touch_event == GSLC_TOUCH_UP_IN) {
-        active_channel_state.channel = get_channel_number_by_element_id(element->nId);
-
-        // deactivate old channel button
-        toggle_button_active({
-            .context = mainpage_context,
-            .element = active_channel_state.active_element,
-            .active = false,
-        });
-
-        // replace active element with new channel button
-        active_channel_state.active_element = element_ref;
-
-        // activate new channel button
-        toggle_button_active({
-            .context = mainpage_context,
-            .element = element_ref,
-            .active = true,
-        });
-    }
 
     return true;
 }
@@ -133,14 +103,6 @@ bool on_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_teTouc
         .on_change = &on_slide_change });                                               \
     CONCAT(EqSlider, index) = CONCAT(slider_, index).slider;
 
-#define channel_button(index, channel_label)                   \
-    createButton({ .context = mainpage_context,                \
-        .id = CONCAT(E_ELEM_BTN_CHANNEL_, index),              \
-        .position = { 50 + (100 * (index - 1)), 295, 80, 20 }, \
-        .text = channel_label,                                 \
-        .on_press = &on_channel_toggle,                        \
-        .is_active = active_channel_state.channel == index });
-
 void render_header()
 {
     int16_t big_text = E_BUILTIN20X32;
@@ -169,12 +131,13 @@ void render_header()
 void render_main_page()
 {
     render_header();
-
-    active_channel_state.channel = 1;
-    active_channel_state.active_element = channel_button(1, "Channel 1");
-    channel_button(2, "Channel 2");
-    // channel_button(3, "Channel 3");
-    // channel_button(4, "Channel 4");
+    render_channel_toggle({
+        .context = mainpage_context,
+        .channelid_1 = E_ELEM_BTN_CHANNEL_1,
+        .channelid_2 = E_ELEM_BTN_CHANNEL_2,
+        .channelid_3 = E_ELEM_BTN_CHANNEL_3,
+        .channelid_4 = E_ELEM_BTN_CHANNEL_4,
+    });
 
     gauge(1, "Gain");
     gauge(2, "Low");

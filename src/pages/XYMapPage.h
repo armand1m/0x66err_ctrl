@@ -2,6 +2,7 @@
 #define XYMAPPAGE_H
 
 #include "../components/Button.h"
+#include "../components/ChannelToggle.h"
 #include "../components/XYMap.h"
 #include "../enums/ComponentEnums.h"
 #include "../enums/PageEnums.h"
@@ -10,39 +11,33 @@
 #include "../references/ExternComponents.h"
 #include "../state/UIState.h"
 #include "../utils/clamp.h"
+#include "PageHandlers.h"
 
 GuiContext xymap_page_context = { .gui = &gui_global, .page = E_PG_XYMAP };
-gslc_tsRect xymap_position = { 10, 40, 460, 270 };
+gslc_tsRect xymap_position = { 10, 40, 460, 230 };
 XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
-long map_x_to_midi_cc(int16_t x)
-{
-    return map(x, bounds.x_start, bounds.x_end, 0, 136);
-}
-
-long map_y_to_midi_cc(int16_t y)
-{
-    return map(y, bounds.y_start, bounds.y_end, 125, -21);
-}
+#define map_x_to_midi_cc(x) map(x, bounds.x_start, bounds.x_end, 0, 136)
+#define map_y_to_midi_cc(y) map(y, bounds.y_start, bounds.y_end, 125, -21)
 
 bool on_back_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    gslc_SetPageCur(&gui_global, E_PG_MAIN);
+    set_current_page(E_PG_MAIN);
     return true;
 }
 
 bool on_sendx_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(XyMapState1.x), 1);
+    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), active_channel_state.channel);
     return true;
 }
 
 bool on_sendy_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(XyMapState1.y), 1);
+    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), active_channel_state.channel);
     return true;
 }
 
@@ -71,14 +66,22 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
         .color = GSLC_COL_GRAY_LT2,
         .erase = false });
 
-    send_midi_cc(xy_map_midi_cc[0], map_x_to_midi_cc(XyMapState1.x), 1);
-    send_midi_cc(xy_map_midi_cc[1], map_y_to_midi_cc(XyMapState1.y), 1);
+    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), active_channel_state.channel);
+    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), active_channel_state.channel);
 
     return true;
 }
 
 void render_xy_map_page()
 {
+    render_channel_toggle({
+        .context = xymap_page_context,
+        .channelid_1 = E_ELEM_XYMAP_BTN_CHANNEL_1,
+        .channelid_2 = E_ELEM_XYMAP_BTN_CHANNEL_2,
+        .channelid_3 = E_ELEM_XYMAP_BTN_CHANNEL_3,
+        .channelid_4 = E_ELEM_XYMAP_BTN_CHANNEL_4,
+    });
+
     BackHomeButton = createButton({
         .context = xymap_page_context,
         .id = E_ELEM_BTN_BACKHOME,
@@ -108,7 +111,7 @@ void render_xy_map_page()
 
     XyMapBox = createXYMap({
         .context = xymap_page_context,
-        .id = E_ELEM_BOX1,
+        .id = E_ELEM_XYMAP_BOX,
         .position = xymap_position,
         .on_touch = &on_xymap_touch,
         .color = GSLC_COL_GRAY_LT2,

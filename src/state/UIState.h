@@ -26,7 +26,6 @@ gslc_tsPage PageStore[MAX_PAGE];
 
 CREATE_PAGE_REFS(MAIN, Main);
 CREATE_PAGE_REFS(XYMAP, XYMap);
-CREATE_PAGE_REFS(DEBUG, Debug);
 
 gslc_tsXRingGauge RingGaugeState1;
 gslc_tsXRingGauge RingGaugeState2;

@@ -48,6 +48,14 @@ int get_channel_number_by_element_id(int16_t element_id)
         return 3;
     case E_ELEM_BTN_CHANNEL_4:
         return 4;
+    case E_ELEM_XYMAP_BTN_CHANNEL_1:
+        return 1;
+    case E_ELEM_XYMAP_BTN_CHANNEL_2:
+        return 2;
+    case E_ELEM_XYMAP_BTN_CHANNEL_3:
+        return 3;
+    case E_ELEM_XYMAP_BTN_CHANNEL_4:
+        return 4;
     default:
         return -1;
     }
