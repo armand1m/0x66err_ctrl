@@ -19,15 +19,12 @@
 #include "../state/UIState.h"
 #include "PageHandlers.h"
 
-GuiContext mainpage_context = { .gui = &gui_global, .page = E_PG_MAIN };
+GuiContext mainpage_context = { .gui = &gui_global, .page = Pages::E_PG_MAIN };
 
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    if (touch_event != gslc_teTouch::GSLC_TOUCH_UP_IN) {
-        return true;
-    }
-
+    __on_touch_only();
     set_current_page(E_PG_XYMAP);
     return true;
 }
@@ -35,61 +32,49 @@ bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_te
 bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
-    gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
-    gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
-    int index = get_cc_index_by_element_id(element->nId);
-
-    if (touch_event == GSLC_TOUCH_UP_IN) {
-        int value = get_toggle_state(element_ref) ? 127 : 0;
-        send_midi_cc(toggle_midi_cc[index], value, mainpage_channel_state.channel);
-    }
-
+    __on_touch_only();
+    __resolve_gui_context();
+    int index = get_cc_index_by_element_id(element_id);
+    int control_number = toggle_midi_cc[index];
+    int control_value = get_toggle_state(element_ref) ? 127 : 0;
+    send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
     return true;
 }
 
 bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slider_position)
 {
-    gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
-    gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
-    gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
-    int index = get_cc_index_by_element_id(element->nId);
-
+    __resolve_gui_context();
+    int index = get_cc_index_by_element_id(element_id);
     int control_number = slider_midi_cc[index];
     int control_value = map(slider_position, 0, 100, 127, 0);
-
     send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
-
     return true;
 }
 
 bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
-    gslc_tsGui* gui = (gslc_tsGui*)(gui_pointer);
-    gslc_tsElemRef* element_ref = (gslc_tsElemRef*)(element_ref_pointer);
-    gslc_tsElem* element = gslc_GetElemFromRef(gui, element_ref);
+    __on_touch_only();
+    __resolve_gui_context();
 
-    if (touch_event == GSLC_TOUCH_UP_IN) {
-        mainpage_channel_state.channel = get_channel_number_by_element_id(element->nId);
+    mainpage_channel_state.channel = get_channel_number_by_element_id(element_id);
 
-        // deactivate old channel button
-        toggle_button_active({
-            .context = mainpage_context,
-            .element = mainpage_channel_state.active_element,
-            .active = false,
-        });
+    // deactivate old channel button
+    toggle_button_active({
+        .context = mainpage_context,
+        .element = mainpage_channel_state.active_element,
+        .active = false,
+    });
 
-        // replace active element with new channel button
-        mainpage_channel_state.active_element = element_ref;
+    // replace active element with new channel button
+    mainpage_channel_state.active_element = element_ref;
 
-        // activate new channel button
-        toggle_button_active({
-            .context = mainpage_context,
-            .element = mainpage_channel_state.active_element,
-            .active = true,
-        });
-    }
+    // activate new channel button
+    toggle_button_active({
+        .context = mainpage_context,
+        .element = mainpage_channel_state.active_element,
+        .active = true,
+    });
 
     return true;
 }

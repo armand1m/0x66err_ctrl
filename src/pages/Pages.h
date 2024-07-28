@@ -13,7 +13,7 @@ void register_pages()
 
 void setup_page_defaults()
 {
-    set_current_page(E_PG_MAIN);
+    set_current_page(Pages::E_PG_MAIN);
     set_background_color(GSLC_COL_BLACK);
 }
 

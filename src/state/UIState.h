@@ -42,7 +42,7 @@ gslc_tsXSlider SliderState4;
 gslc_tsXSlider SliderState5;
 gslc_tsXSlider SliderState6;
 gslc_tsXSlider SliderState7;
-XYMapState XyMapState1;
+XYMapState XyMapState1 = { 0, 0 };
 ActiveChannelState mainpage_channel_state;
 ActiveChannelState xymap_channel_state;
 
