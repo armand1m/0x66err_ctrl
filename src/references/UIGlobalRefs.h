@@ -6,22 +6,10 @@
 #include "../peripherals/RotaryEncoders.h"
 #include "ExternComponents.h"
 
-gslc_tsElemRef* AppHeader = NULL;
-gslc_tsElemRef* BackHomeButton = NULL;
 gslc_tsElemRef* KnobGauge1 = NULL;
 gslc_tsElemRef* KnobGauge2 = NULL;
 gslc_tsElemRef* KnobGauge3 = NULL;
 gslc_tsElemRef* KnobGauge4 = NULL;
-gslc_tsElemRef* KnobGaugeText1 = NULL;
-gslc_tsElemRef* KnobGaugeText2 = NULL;
-gslc_tsElemRef* KnobGaugeText3 = NULL;
-gslc_tsElemRef* KnobGaugeText4 = NULL;
-gslc_tsElemRef* ToggleText1 = NULL;
-gslc_tsElemRef* ToggleText2 = NULL;
-gslc_tsElemRef* ToggleText3 = NULL;
-gslc_tsElemRef* ToggleText4 = NULL;
-gslc_tsElemRef* XyMapBox = NULL;
-gslc_tsElemRef* XyMapButton = NULL;
 gslc_tsElemRef* EqSlider1 = NULL;
 gslc_tsElemRef* EqSlider2 = NULL;
 gslc_tsElemRef* EqSlider3 = NULL;
@@ -33,8 +21,6 @@ gslc_tsElemRef* Toggle1 = NULL;
 gslc_tsElemRef* Toggle2 = NULL;
 gslc_tsElemRef* Toggle3 = NULL;
 gslc_tsElemRef* Toggle4 = NULL;
-gslc_tsElemRef* SendXMidiMsg = NULL;
-gslc_tsElemRef* SendYMidiMsg = NULL;
 
 int get_channel_number_by_element_id(int16_t element_id)
 {

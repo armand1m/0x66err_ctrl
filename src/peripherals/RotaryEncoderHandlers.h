@@ -24,18 +24,21 @@ void on_encoder_click(EncoderButton& encoder)
 
 void on_encoder_spin(EncoderButton& encoder)
 {
-    limit_encoder_positions(encoder);
-
     int id = encoder.userId();
     gslc_tsElemRef* element = get_gauge_ref_by_encoder_id(id);
 
-    update_ring_gauge({
-        &gui_global,
-        element,
-        encoder.position(),
-    });
+    int accelerated_value = encoder.position() + (encoder.increment() * 2);
+    encoder.resetPosition(accelerated_value);
+    limit_encoder_positions(encoder);
 
     int control_value = encoder.position();
+
+    update_ring_gauge({
+        .gui = &gui_global,
+        .element = element,
+        .value = control_value,
+    });
+
     int control_number = knob_midi_cc[id];
 
     return send_midi_cc(control_number, control_value, mainpage_channel_state.channel);

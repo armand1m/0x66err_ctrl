@@ -24,6 +24,10 @@ GuiContext mainpage_context = { .gui = &gui_global, .page = E_PG_MAIN };
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
 {
+    if (touch_event != gslc_teTouch::GSLC_TOUCH_UP_IN) {
+        return true;
+    }
+
     set_current_page(E_PG_XYMAP);
     return true;
 }
@@ -110,8 +114,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .label = gauge_label,                                                         \
         .label_id = CONCAT(E_ELEM_KNOB_, index),                                      \
         .state = CONCAT(&RingGaugeState, index) });                                   \
-    CONCAT(KnobGauge, index) = CONCAT(ring_gauge_, index).ring_gauge;                 \
-    CONCAT(KnobGaugeText, index) = CONCAT(ring_gauge_, index).label;
+    CONCAT(KnobGauge, index) = CONCAT(ring_gauge_, index).ring_gauge;
 
 #define toggle(index, toggle_label)                                                     \
     ToggleElements CONCAT(toggle_, index) = createToggle({ .context = mainpage_context, \
@@ -121,8 +124,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .label_id = CONCAT(E_ELEM_TOGGLE_TEXT_, index),                                 \
         .state = CONCAT(&ToggleState, index),                                           \
         .on_touch = &on_toggle_press });                                                \
-    CONCAT(Toggle, index) = CONCAT(toggle_, index).toggle;                              \
-    CONCAT(ToggleText, index) = CONCAT(toggle_, index).label;
+    CONCAT(Toggle, index) = CONCAT(toggle_, index).toggle;
 
 #define slider(index, slider_label)                                                     \
     SliderElements CONCAT(slider_, index) = createSlider({ .context = mainpage_context, \
@@ -138,13 +140,13 @@ void render_header()
 {
     int16_t big_text = E_BUILTIN20X32;
 
-    AppHeader = createText({ .context = mainpage_context,
+    createText({ .context = mainpage_context,
         .id = E_ELEM_APPHEADER,
         .position = { 190, 10, 285, 32 },
         .text = "0x66err_ctrl",
         .font = &big_text });
 
-    XyMapButton = createButton({ .context = mainpage_context,
+    createButton({ .context = mainpage_context,
         .id = E_ELEM_XYMAP_BTN,
         .position = { 15, 10, 80, 20 },
         .text = "XY MAP",

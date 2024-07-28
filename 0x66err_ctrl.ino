@@ -1,5 +1,5 @@
 // Define this flag when building the firmware before flashing HIDUINO
-#define HIDUINO 1
+// #define HIDUINO 1
 
 #include "src/Loggers.h"
 #include "src/UI.h"

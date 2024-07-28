@@ -4,6 +4,7 @@
 #include "../context/GuiContext.h"
 #include "../enums/FontEnums.h"
 #include "../state/XYMapState.h"
+#include "../utils/clamp.h"
 #include "Box.h"
 
 typedef struct XYMapProps {
@@ -45,14 +46,15 @@ void render_xymap_lines(XYMapLinesProps props)
     gslc_tsColor color = props.erase ? GSLC_COL_BLACK : props.color;
     XYMapLineBounds bounds = create_xymap_line_bounds(props.bounds);
 
-    gslc_DrawLine(gui, bounds.x_start, props.state.y, bounds.x_end, props.state.y, color);
-    gslc_DrawLine(gui, props.state.x, bounds.y_start, props.state.x, bounds.y_end, color);
+    int16_t adjusted_x = clamp(props.state.x + 25, bounds.x_start, bounds.x_end);
+    int16_t adjusted_y = clamp(props.state.y + 25, bounds.y_start, bounds.y_end);
+
+    gslc_DrawLine(gui, bounds.x_start, adjusted_y, bounds.x_end, adjusted_y, color);
+    gslc_DrawLine(gui, adjusted_x, bounds.y_start, adjusted_x, bounds.y_end, color);
 }
 
 gslc_tsElemRef* createXYMap(XYMapProps props)
 {
-    gslc_tsGui* gui = props.context.gui;
-
     gslc_tsElemRef* instance = createBox({
         .context = props.context,
         .id = props.id,
