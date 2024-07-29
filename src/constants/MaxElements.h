@@ -2,8 +2,8 @@
 #define MAX_ELEMENTS_H
 
 #if (GSLC_USE_PROGMEM)
-#define MAX_ELEM_PG_MAIN_PROG 19 // # Elems in Flash
-#define MAX_ELEM_PG_XYMAP_PROG 8 // # Elems in Flash
+#define MAX_ELEM_PG_MAIN_PROG 15 // # Elems in Flash
+#define MAX_ELEM_PG_XYMAP_PROG 3 // # Elems in Flash
 #else
 #define MAX_ELEM_PG_MAIN_PROG 0 // # Elems in Flash
 #define MAX_ELEM_PG_XYMAP_PROG 0 // # Elems in Flash

@@ -4,6 +4,7 @@
 #define CONCAT(arg1, arg2) arg1##arg2
 
 #include "../components/Button.h"
+#include "../components/ChannelToggle.h"
 #include "../components/RingGauge.h"
 #include "../components/Toggle.h"
 #include "../context/GuiContext.h"
@@ -91,7 +92,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
 #define toggle(index, toggle_label)                                                     \
     ToggleElements CONCAT(toggle_, index) = createToggle({ .context = mainpage_context, \
         .id = CONCAT(E_ELEM_TOGGLE, index),                                             \
-        .position = { 15, 140 + (40 * (index - 1)), 35, 20 },                           \
+        .position = { 15, 125 + (40 * (index - 1)), 35, 20 },                           \
         .label = toggle_label,                                                          \
         .label_id = CONCAT(E_ELEM_TOGGLE_TEXT_, index),                                 \
         .state = CONCAT(&ToggleState, index),                                           \
@@ -106,57 +107,57 @@ void render_header()
 
 void render_quote()
 {
-    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_1, E_PG_MAIN, 250, 60, 210, 8, "Cause everyone's too scared to heal", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
-    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_2, E_PG_MAIN, 250, 70, 210, 8, "They don't give a fuck how they feel", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
-    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_3, E_PG_MAIN, 250, 80, 210, 8, "And I don't know how to deal anymore", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
-    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_4, E_PG_MAIN, 250, 90, 210, 8, "Well maybe the damage is done", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_RED_DK1, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
-    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_5, E_PG_MAIN, 250, 100, 210, 8, "Maybe the darkness has won", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_RED_DK2, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
-    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_6, E_PG_MAIN, 250, 110, 210, 8, "And we were programmed just to suffer", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_1, E_PG_MAIN, 250, 50, 210, 8, "Cause everyone's too scared to heal", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_2, E_PG_MAIN, 250, 60, 210, 8, "They don't give a fuck how they feel", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_3, E_PG_MAIN, 250, 70, 210, 8, "And I don't know how to deal anymore", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_4, E_PG_MAIN, 250, 80, 210, 8, "Well maybe the damage is done", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_RED_DK1, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_5, E_PG_MAIN, 250, 90, 210, 8, "Maybe the darkness has won", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_RED_DK2, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_6, E_PG_MAIN, 250, 100, 210, 8, "And we were programmed just to suffer", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 }
 
 void render_slider()
 {
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER1, E_PG_MAIN, 140, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER1, E_PG_MAIN, 140, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider1 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER1);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider1, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider1, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_1, E_PG_MAIN, 140, 274, 30, 8, "65hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_1, E_PG_MAIN, 140, 264, 30, 8, "65hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER2, E_PG_MAIN, 190, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER2, E_PG_MAIN, 190, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider2 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER2);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider2, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider2, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_2, E_PG_MAIN, 190, 274, 30, 8, "125hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_2, E_PG_MAIN, 190, 264, 30, 8, "125hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER3, E_PG_MAIN, 240, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER3, E_PG_MAIN, 240, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider3 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER3);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider3, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider3, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_3, E_PG_MAIN, 240, 274, 30, 8, "250hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_3, E_PG_MAIN, 240, 264, 30, 8, "250hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER4, E_PG_MAIN, 290, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER4, E_PG_MAIN, 290, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider4 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER4);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider4, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider4, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_4, E_PG_MAIN, 290, 274, 30, 8, "500hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_4, E_PG_MAIN, 290, 264, 30, 8, "500hz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER5, E_PG_MAIN, 340, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER5, E_PG_MAIN, 340, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider5 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER5);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider5, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider5, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_5, E_PG_MAIN, 340, 274, 30, 8, "1kHz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_5, E_PG_MAIN, 340, 264, 30, 8, "1kHz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER6, E_PG_MAIN, 390, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER6, E_PG_MAIN, 390, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider6 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER6);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider6, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider6, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_6, E_PG_MAIN, 390, 274, 30, 8, "2kHz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_6, E_PG_MAIN, 390, 264, 30, 8, "2kHz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 
-    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER7, E_PG_MAIN, 440, 130, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
+    gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER7, E_PG_MAIN, 440, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider7 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER7);
     gslc_ElemXSliderSetStyle(&gui_global, EqSlider7, true, GSLC_COL_BLUE, 10, 5, GSLC_COL_RED_DK1);
     gslc_ElemXSliderSetPosFunc(&gui_global, EqSlider7, &on_slide_change);
-    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_7, E_PG_MAIN, 440, 274, 30, 8, "4kHz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
+    gslc_ElemCreateTxt_P(&gui_global, EQ_SLIDER_TEXT_7, E_PG_MAIN, 440, 264, 30, 8, "4kHz", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 }
 
 void render_toggles()
@@ -177,12 +178,15 @@ void render_gauges()
 
 void render_channel_selectors()
 {
-    mainpage_channel_state.channel = 1;
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_CHANNEL_1, E_PG_MAIN, 50, 295, 80, 20, "Channel 1", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_main_channel_toggle, NULL);
-    mainpage_channel_state.active_element = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_BTN_CHANNEL_1);
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_CHANNEL_2, E_PG_MAIN, 150, 295, 80, 20, "Channel 2", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_main_channel_toggle, NULL);
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_CHANNEL_3, E_PG_MAIN, 250, 295, 80, 20, "Channel 3", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_main_channel_toggle, NULL);
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_CHANNEL_4, E_PG_MAIN, 350, 295, 80, 20, "Channel 4", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_main_channel_toggle, NULL);
+    mainpage_channel_state = render_channel_toggle({
+        .context = mainpage_context,
+        .state = mainpage_channel_state,
+        .on_toggle = &on_main_channel_toggle,
+        .channelid_1 = E_ELEM_BTN_CHANNEL_1,
+        .channelid_2 = E_ELEM_BTN_CHANNEL_2,
+        .channelid_3 = E_ELEM_BTN_CHANNEL_3,
+        .channelid_4 = E_ELEM_BTN_CHANNEL_4,
+    });
 }
 
 void render_main_page()

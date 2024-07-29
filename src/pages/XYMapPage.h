@@ -2,6 +2,7 @@
 #define XYMAPPAGE_H
 
 #include "../components/Button.h"
+#include "../components/ChannelToggle.h"
 #include "../components/XYMap.h"
 #include "../enums/ComponentEnums.h"
 #include "../enums/PageEnums.h"
@@ -13,7 +14,7 @@
 #include "PageHandlers.h"
 
 GuiContext xymap_page_context = { .gui = &gui_global, .page = Pages::E_PG_XYMAP };
-gslc_tsRect xymap_position = { 10, 40, 460, 230 };
+gslc_tsRect xymap_position = { 10, 40, 460, 235 };
 XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
 #define map_x_to_midi_cc(x) map(x, bounds.x_start, bounds.x_end, 0, 129)
@@ -106,12 +107,15 @@ bool on_xymap_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_
 
 void render_xymap_channel_selectors()
 {
-    xymap_channel_state.channel = 1;
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_XYMAP_BTN_CHANNEL_1, E_PG_XYMAP, 50, 295, 80, 20, "Channel 1", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_xymap_channel_toggle, NULL);
-    xymap_channel_state.active_element = gslc_PageFindElemById(&gui_global, E_PG_XYMAP, E_ELEM_XYMAP_BTN_CHANNEL_1);
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_XYMAP_BTN_CHANNEL_2, E_PG_XYMAP, 150, 295, 80, 20, "Channel 2", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_xymap_channel_toggle, NULL);
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_XYMAP_BTN_CHANNEL_3, E_PG_XYMAP, 250, 295, 80, 20, "Channel 3", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_xymap_channel_toggle, NULL);
-    gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_XYMAP_BTN_CHANNEL_4, E_PG_XYMAP, 350, 295, 80, 20, "Channel 4", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_xymap_channel_toggle, NULL);
+    xymap_channel_state = render_channel_toggle({
+        .context = xymap_page_context,
+        .state = xymap_channel_state,
+        .on_toggle = &on_xymap_channel_toggle,
+        .channelid_1 = E_ELEM_XYMAP_BTN_CHANNEL_1,
+        .channelid_2 = E_ELEM_XYMAP_BTN_CHANNEL_2,
+        .channelid_3 = E_ELEM_XYMAP_BTN_CHANNEL_3,
+        .channelid_4 = E_ELEM_XYMAP_BTN_CHANNEL_4,
+    });
 }
 
 void render_top_buttons()
@@ -123,24 +127,13 @@ void render_top_buttons()
 
 void render_xymap()
 {
-    gslc_ElemCreateBox_P(
-        &gui_global,
-        E_ELEM_XYMAP_BOX,
-        Pages::E_PG_XYMAP,
-        10,
-        40,
-        460,
-        230,
-        GSLC_COL_GRAY_LT2,
-        GSLC_COL_BLACK,
-        true,
-        true,
-        NULL,
-        NULL);
-
-    gslc_tsElemRef* xymap_instance = gslc_PageFindElemById(&gui_global, E_PG_XYMAP, E_ELEM_XYMAP_BOX);
-    gslc_ElemSetClickEn(&gui_global, xymap_instance, true);
-    gslc_ElemSetTouchFunc(&gui_global, xymap_instance, &on_xymap_touch);
+    createXYMap({
+        .context = xymap_page_context,
+        .id = E_ELEM_XYMAP_BOX,
+        .position = xymap_position,
+        .on_touch = &on_xymap_touch,
+        .color = GSLC_COL_GRAY_LT2,
+    });
 }
 
 void render_xymap_page()
