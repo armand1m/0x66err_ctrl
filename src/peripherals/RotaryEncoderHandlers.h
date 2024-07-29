@@ -13,9 +13,7 @@
 void on_encoder_click(EncoderButton& encoder)
 {
     int index = encoder.userId();
-    gslc_tsElemRef* element = get_toggle_ref_by_encoder_id(index);
-
-    if (switch_toggle_state({ .gui = &gui_global, .element = element })) {
+    if (switch_toggle_state({ .gui = &gui_global, .element = get_toggle_ref_by_encoder_id(index) })) {
         return send_midi_cc(toggle_midi_cc[index], 127, mainpage_channel_state.channel);
     }
 

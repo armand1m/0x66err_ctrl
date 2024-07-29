@@ -6,6 +6,7 @@
 
 #include "../constants/MaxElements.h"
 #include "../enums/FontEnums.h"
+#include "../enums/PageEnums.h"
 #include "ActiveChannelState.h"
 #include "XYMapState.h"
 #include "elem/XRingGauge.h"
@@ -21,8 +22,8 @@
 
 gslc_tsGui gui_global;
 gslc_tsDriver gui_driver;
-gslc_tsFont FontStore[MAX_FONT];
-gslc_tsPage PageStore[MAX_PAGE];
+gslc_tsFont FontStore[Fonts::MAX_FONT];
+gslc_tsPage PageStore[Pages::MAX_PAGE];
 
 CREATE_PAGE_REFS(MAIN, Main);
 CREATE_PAGE_REFS(XYMAP, XYMap);

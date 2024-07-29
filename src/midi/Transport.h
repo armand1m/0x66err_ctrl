@@ -93,13 +93,13 @@ void midi_transport_begin()
 
 static void log_midi_cc(int controlNumber, int controlValue, int channel)
 {
-    log("Control Change: ");
-    log(String(controlNumber));
-    log(", ");
-    log(String(controlValue));
-    log(", ");
-    log(String(channel));
-    log("\n");
+    infolog("Control Change: ");
+    infolog(String(controlNumber));
+    infolog(", ");
+    infolog(String(controlValue));
+    infolog(", ");
+    infolog(String(channel));
+    infolog("\n");
 }
 
 void send_midi_cc(int controlNumber, int controlValue, int channel)

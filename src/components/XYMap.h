@@ -5,15 +5,6 @@
 #include "../enums/FontEnums.h"
 #include "../state/XYMapState.h"
 #include "../utils/clamp.h"
-#include "Box.h"
-
-typedef struct XYMapProps {
-    GuiContext context;
-    int16_t id;
-    gslc_tsRect position;
-    GSLC_CB_TOUCH on_touch;
-    gslc_tsColor color;
-} XYMapProps;
 
 typedef struct XYMapLinesProps {
     GuiContext context;
@@ -53,18 +44,6 @@ void render_xymap_lines(XYMapLinesProps props)
     gslc_DrawLine(gui, bounds.x_start, adjusted_y, bounds.x_end, adjusted_y, color);
     // vertical line
     gslc_DrawLine(gui, adjusted_x, bounds.y_start, adjusted_x, bounds.y_end, color);
-}
-
-gslc_tsElemRef* createXYMap(XYMapProps props)
-{
-    gslc_tsElemRef* instance = createBox({
-        .context = props.context,
-        .id = props.id,
-        .position = props.position,
-        .on_touch = props.on_touch,
-    });
-
-    return instance;
 }
 
 #endif // XYMAP_H

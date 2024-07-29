@@ -6,6 +6,7 @@
 #define DBG_FRAME_RATE    // Enable diagnostic frame rate reporting
 // #define DBG_DRAW_IMM      // Enable immediate rendering of drawing primitives
 #define DBG_DRIVER        // Enable graphics driver debug reporting
+#define GSLC_USE_PROGMEM 1
 
 
 // =======================================================================

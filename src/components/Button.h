@@ -23,28 +23,4 @@ void toggle_button_active(ToggleButtonActiveProps props)
         GSLC_COL_GRAY);
 }
 
-typedef struct ButtonProps {
-    GuiContext context;
-    int16_t id;
-    gslc_tsRect position;
-    char* text;
-    GSLC_CB_TOUCH on_press;
-    bool is_active;
-} ButtonProps;
-
-gslc_tsElemRef* createButton(ButtonProps props)
-{
-    gslc_tsGui* gui = props.context.gui;
-    gslc_tsElemRef* instance = gslc_ElemCreateBtnTxt(gui, props.id, props.context.page, props.position,
-        props.text, 0, E_BUILTIN5X8, props.on_press);
-
-    toggle_button_active({
-        .context = props.context,
-        .element = instance,
-        .active = props.is_active,
-    });
-
-    return instance;
-}
-
 #endif // BUTTON_H
