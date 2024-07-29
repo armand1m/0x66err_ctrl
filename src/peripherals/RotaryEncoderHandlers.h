@@ -8,7 +8,6 @@
 #include "../references/UIGlobalRefs.h"
 #include "../state/UIState.h"
 #include "RotaryEncoders.h"
-#include <EncoderButton.h>
 
 void on_encoder_click(EncoderButton& encoder)
 {

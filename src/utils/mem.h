@@ -1,5 +1,6 @@
 #ifndef MEM_H
 #define MEM_H
+#include "../Loggers.h"
 
 // Function to calculate free memory
 int availableMemory()
@@ -18,7 +19,8 @@ int availableMemory()
 void log_free_memory()
 {
 #ifndef HIDUINO
-    Serial.print(availableMemory());
+    infolog("Free memory:");
+    Serial.println(availableMemory());
 #endif
 }
 

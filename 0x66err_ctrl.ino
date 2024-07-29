@@ -1,5 +1,5 @@
 // Define this flag when building the firmware before flashing HIDUINO
-// #define HIDUINO 1
+#define HIDUINO 1
 #define GSLC_USE_PROGMEM 1
 
 #include "src/Loggers.h"
@@ -15,11 +15,9 @@ void setup()
 {
     midi_transport_begin();
     debug_user_interface();
-    infolog("Initializing...");
-    infolog("Memory before UI:");
-    log_free_memory();
     setup_user_interface();
     setup_encoders(encoders, on_encoder_spin, on_encoder_click);
+    log_free_memory();
 }
 
 void loop()

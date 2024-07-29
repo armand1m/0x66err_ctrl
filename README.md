@@ -27,18 +27,19 @@ https://github.com/armand1m/0x66err_ctrl/raw/main/assets/xymap.mp4
     - Useful for certain things like Ableton's Autofilter _(map X to the Frequency knob, and Y to the Resonance)_
 - [x] Sync MIDI messages from software to hardware
     - Changing mapped properties in Ableton will change them in the device as well.
+- [x] 4 Channel Selection for both Amp page and XYMap page
+    - You can switch between 4 midi channels individually on each page for each device.
 
 ### Next in line:
 
+- [ ] Storing settings and selections on EPROM
+- [ ] 8 rotary encoders
 - [ ] Preset selection screen
 - [ ] 4x4 drumpad physical module
-- [ ] Enable 3 amp setups and states
 
 ### Future:
 
-- [ ] 8 rotary encoders
-- [ ] 9-band EQ on Touchscreen
-- [ ] 9-band EQ physical module
+- [ ] 7-band EQ physical module
 - [ ] Momentary gates _(to enable things like killswitches)_
 
 ## Hardware
@@ -132,6 +133,21 @@ However, the code structure in the project is wrapped into my own "react-like" a
 GUIslice is forked into this repo under the `libraries/GUIslice` because it demans a selected `GUIslice_config.h` to be enabled for a build. Since I made this for my own, I forked it into the repo and added my TFT config hardcoded. 
 
 I might extract that into a different file for easy toggling, but not a priority.
+
+It also has the following flags commented which are fairly handy for debugging issues:
+
+```c
+#define DEBUG_ERR     2   // 1,2 to enable, 0 to disable
+#define DBG_LOG           // Enable debugging log output
+#define DBG_TOUCH         // Enable debugging of touch-presses
+#define DBG_FRAME_RATE    // Enable diagnostic frame rate reporting
+#define DBG_DRAW_IMM      // Enable immediate rendering of drawing primitives
+#define DBG_DRIVER        // Enable graphics driver debug reporting
+```
+
+As well as an enabled PROGMEM flag which enables rendering elements into flash memory instead of RAM, thus making the most out of such a small device as an arduino.
+
+Unfortunately, rendering those elements demands me to use the macros GUIslice made available in a static matter, so the code might not be the easiest or the most readable, but it certainly is the most performatic and memory-saving one.
 
 ### Rotary Encoders
 

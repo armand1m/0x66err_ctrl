@@ -1,11 +1,11 @@
 #ifndef _GUISLICE_CONFIG_H_
 #define _GUISLICE_CONFIG_H_
-#define DEBUG_ERR               2   // 1,2 to enable, 0 to disable
-#define DBG_LOG           // Enable debugging log output
-#define DBG_TOUCH         // Enable debugging of touch-presses
-#define DBG_FRAME_RATE    // Enable diagnostic frame rate reporting
+// #define DEBUG_ERR               2   // 1,2 to enable, 0 to disable
+// #define DBG_LOG           // Enable debugging log output
+// #define DBG_TOUCH         // Enable debugging of touch-presses
+// #define DBG_FRAME_RATE    // Enable diagnostic frame rate reporting
 // #define DBG_DRAW_IMM      // Enable immediate rendering of drawing primitives
-#define DBG_DRIVER        // Enable graphics driver debug reporting
+// #define DBG_DRIVER        // Enable graphics driver debug reporting
 #define GSLC_USE_PROGMEM 1
 
 

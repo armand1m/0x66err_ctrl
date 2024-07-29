@@ -91,6 +91,7 @@ void midi_transport_begin()
     setup_midi_handlers();
 }
 
+#ifndef HIDUINO
 static void log_midi_cc(int controlNumber, int controlValue, int channel)
 {
     infolog("Control Change: ");
@@ -101,10 +102,13 @@ static void log_midi_cc(int controlNumber, int controlValue, int channel)
     infolog(String(channel));
     infolog("\n");
 }
+#endif
 
 void send_midi_cc(int controlNumber, int controlValue, int channel)
 {
+#ifndef HIDUINO
     log_midi_cc(controlNumber, controlValue, channel);
+#endif
     midiSerial.sendControlChange(controlNumber, controlValue, channel);
 }
 

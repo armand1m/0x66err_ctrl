@@ -10,7 +10,6 @@
 #include "../references/ExternComponents.h"
 #include "../state/UIState.h"
 #include "../utils/clamp.h"
-#include "../utils/mem.h"
 #include "PageHandlers.h"
 
 GuiContext xymap_page_context = { .gui = &gui_global, .page = Pages::E_PG_XYMAP };
@@ -115,15 +114,15 @@ void render_xymap_channel_selectors()
     gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_XYMAP_BTN_CHANNEL_4, E_PG_XYMAP, 350, 295, 80, 20, "Channel 4", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_xymap_channel_toggle, NULL);
 }
 
-void render_xy_map_page()
+void render_top_buttons()
 {
-    log_free_memory();
-
-    render_xymap_channel_selectors();
     gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_BACKHOME, E_PG_XYMAP, 10, 10, 80, 20, "Back", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_back_press, NULL);
     gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_SEND_X_MSG, E_PG_XYMAP, 300, 10, 80, 20, "Send X", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_sendx_press, NULL);
     gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_SEND_Y_MSG, E_PG_XYMAP, 390, 10, 80, 20, "Send Y", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_sendy_press, NULL);
+}
 
+void render_xymap()
+{
     gslc_ElemCreateBox_P(
         &gui_global,
         E_ELEM_XYMAP_BOX,
@@ -142,8 +141,13 @@ void render_xy_map_page()
     gslc_tsElemRef* xymap_instance = gslc_PageFindElemById(&gui_global, E_PG_XYMAP, E_ELEM_XYMAP_BOX);
     gslc_ElemSetClickEn(&gui_global, xymap_instance, true);
     gslc_ElemSetTouchFunc(&gui_global, xymap_instance, &on_xymap_touch);
+}
 
-    log_free_memory();
+void render_xymap_page()
+{
+    render_xymap_channel_selectors();
+    render_top_buttons();
+    render_xymap();
 }
 
 #endif // XYMAPPAGE_H
