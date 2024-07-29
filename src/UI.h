@@ -1,6 +1,9 @@
 #ifndef UI_H
 #define UI_H
 
+#define DBG_TOUCH
+#define DBG_FRAME_RATE
+
 #include "GUIslice.h"
 #include "GUIslice_drv.h"
 
@@ -14,6 +17,7 @@
 
 #define update_user_interface() gslc_Update(&gui_global);
 #define debug_user_interface() gslc_InitDebug(&DebugOut);
+#define initialize() gslc_Init(&gui_global, &gui_driver, PageStore, MAX_PAGE, FontStore, MAX_FONT)
 
 // GUIslice debug function definition
 static int16_t DebugOut(char ch)
@@ -26,11 +30,6 @@ static int16_t DebugOut(char ch)
 #endif
 
     return 0;
-}
-
-bool initialize()
-{
-    return gslc_Init(&gui_global, &gui_driver, PageStore, MAX_PAGE, FontStore, MAX_FONT);
 }
 
 bool setup_fonts()

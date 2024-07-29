@@ -2,7 +2,7 @@
 BOARD_FQBN = arduino:avr:mega
 
 # Change this to your Arduino port
-PORT = /dev/cu.usbmodem2143101  
+PORT = /dev/cu.usbmodem1143101  
 
 # Set your desired baud rate
 BAUD = 31250  

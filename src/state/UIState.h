@@ -6,6 +6,8 @@
 
 #include "../constants/MaxElements.h"
 #include "../enums/FontEnums.h"
+#include "../enums/PageEnums.h"
+#include "ActiveChannelState.h"
 #include "XYMapState.h"
 #include "elem/XRingGauge.h"
 #include "elem/XSlider.h"
@@ -20,12 +22,11 @@
 
 gslc_tsGui gui_global;
 gslc_tsDriver gui_driver;
-gslc_tsFont FontStore[MAX_FONT];
-gslc_tsPage PageStore[MAX_PAGE];
+gslc_tsFont FontStore[Fonts::MAX_FONT];
+gslc_tsPage PageStore[Pages::MAX_PAGE];
 
 CREATE_PAGE_REFS(MAIN, Main);
 CREATE_PAGE_REFS(XYMAP, XYMap);
-CREATE_PAGE_REFS(DEBUG, Debug);
 
 gslc_tsXRingGauge RingGaugeState1;
 gslc_tsXRingGauge RingGaugeState2;
@@ -42,9 +43,8 @@ gslc_tsXSlider SliderState4;
 gslc_tsXSlider SliderState5;
 gslc_tsXSlider SliderState6;
 gslc_tsXSlider SliderState7;
-XYMapState XyMapState1 = {
-    .x = 240,
-    .y = 175,
-};
+XYMapState XyMapState1 = { 0, 0 };
+ActiveChannelState mainpage_channel_state;
+ActiveChannelState xymap_channel_state;
 
 #endif // _UISTATE_H_

@@ -67,8 +67,6 @@ void handleSysEx(byte* data, unsigned length)
         snprintf(byteStr, sizeof(byteStr), "%02X ", data[i]);
         strcat(receivedMessage, byteStr);
     }
-
-    gslc_ElemSetTxtStr(&gui_global, DebugText, receivedMessage);
 }
 
 void setup_midi_handlers()
@@ -93,20 +91,24 @@ void midi_transport_begin()
     setup_midi_handlers();
 }
 
+#ifndef HIDUINO
 static void log_midi_cc(int controlNumber, int controlValue, int channel)
 {
-    log("Control Change: ");
-    log(String(controlNumber));
-    log(", ");
-    log(String(controlValue));
-    log(", ");
-    log(String(channel));
-    log("\n");
+    infolog("Control Change: ");
+    infolog(String(controlNumber));
+    infolog(", ");
+    infolog(String(controlValue));
+    infolog(", ");
+    infolog(String(channel));
+    infolog("\n");
 }
+#endif
 
 void send_midi_cc(int controlNumber, int controlValue, int channel)
 {
+#ifndef HIDUINO
     log_midi_cc(controlNumber, controlValue, channel);
+#endif
     midiSerial.sendControlChange(controlNumber, controlValue, channel);
 }
 

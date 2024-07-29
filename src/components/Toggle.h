@@ -25,21 +25,19 @@ typedef struct ToggleElements {
 
 ToggleElements createToggle(ToggleProps props)
 {
-    gslc_tsElemRef* toggle = gslc_ElemXTogglebtnCreate(
-        props.context.gui, props.id, props.context.page, props.state,
-        props.position, GSLC_COL_GRAY, GSLC_COL_RED_DK1, GSLC_COL_GRAY_LT3, true,
-        false, props.on_touch);
-
     ToggleElements elements = {
-        .toggle = toggle,
+        .toggle = gslc_ElemXTogglebtnCreate(
+            props.context.gui, props.id, props.context.page, props.state,
+            props.position, GSLC_COL_GRAY, GSLC_COL_RED_DK1, GSLC_COL_GRAY_LT3, true,
+            false, props.on_touch),
         .label = createText({
             .context = props.context,
             .id = props.label_id,
             .position = {
                 .x = props.position.x + 40,
                 .y = props.position.y + 7,
-                .w = props.position.w + 7,
-                .h = props.position.h - 12,
+                .w = 42,
+                .h = 8,
             },
             .text = props.label,
             .font = NULL,
@@ -69,12 +67,23 @@ typedef struct UpdateToggleStateProps {
 
 bool switch_toggle_state(UpdateToggleStateProps props)
 {
-    bool new_value = !gslc_ElemXTogglebtnGetState(props.gui, props.element);
     return set_toggle_state({
         .gui = props.gui,
         .element = props.element,
-        .value = new_value,
+        .value = !gslc_ElemXTogglebtnGetState(props.gui, props.element),
     });
 }
+
+#define get_toggle_state(element) gslc_ElemXTogglebtnGetState(&gui_global, element)
+
+#define slider(index, slider_label)                                                     \
+    SliderElements CONCAT(slider_, index) = createSlider({ .context = mainpage_context, \
+        .id = CONCAT(E_ELEM_SLIDER, index),                                             \
+        .position = { 140 + (50 * (index - 1)), 130, 20, 140 },                         \
+        .label = slider_label,                                                          \
+        .label_id = CONCAT(EQ_SLIDER_TEXT_, index),                                     \
+        .state = CONCAT(&SliderState, index),                                           \
+        .on_change = &on_slide_change });                                               \
+    CONCAT(EqSlider, index) = CONCAT(slider_, index).slider;
 
 #endif // TOGGLE_H

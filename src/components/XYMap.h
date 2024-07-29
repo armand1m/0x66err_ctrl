@@ -3,7 +3,8 @@
 
 #include "../context/GuiContext.h"
 #include "../enums/FontEnums.h"
-#include "../state/UIState.h"
+#include "../state/XYMapState.h"
+#include "../utils/clamp.h"
 #include "Box.h"
 
 typedef struct XYMapProps {
@@ -18,6 +19,7 @@ typedef struct XYMapLinesProps {
     GuiContext context;
     gslc_tsRect bounds;
     gslc_tsColor color;
+    XYMapState state;
     bool erase;
 } XYMapLinesProps;
 
@@ -43,30 +45,22 @@ void render_xymap_lines(XYMapLinesProps props)
     gslc_tsGui* gui = props.context.gui;
     gslc_tsColor color = props.erase ? GSLC_COL_BLACK : props.color;
     XYMapLineBounds bounds = create_xymap_line_bounds(props.bounds);
+    int16_t adjusted_x = clamp(props.state.x + 20, bounds.x_start, bounds.x_end);
+    int16_t adjusted_y = clamp(props.state.y + 30, bounds.y_start, bounds.y_end);
 
-    gslc_DrawLine(gui, bounds.x_start, XyMapState1.y, bounds.x_end, XyMapState1.y, color);
-    gslc_DrawLine(gui, XyMapState1.x, bounds.y_start, XyMapState1.x, bounds.y_end, color);
+    // horizontal line
+    gslc_DrawLine(gui, bounds.x_start, adjusted_y, bounds.x_end, adjusted_y, color);
+    // vertical line
+    gslc_DrawLine(gui, adjusted_x, bounds.y_start, adjusted_x, bounds.y_end, color);
 }
 
 gslc_tsElemRef* createXYMap(XYMapProps props)
 {
-    gslc_tsGui* gui = props.context.gui;
-
-    gslc_tsElemRef* instance = createBox({
+    return createBox({
         .context = props.context,
         .id = props.id,
         .position = props.position,
         .on_touch = props.on_touch,
     });
-
-    render_xymap_lines({
-        .context = props.context,
-        .bounds = props.position,
-        .color = props.color,
-        .erase = false,
-    });
-
-    return instance;
 }
-
 #endif // XYMAP_H

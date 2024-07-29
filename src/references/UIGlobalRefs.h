@@ -6,22 +6,10 @@
 #include "../peripherals/RotaryEncoders.h"
 #include "ExternComponents.h"
 
-gslc_tsElemRef* AppHeader = NULL;
-gslc_tsElemRef* BackHomeButton = NULL;
 gslc_tsElemRef* KnobGauge1 = NULL;
 gslc_tsElemRef* KnobGauge2 = NULL;
 gslc_tsElemRef* KnobGauge3 = NULL;
 gslc_tsElemRef* KnobGauge4 = NULL;
-gslc_tsElemRef* KnobGaugeText1 = NULL;
-gslc_tsElemRef* KnobGaugeText2 = NULL;
-gslc_tsElemRef* KnobGaugeText3 = NULL;
-gslc_tsElemRef* KnobGaugeText4 = NULL;
-gslc_tsElemRef* ToggleText1 = NULL;
-gslc_tsElemRef* ToggleText2 = NULL;
-gslc_tsElemRef* ToggleText3 = NULL;
-gslc_tsElemRef* ToggleText4 = NULL;
-gslc_tsElemRef* XyMapBox = NULL;
-gslc_tsElemRef* XyMapButton = NULL;
 gslc_tsElemRef* EqSlider1 = NULL;
 gslc_tsElemRef* EqSlider2 = NULL;
 gslc_tsElemRef* EqSlider3 = NULL;
@@ -33,9 +21,30 @@ gslc_tsElemRef* Toggle1 = NULL;
 gslc_tsElemRef* Toggle2 = NULL;
 gslc_tsElemRef* Toggle3 = NULL;
 gslc_tsElemRef* Toggle4 = NULL;
-gslc_tsElemRef* SendXMidiMsg = NULL;
-gslc_tsElemRef* SendYMidiMsg = NULL;
-gslc_tsElemRef* DebugText = NULL;
+
+int get_channel_number_by_element_id(int16_t element_id)
+{
+    switch (element_id) {
+    case E_ELEM_BTN_CHANNEL_1:
+        return 1;
+    case E_ELEM_BTN_CHANNEL_2:
+        return 2;
+    case E_ELEM_BTN_CHANNEL_3:
+        return 3;
+    case E_ELEM_BTN_CHANNEL_4:
+        return 4;
+    case E_ELEM_XYMAP_BTN_CHANNEL_1:
+        return 1;
+    case E_ELEM_XYMAP_BTN_CHANNEL_2:
+        return 2;
+    case E_ELEM_XYMAP_BTN_CHANNEL_3:
+        return 3;
+    case E_ELEM_XYMAP_BTN_CHANNEL_4:
+        return 4;
+    default:
+        return -1;
+    }
+}
 
 EncoderButton get_encoder_by_cc_number(int cc_number)
 {
@@ -106,9 +115,9 @@ gslc_tsElemRef* get_gauge_by_cc_number(int cc_number)
     }
 }
 
-gslc_tsElemRef* get_gauge_ref_by_encoder_id(int encoderId)
+gslc_tsElemRef* get_gauge_ref_by_encoder_id(int encoder_id)
 {
-    switch (encoderId) {
+    switch (encoder_id) {
     case 0:
         return KnobGauge1;
     case 1:
@@ -122,9 +131,9 @@ gslc_tsElemRef* get_gauge_ref_by_encoder_id(int encoderId)
     }
 }
 
-gslc_tsElemRef* get_toggle_ref_by_encoder_id(int encoderId)
+gslc_tsElemRef* get_toggle_ref_by_encoder_id(int encoder_id)
 {
-    switch (encoderId) {
+    switch (encoder_id) {
     case 0:
         return Toggle1;
     case 1:
