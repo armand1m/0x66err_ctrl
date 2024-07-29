@@ -11,12 +11,12 @@
 
 void on_encoder_click(EncoderButton& encoder)
 {
-    int index = encoder.userId();
-    if (switch_toggle_state({ .gui = &gui_global, .element = get_toggle_ref_by_encoder_id(index) })) {
-        return send_midi_cc(toggle_midi_cc[index], 127, mainpage_channel_state.channel);
-    }
-
-    return send_midi_cc(toggle_midi_cc[index], 0, 1);
+    int id = encoder.userId();
+    int control_value = switch_toggle_state({ .gui = &gui_global,
+                            .element = get_toggle_ref_by_encoder_id(id) })
+        ? 127
+        : 0;
+    return send_midi_cc(toggle_midi_cc[id], control_value, mainpage_channel_state.channel);
 }
 
 void on_encoder_spin(EncoderButton& encoder)
@@ -24,8 +24,6 @@ void on_encoder_spin(EncoderButton& encoder)
     int id = encoder.userId();
     gslc_tsElemRef* element = get_gauge_ref_by_encoder_id(id);
 
-    int accelerated_value = encoder.position() + (encoder.increment() * 2);
-    encoder.resetPosition(accelerated_value);
     limit_encoder_positions(encoder);
 
     int control_value = encoder.position();
