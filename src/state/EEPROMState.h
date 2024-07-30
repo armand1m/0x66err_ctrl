@@ -41,53 +41,56 @@ typedef struct EEPROMState {
 
 EEPROMState eepromState;
 
-void save_state_to_eeprom()
+void __eeprom_save()
 {
     EEPROM.put(EEPROM_STATE_ADDR, eepromState);
 }
 
-void load_state_from_eeprom()
+void __eeprom_load()
 {
     EEPROM.get(EEPROM_STATE_ADDR, eepromState);
 }
 
-void apply_eeprom_xymap_values(int channel_state_id)
+ChannelState* __eeprom_get_channel_state(int channel_number)
 {
-    if (channel_state_id < 0 || channel_state_id >= 4) {
-        // Ensure channel is valid
+    return &eepromState.channel_states[channel_number - 1];
+}
+
+void __eeprom_render_xymap_values(int channel_number)
+{
+    if (channel_number < 1 || channel_number > 4) {
         return;
     }
 
-    ChannelState* state = &eepromState.channel_states[channel_state_id];
+    ChannelState* state = __eeprom_get_channel_state(channel_number);
 
     if (gslc_GetPageCur(&gui_global) == xymap_page_context.page) {
         render_xymap_lines({ .context = xymap_page_context,
             .bounds = xymap_position,
             .color = GSLC_COL_GRAY_LT2,
             .border_color = GSLC_COL_GRAY_DK2,
-            .state = XyMapState1,
+            .state = XyMapRenderedState,
             .erase = true });
 
-        XyMapState1.x = state->xymap_x;
-        XyMapState1.y = state->xymap_y;
+        XyMapRenderedState.x = state->xymap_x;
+        XyMapRenderedState.y = state->xymap_y;
 
         render_xymap_lines({ .context = xymap_page_context,
             .bounds = xymap_position,
             .color = GSLC_COL_GRAY_LT2,
             .border_color = GSLC_COL_GRAY_DK2,
-            .state = XyMapState1,
+            .state = XyMapRenderedState,
             .erase = false });
     }
 }
 
-void apply_eeprom_values_to_components(int channel_state_id)
+void __eeprom_update_component_values(int channel_number)
 {
-    if (channel_state_id < 0 || channel_state_id >= 4) {
-        // Ensure channel is valid
+    if (channel_number < 1 || channel_number > 4) {
         return;
     }
 
-    ChannelState* state = &eepromState.channel_states[channel_state_id];
+    ChannelState* state = __eeprom_get_channel_state(channel_number);
 
     update_ring_gauge({
         .gui = &gui_global,
@@ -154,12 +157,7 @@ void apply_eeprom_values_to_components(int channel_state_id)
     gslc_ElemXSliderSetPos(&gui_global, EqSlider7, state->slider7);
 }
 
-ChannelState* get_channel_state(int channel_id)
-{
-    return &eepromState.channel_states[channel_id - 1];
-}
-
-void __initialize_eeprom_state()
+void __eeprom_set_default_values()
 {
     for (int i = 0; i < 4; ++i) {
         ChannelState* state = &eepromState.channel_states[i];
@@ -192,10 +190,85 @@ void setup_eeprom()
 
     if (signature != EEPROM_SIGNATURE_VALUE) {
         // Signature not present, initialize EEPROM with default values
-        __initialize_eeprom_state();
+        __eeprom_set_default_values();
     } else {
         // Load the existing state
-        load_state_from_eeprom();
+        __eeprom_load();
+    }
+}
+
+void __eeprom_update_toggle_state(ChannelState* state, int element_id, bool new_value)
+{
+    switch (element_id) {
+    case E_ELEM_TOGGLE1:
+        state->toggle1 = new_value;
+        break;
+
+    case E_ELEM_TOGGLE2:
+        state->toggle2 = new_value;
+        break;
+
+    case E_ELEM_TOGGLE3:
+        state->toggle3 = new_value;
+        break;
+
+    case E_ELEM_TOGGLE4:
+        state->toggle4 = new_value;
+        break;
+    }
+}
+
+void __eeprom_update_slider_state(ChannelState* state, int element_id, int value)
+{
+    switch (element_id) {
+    case E_ELEM_SLIDER1:
+        state->slider1 = value;
+        break;
+
+    case E_ELEM_SLIDER2:
+        state->slider2 = value;
+        break;
+
+    case E_ELEM_SLIDER3:
+        state->slider3 = value;
+        break;
+
+    case E_ELEM_SLIDER4:
+        state->slider4 = value;
+        break;
+
+    case E_ELEM_SLIDER5:
+        state->slider5 = value;
+        break;
+
+    case E_ELEM_SLIDER6:
+        state->slider6 = value;
+        break;
+
+    case E_ELEM_SLIDER7:
+        state->slider7 = value;
+        break;
+    }
+}
+
+void __eeprom_update_knob_state(ChannelState* state, int element_id, int value)
+{
+    switch (element_id) {
+    case E_ELEM_RINGGAUGE1:
+        state->ring_gauge1 = value;
+        break;
+
+    case E_ELEM_RINGGAUGE2:
+        state->ring_gauge2 = value;
+        break;
+
+    case E_ELEM_RINGGAUGE3:
+        state->ring_gauge3 = value;
+        break;
+
+    case E_ELEM_RINGGAUGE4:
+        state->ring_gauge4 = value;
+        break;
     }
 }
 #endif // EEPROM_STATE_H

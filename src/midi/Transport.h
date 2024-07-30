@@ -20,34 +20,20 @@ const byte sysexRequest[] = { 0xF0, 0x00, 0x01, 0x05, 0x7F, 0xF7 }; // Example S
 
 void handle_control_change(byte channel, byte number, byte value)
 {
-    ChannelState* state = get_channel_state(mainpage_channel_state.channel);
+    ChannelState* state = __eeprom_get_channel_state(channel);
     gslc_tsElemRef* toggle = get_toggle_by_cc_number(number);
 
-    bool new_value = value > 0;
     if (toggle != NULL) {
+        bool new_value = value > 0;
         gslc_tsElem* element = gslc_GetElemFromRef(&gui_global, toggle);
-        set_toggle_state({
-            .gui = &gui_global,
-            .element = toggle,
-            .value = new_value,
-        });
+        __eeprom_update_toggle_state(state, element->nId, new_value);
 
-        switch (element->nId) {
-        case E_ELEM_TOGGLE1:
-            state->toggle1 = new_value;
-            break;
-
-        case E_ELEM_TOGGLE2:
-            state->toggle2 = new_value;
-            break;
-
-        case E_ELEM_TOGGLE3:
-            state->toggle3 = new_value;
-            break;
-
-        case E_ELEM_TOGGLE4:
-            state->toggle4 = new_value;
-            break;
+        if (mainpage_channel_state.channel == channel) {
+            set_toggle_state({
+                .gui = &gui_global,
+                .element = toggle,
+                .value = new_value,
+            });
         }
     }
 
@@ -56,40 +42,14 @@ void handle_control_change(byte channel, byte number, byte value)
     if (slider != NULL) {
         gslc_tsElem* element = gslc_GetElemFromRef(&gui_global, slider);
 
-        update_slider({
-            .gui = &gui_global,
-            .element = slider,
-            .value = value,
-        });
+        __eeprom_update_slider_state(state, element->nId, value);
 
-        switch (element->nId) {
-        case E_ELEM_SLIDER1:
-            state->slider1 = value;
-            break;
-
-        case E_ELEM_SLIDER2:
-            state->slider2 = value;
-            break;
-
-        case E_ELEM_SLIDER3:
-            state->slider3 = value;
-            break;
-
-        case E_ELEM_SLIDER4:
-            state->slider4 = value;
-            break;
-
-        case E_ELEM_SLIDER5:
-            state->slider5 = value;
-            break;
-
-        case E_ELEM_SLIDER6:
-            state->slider6 = value;
-            break;
-
-        case E_ELEM_SLIDER7:
-            state->slider7 = value;
-            break;
+        if (mainpage_channel_state.channel == channel) {
+            update_slider({
+                .gui = &gui_global,
+                .element = slider,
+                .value = value,
+            });
         }
     }
 
@@ -97,55 +57,48 @@ void handle_control_change(byte channel, byte number, byte value)
 
     if (gauge != NULL) {
         gslc_tsElem* element = gslc_GetElemFromRef(&gui_global, gauge);
-        EncoderButton encoder = get_encoder_by_cc_number(number);
-        encoder.resetPosition(value);
-        update_ring_gauge({
-            .gui = &gui_global,
-            .element = gauge,
-            .value = value,
-        });
 
-        switch (element->nId) {
-        case E_ELEM_KNOB_1:
-            state->ring_gauge1 = value;
-            break;
+        __eeprom_update_knob_state(state, element->nId, value);
 
-        case E_ELEM_KNOB_2:
-            state->ring_gauge2 = value;
-            break;
-
-        case E_ELEM_KNOB_3:
-            state->ring_gauge3 = value;
-            break;
-
-        case E_ELEM_KNOB_4:
-            state->ring_gauge4 = value;
-            break;
+        if (mainpage_channel_state.channel == channel) {
+            EncoderButton encoder = get_encoder_by_cc_number(number);
+            encoder.resetPosition(value);
+            update_ring_gauge({
+                .gui = &gui_global,
+                .element = gauge,
+                .value = value,
+            });
         }
     }
 
     if (number == XY_MAP_CC_X) {
-        state->xymap_x = value;
+        state->xymap_x = map(value, 0, 127, bounds.x_start, bounds.x_end);
     }
 
     if (number == XY_MAP_CC_Y) {
-        state->xymap_y = value;
+        state->xymap_y = map(value, 0, 127, bounds.y_end, bounds.y_start);
     }
 
-    if(gslc_GetPageCur(&gui_global) == xymap_page_context.page) {
-        ChannelState* state = &eepromState.channel_states[xymap_channel_state.channel - 1];
-        XyMapState1.x = state->xymap_x;
-        XyMapState1.y = state->xymap_y;
+    if (gslc_GetPageCur(&gui_global) == xymap_page_context.page && xymap_channel_state.channel == channel) {
+        render_xymap_lines({ .context = xymap_page_context,
+            .bounds = xymap_position,
+            .color = GSLC_COL_GRAY_LT2,
+            .border_color = GSLC_COL_GRAY_DK2,
+            .state = XyMapRenderedState,
+            .erase = true });
+
+        XyMapRenderedState.x = state->xymap_x;
+        XyMapRenderedState.y = state->xymap_y;
 
         render_xymap_lines({ .context = xymap_page_context,
             .bounds = xymap_position,
             .color = GSLC_COL_GRAY_LT2,
             .border_color = GSLC_COL_GRAY_DK2,
-            .state = XyMapState1,
+            .state = XyMapRenderedState,
             .erase = false });
     }
 
-    save_state_to_eeprom();
+    __eeprom_save();
 }
 
 void sendSysExRequest()
@@ -200,7 +153,7 @@ static void log_midi_cc(int controlNumber, int controlValue, int channel)
 }
 #endif
 
-void send_midi_cc(int controlNumber, int controlValue, int channel)
+void __midi_send_cc(int controlNumber, int controlValue, int channel)
 {
 #ifndef HIDUINO
     log_midi_cc(controlNumber, controlValue, channel);

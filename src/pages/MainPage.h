@@ -33,34 +33,14 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     __on_touch_only();
     __resolve_gui_context();
     int index = get_cc_index_by_element_id(element_id);
+    bool new_value = get_toggle_state(element_ref);
     int control_number = toggle_midi_cc[index];
-    int control_value = get_toggle_state(element_ref) ? 127 : 0;
-    send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
+    int control_value = new_value ? 127 : 0;
+    __midi_send_cc(control_number, control_value, mainpage_channel_state.channel);
 
-    ChannelState* state = get_channel_state(mainpage_channel_state.channel);
-
-    switch (element_id) {
-    case E_ELEM_TOGGLE1:
-        state->toggle1 = get_toggle_state(element_ref);
-        break;
-
-    case E_ELEM_TOGGLE2:
-        state->toggle2 = get_toggle_state(element_ref);
-        break;
-
-    case E_ELEM_TOGGLE3:
-        state->toggle3 = get_toggle_state(element_ref);
-        break;
-
-    case E_ELEM_TOGGLE4:
-        state->toggle4 = get_toggle_state(element_ref);
-        break;
-
-    default:
-        break;
-    }
-
-    save_state_to_eeprom();
+    ChannelState* state = __eeprom_get_channel_state(mainpage_channel_state.channel);
+    __eeprom_update_toggle_state(state, element_id, new_value);
+    __eeprom_save();
 
     return true;
 }
@@ -71,44 +51,11 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     int index = get_cc_index_by_element_id(element_id);
     int control_number = slider_midi_cc[index];
     int control_value = map(slider_position, 0, 100, 127, 0);
-    send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
+    __midi_send_cc(control_number, control_value, mainpage_channel_state.channel);
 
-    ChannelState* state = get_channel_state(mainpage_channel_state.channel);
-
-    switch (element_id) {
-    case E_ELEM_SLIDER1:
-        state->slider1 = slider_position;
-        break;
-
-    case E_ELEM_SLIDER2:
-        state->slider2 = slider_position;
-        break;
-
-    case E_ELEM_SLIDER3:
-        state->slider3 = slider_position;
-        break;
-
-    case E_ELEM_SLIDER4:
-        state->slider4 = slider_position;
-        break;
-
-    case E_ELEM_SLIDER5:
-        state->slider5 = slider_position;
-        break;
-
-    case E_ELEM_SLIDER6:
-        state->slider6 = slider_position;
-        break;
-
-    case E_ELEM_SLIDER7:
-        state->slider7 = slider_position;
-        break;
-
-    default:
-        break;
-    }
-
-    save_state_to_eeprom();
+    ChannelState* state = __eeprom_get_channel_state(mainpage_channel_state.channel);
+    __eeprom_update_slider_state(state, element_id, slider_position);
+    __eeprom_save();
 
     return true;
 }
@@ -138,7 +85,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .active = true,
     });
 
-    apply_eeprom_values_to_components(mainpage_channel_state.channel - 1);
+    __eeprom_update_component_values(mainpage_channel_state.channel);
 
     return true;
 }
@@ -151,7 +98,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .position = { 15 + (60 * (index - 1)), 50, 45, 45 },                          \
         .ring_text = CONCAT(ring_gauge_text_, index),                                 \
         .label = gauge_label,                                                         \
-        .label_id = CONCAT(E_ELEM_KNOB_, index),                                      \
+        .label_id = CONCAT(E_ELEM_KNOB_LABEL_, index),                                \
         .state = CONCAT(&RingGaugeState, index) });                                   \
     CONCAT(KnobGauge, index) = CONCAT(ring_gauge_, index).ring_gauge;
 
@@ -263,7 +210,7 @@ void render_main_page()
     render_gauges();
     render_toggles();
     render_slider();
-    apply_eeprom_values_to_components(mainpage_channel_state.channel - 1);
+    __eeprom_update_component_values(mainpage_channel_state.channel);
 }
 
 #endif // MAIN_PAGE_H

@@ -34,7 +34,7 @@ RingGaugeElements createRingGauge(RingGaugeProps props)
     gslc_ElemXRingGaugeSetVal(gui, instance, 0);
     gslc_ElemXRingGaugeSetAngleRange(gui, instance, 0, 360, 0);
     gslc_ElemXRingGaugeSetColorActiveFlat(gui, instance, GSLC_COL_RED_DK1);
-    gslc_ElemXRingGaugeSetColorInactive(gui, instance, GSLC_COL_GRAY);
+    gslc_ElemXRingGaugeSetColorInactive(gui, instance, GSLC_COL_GRAY_DK3);
     gslc_ElemSetTxtCol(gui, instance, GSLC_COL_WHITE);
 
     RingGaugeElements elements = {

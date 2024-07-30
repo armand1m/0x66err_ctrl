@@ -11,7 +11,6 @@ typedef struct XYMapProps {
     GuiContext context;
     int16_t id;
     gslc_tsRect position;
-    gslc_tsColor color;
     GSLC_CB_TOUCH on_touch;
     GSLC_CB_DRAW on_draw;
 } XYMapProps;
@@ -46,6 +45,7 @@ void render_xymap_lines(XYMapLinesProps props)
 {
     gslc_tsGui* gui = props.context.gui;
     gslc_tsColor color = props.erase ? GSLC_COL_BLACK : props.color;
+    gslc_tsColor color2 = props.erase ? GSLC_COL_BLACK : GSLC_COL_PURPLE;
     XYMapLineBounds bounds = create_xymap_line_bounds(props.bounds);
     int16_t adjusted_x = clamp(props.state.x + 20, bounds.x_start, bounds.x_end);
     int16_t adjusted_y = clamp(props.state.y + 30, bounds.y_start, bounds.y_end);
@@ -54,8 +54,10 @@ void render_xymap_lines(XYMapLinesProps props)
     gslc_DrawFrameRect(gui, props.bounds, props.border_color);
     // horizontal line
     gslc_DrawLine(gui, bounds.x_start, adjusted_y, bounds.x_end, adjusted_y, color);
+    gslc_DrawLine(gui, bounds.x_start, adjusted_y + 1, bounds.x_end, adjusted_y + 1, color2);
     // vertical line
     gslc_DrawLine(gui, adjusted_x, bounds.y_start, adjusted_x, bounds.y_end, color);
+    gslc_DrawLine(gui, adjusted_x + 1, bounds.y_start, adjusted_x + 1, bounds.y_end, color2);
 }
 
 gslc_tsElemRef* createXYMap(XYMapProps props)
