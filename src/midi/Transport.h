@@ -124,9 +124,28 @@ void handle_control_change(byte channel, byte number, byte value)
         }
     }
 
-    save_state_to_eeprom();
+    if (number == XY_MAP_CC_X) {
+        state->xymap_x = value;
+    }
 
-    // TODO: track XYMap and save to eeprom as well
+    if (number == XY_MAP_CC_Y) {
+        state->xymap_y = value;
+    }
+
+    if(gslc_GetPageCur(&gui_global) == xymap_page_context.page) {
+        ChannelState* state = &eepromState.channel_states[xymap_channel_state.channel - 1];
+        XyMapState1.x = state->xymap_x;
+        XyMapState1.y = state->xymap_y;
+
+        render_xymap_lines({ .context = xymap_page_context,
+            .bounds = xymap_position,
+            .color = GSLC_COL_GRAY_LT2,
+            .border_color = GSLC_COL_GRAY_DK2,
+            .state = XyMapState1,
+            .erase = false });
+    }
+
+    save_state_to_eeprom();
 }
 
 void sendSysExRequest()

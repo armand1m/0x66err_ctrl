@@ -11,14 +11,16 @@ typedef struct XYMapProps {
     GuiContext context;
     int16_t id;
     gslc_tsRect position;
-    GSLC_CB_TOUCH on_touch;
     gslc_tsColor color;
+    GSLC_CB_TOUCH on_touch;
+    GSLC_CB_DRAW on_draw;
 } XYMapProps;
 
 typedef struct XYMapLinesProps {
     GuiContext context;
     gslc_tsRect bounds;
     gslc_tsColor color;
+    gslc_tsColor border_color;
     XYMapState state;
     bool erase;
 } XYMapLinesProps;
@@ -48,6 +50,8 @@ void render_xymap_lines(XYMapLinesProps props)
     int16_t adjusted_x = clamp(props.state.x + 20, bounds.x_start, bounds.x_end);
     int16_t adjusted_y = clamp(props.state.y + 30, bounds.y_start, bounds.y_end);
 
+    // box
+    gslc_DrawFrameRect(gui, props.bounds, props.border_color);
     // horizontal line
     gslc_DrawLine(gui, bounds.x_start, adjusted_y, bounds.x_end, adjusted_y, color);
     // vertical line
@@ -61,6 +65,7 @@ gslc_tsElemRef* createXYMap(XYMapProps props)
         .id = props.id,
         .position = props.position,
         .on_touch = props.on_touch,
+        .on_draw = props.on_draw,
     });
 }
 #endif // XYMAP_H

@@ -64,6 +64,7 @@ void apply_eeprom_xymap_values(int channel_state_id)
         render_xymap_lines({ .context = xymap_page_context,
             .bounds = xymap_position,
             .color = GSLC_COL_GRAY_LT2,
+            .border_color = GSLC_COL_GRAY_DK2,
             .state = XyMapState1,
             .erase = true });
 
@@ -73,6 +74,7 @@ void apply_eeprom_xymap_values(int channel_state_id)
         render_xymap_lines({ .context = xymap_page_context,
             .bounds = xymap_position,
             .color = GSLC_COL_GRAY_LT2,
+            .border_color = GSLC_COL_GRAY_DK2,
             .state = XyMapState1,
             .erase = false });
     }
