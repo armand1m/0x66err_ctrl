@@ -14,6 +14,7 @@
 #include "../midi/Transport.h"
 #include "../references/ExternComponents.h"
 #include "../references/UIGlobalRefs.h"
+#include "../state/EEPROMState.h"
 #include "../state/UIState.h"
 #include "PageHandlers.h"
 
@@ -36,6 +37,32 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     int control_number = toggle_midi_cc[index];
     int control_value = get_toggle_state(element_ref) ? 127 : 0;
     send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
+
+    ChannelState* state = &eepromState.channel_states[mainpage_channel_state.channel];
+
+    switch (element_id) {
+    case E_ELEM_TOGGLE1:
+        state->toggle1 = get_toggle_state(element_ref);
+        break;
+
+    case E_ELEM_TOGGLE2:
+        state->toggle2 = get_toggle_state(element_ref);
+        break;
+
+    case E_ELEM_TOGGLE3:
+        state->toggle3 = get_toggle_state(element_ref);
+        break;
+
+    case E_ELEM_TOGGLE4:
+        state->toggle4 = get_toggle_state(element_ref);
+        break;
+
+    default:
+        break;
+    }
+
+    save_state_to_eeprom();
+
     return true;
 }
 
@@ -46,6 +73,44 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     int control_number = slider_midi_cc[index];
     int control_value = map(slider_position, 0, 100, 127, 0);
     send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
+
+    ChannelState* state = &eepromState.channel_states[mainpage_channel_state.channel];
+
+    switch (element_id) {
+    case E_ELEM_SLIDER1:
+        state->slider1 = slider_position;
+        break;
+
+    case E_ELEM_SLIDER2:
+        state->slider2 = slider_position;
+        break;
+
+    case E_ELEM_SLIDER3:
+        state->slider3 = slider_position;
+        break;
+
+    case E_ELEM_SLIDER4:
+        state->slider4 = slider_position;
+        break;
+
+    case E_ELEM_SLIDER5:
+        state->slider5 = slider_position;
+        break;
+
+    case E_ELEM_SLIDER6:
+        state->slider6 = slider_position;
+        break;
+
+    case E_ELEM_SLIDER7:
+        state->slider7 = slider_position;
+        break;
+
+    default:
+        break;
+    }
+
+    save_state_to_eeprom();
+
     return true;
 }
 
@@ -73,6 +138,8 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .element = mainpage_channel_state.active_element,
         .active = true,
     });
+
+    apply_eeprom_values_to_components(mainpage_channel_state.channel);
 
     return true;
 }
@@ -197,6 +264,7 @@ void render_main_page()
     render_gauges();
     render_toggles();
     render_slider();
+    apply_eeprom_values_to_components(mainpage_channel_state.channel);
 }
 
 #endif // MAIN_PAGE_H

@@ -14,6 +14,7 @@
 void setup()
 {
     midi_transport_begin();
+    setup_eeprom();
     debug_user_interface();
     setup_user_interface();
     setup_encoders(encoders, on_encoder_spin, on_encoder_click);

@@ -16,6 +16,7 @@ void on_encoder_click(EncoderButton& encoder)
                             .element = get_toggle_ref_by_encoder_id(id) })
         ? 127
         : 0;
+
     return send_midi_cc(toggle_midi_cc[id], control_value, mainpage_channel_state.channel);
 }
 
