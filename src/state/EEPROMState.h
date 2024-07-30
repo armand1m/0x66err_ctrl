@@ -1,5 +1,8 @@
 #ifndef EEPROM_STATE_H
 #define EEPROM_STATE_H
+#include "../components/RingGauge.h"
+#include "../components/Slider.h"
+#include "../components/Toggle.h"
 #include "../peripherals/RotaryEncoders.h"
 #include "../references/ExternComponents.h"
 #include "UIState.h"
@@ -50,22 +53,60 @@ void apply_eeprom_values_to_components(int channel)
         return; // Ensure channel is valid
     ChannelState* state = &eepromState.channel_states[channel];
 
-    gslc_ElemXRingGaugeSetVal(&gui_global, KnobGauge1, state->ringGauge1);
+    update_ring_gauge({
+        .gui = &gui_global,
+        .element = KnobGauge1,
+        .value = state->ringGauge1,
+    });
     encoders[0].resetPosition(state->ringGauge1);
-    gslc_ElemXRingGaugeSetVal(&gui_global, KnobGauge2, state->ringGauge2);
+
+    update_ring_gauge({
+        .gui = &gui_global,
+        .element = KnobGauge2,
+        .value = state->ringGauge2,
+    });
     encoders[1].resetPosition(state->ringGauge2);
-    gslc_ElemXRingGaugeSetVal(&gui_global, KnobGauge3, state->ringGauge3);
+
+    update_ring_gauge({
+        .gui = &gui_global,
+        .element = KnobGauge3,
+        .value = state->ringGauge3,
+    });
     encoders[2].resetPosition(state->ringGauge3);
-    gslc_ElemXRingGaugeSetVal(&gui_global, KnobGauge4, state->ringGauge4);
+
+    update_ring_gauge({
+        .gui = &gui_global,
+        .element = KnobGauge4,
+        .value = state->ringGauge4,
+    });
     encoders[3].resetPosition(state->ringGauge4);
 
-    gslc_ElemXTogglebtnSetState(&gui_global, Toggle1, state->toggle1);
+    set_toggle_state({
+        .gui = &gui_global,
+        .element = Toggle1,
+        .value = static_cast<bool>(state->toggle1),
+    });
     encoders[0].resetPressedPosition(state->toggle1);
-    gslc_ElemXTogglebtnSetState(&gui_global, Toggle2, state->toggle2);
+
+    set_toggle_state({
+        .gui = &gui_global,
+        .element = Toggle2,
+        .value = static_cast<bool>(state->toggle2),
+    });
     encoders[1].resetPressedPosition(state->toggle2);
-    gslc_ElemXTogglebtnSetState(&gui_global, Toggle3, state->toggle3);
+
+    set_toggle_state({
+        .gui = &gui_global,
+        .element = Toggle3,
+        .value = static_cast<bool>(state->toggle3),
+    });
     encoders[2].resetPressedPosition(state->toggle3);
-    gslc_ElemXTogglebtnSetState(&gui_global, Toggle4, state->toggle4);
+
+    set_toggle_state({
+        .gui = &gui_global,
+        .element = Toggle4,
+        .value = static_cast<bool>(state->toggle4),
+    });
     encoders[3].resetPressedPosition(state->toggle4);
 
     gslc_ElemXSliderSetPos(&gui_global, EqSlider1, state->slider1);
@@ -75,6 +116,11 @@ void apply_eeprom_values_to_components(int channel)
     gslc_ElemXSliderSetPos(&gui_global, EqSlider5, state->slider5);
     gslc_ElemXSliderSetPos(&gui_global, EqSlider6, state->slider6);
     gslc_ElemXSliderSetPos(&gui_global, EqSlider7, state->slider7);
+}
+
+ChannelState* get_channel_state(int channel_id)
+{
+    return &eepromState.channel_states[channel_id - 1];
 }
 
 void setup_eeprom()

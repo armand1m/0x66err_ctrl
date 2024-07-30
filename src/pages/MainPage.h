@@ -38,7 +38,7 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     int control_value = get_toggle_state(element_ref) ? 127 : 0;
     send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
 
-    ChannelState* state = &eepromState.channel_states[mainpage_channel_state.channel];
+    ChannelState* state = get_channel_state(mainpage_channel_state.channel);
 
     switch (element_id) {
     case E_ELEM_TOGGLE1:
@@ -74,7 +74,7 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     int control_value = map(slider_position, 0, 100, 127, 0);
     send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
 
-    ChannelState* state = &eepromState.channel_states[mainpage_channel_state.channel];
+    ChannelState* state = get_channel_state(mainpage_channel_state.channel);
 
     switch (element_id) {
     case E_ELEM_SLIDER1:
@@ -139,7 +139,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .active = true,
     });
 
-    apply_eeprom_values_to_components(mainpage_channel_state.channel);
+    apply_eeprom_values_to_components(mainpage_channel_state.channel - 1);
 
     return true;
 }
@@ -264,7 +264,7 @@ void render_main_page()
     render_gauges();
     render_toggles();
     render_slider();
-    apply_eeprom_values_to_components(mainpage_channel_state.channel);
+    apply_eeprom_values_to_components(mainpage_channel_state.channel - 1);
 }
 
 #endif // MAIN_PAGE_H
