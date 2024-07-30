@@ -3,6 +3,8 @@
 #include "../components/RingGauge.h"
 #include "../components/Slider.h"
 #include "../components/Toggle.h"
+#include "../components/XYMap.h"
+#include "../context/PagesContext.h"
 #include "../peripherals/RotaryEncoders.h"
 #include "../references/ExternComponents.h"
 #include "UIState.h"
@@ -14,10 +16,10 @@
 #define EEPROM_STATE_ADDR (EEPROM_SIGNATURE_ADDR + sizeof(unsigned long))
 
 typedef struct ChannelState {
-    int ringGauge1;
-    int ringGauge2;
-    int ringGauge3;
-    int ringGauge4;
+    int ring_gauge1;
+    int ring_gauge2;
+    int ring_gauge3;
+    int ring_gauge4;
     int toggle1;
     int toggle2;
     int toggle3;
@@ -29,6 +31,8 @@ typedef struct ChannelState {
     int slider5;
     int slider6;
     int slider7;
+    int xymap_x;
+    int xymap_y;
 } ChannelState;
 
 typedef struct EEPROMState {
@@ -47,39 +51,69 @@ void load_state_from_eeprom()
     EEPROM.get(EEPROM_STATE_ADDR, eepromState);
 }
 
-void apply_eeprom_values_to_components(int channel)
+void apply_eeprom_xymap_values(int channel_state_id)
 {
-    if (channel < 0 || channel >= 4)
-        return; // Ensure channel is valid
-    ChannelState* state = &eepromState.channel_states[channel];
+    if (channel_state_id < 0 || channel_state_id >= 4) {
+        // Ensure channel is valid
+        return;
+    }
+
+    ChannelState* state = &eepromState.channel_states[channel_state_id];
+
+    if (gslc_GetPageCur(&gui_global) == xymap_page_context.page) {
+        render_xymap_lines({ .context = xymap_page_context,
+            .bounds = xymap_position,
+            .color = GSLC_COL_GRAY_LT2,
+            .state = XyMapState1,
+            .erase = true });
+
+        XyMapState1.x = state->xymap_x;
+        XyMapState1.y = state->xymap_y;
+
+        render_xymap_lines({ .context = xymap_page_context,
+            .bounds = xymap_position,
+            .color = GSLC_COL_GRAY_LT2,
+            .state = XyMapState1,
+            .erase = false });
+    }
+}
+
+void apply_eeprom_values_to_components(int channel_state_id)
+{
+    if (channel_state_id < 0 || channel_state_id >= 4) {
+        // Ensure channel is valid
+        return;
+    }
+
+    ChannelState* state = &eepromState.channel_states[channel_state_id];
 
     update_ring_gauge({
         .gui = &gui_global,
         .element = KnobGauge1,
-        .value = state->ringGauge1,
+        .value = state->ring_gauge1,
     });
-    encoders[0].resetPosition(state->ringGauge1);
+    encoders[0].resetPosition(state->ring_gauge1);
 
     update_ring_gauge({
         .gui = &gui_global,
         .element = KnobGauge2,
-        .value = state->ringGauge2,
+        .value = state->ring_gauge2,
     });
-    encoders[1].resetPosition(state->ringGauge2);
+    encoders[1].resetPosition(state->ring_gauge2);
 
     update_ring_gauge({
         .gui = &gui_global,
         .element = KnobGauge3,
-        .value = state->ringGauge3,
+        .value = state->ring_gauge3,
     });
-    encoders[2].resetPosition(state->ringGauge3);
+    encoders[2].resetPosition(state->ring_gauge3);
 
     update_ring_gauge({
         .gui = &gui_global,
         .element = KnobGauge4,
-        .value = state->ringGauge4,
+        .value = state->ring_gauge4,
     });
-    encoders[3].resetPosition(state->ringGauge4);
+    encoders[3].resetPosition(state->ring_gauge4);
 
     set_toggle_state({
         .gui = &gui_global,
@@ -123,6 +157,32 @@ ChannelState* get_channel_state(int channel_id)
     return &eepromState.channel_states[channel_id - 1];
 }
 
+void __initialize_eeprom_state()
+{
+    for (int i = 0; i < 4; ++i) {
+        ChannelState* state = &eepromState.channel_states[i];
+        state->ring_gauge1 = 0; // Set default values as needed
+        state->ring_gauge2 = 0;
+        state->ring_gauge3 = 0;
+        state->ring_gauge4 = 0;
+        state->toggle1 = 0;
+        state->toggle2 = 0;
+        state->toggle3 = 0;
+        state->toggle4 = 0;
+        state->slider1 = 50;
+        state->slider2 = 50;
+        state->slider3 = 50;
+        state->slider4 = 50;
+        state->slider5 = 50;
+        state->slider6 = 50;
+        state->slider7 = 50;
+        state->xymap_x = 0;
+        state->xymap_y = 0;
+    }
+    EEPROM.put(EEPROM_STATE_ADDR, eepromState);
+    EEPROM.put(EEPROM_SIGNATURE_ADDR, EEPROM_SIGNATURE_VALUE);
+}
+
 void setup_eeprom()
 {
     unsigned long signature;
@@ -130,26 +190,7 @@ void setup_eeprom()
 
     if (signature != EEPROM_SIGNATURE_VALUE) {
         // Signature not present, initialize EEPROM with default values
-        for (int i = 0; i < 4; ++i) {
-            ChannelState* state = &eepromState.channel_states[i];
-            state->ringGauge1 = 0; // Set default values as needed
-            state->ringGauge2 = 0;
-            state->ringGauge3 = 0;
-            state->ringGauge4 = 0;
-            state->toggle1 = 0;
-            state->toggle2 = 0;
-            state->toggle3 = 0;
-            state->toggle4 = 0;
-            state->slider1 = 50;
-            state->slider2 = 50;
-            state->slider3 = 50;
-            state->slider4 = 50;
-            state->slider5 = 50;
-            state->slider6 = 50;
-            state->slider7 = 50;
-        }
-        EEPROM.put(EEPROM_STATE_ADDR, eepromState);
-        EEPROM.put(EEPROM_SIGNATURE_ADDR, EEPROM_SIGNATURE_VALUE);
+        __initialize_eeprom_state();
     } else {
         // Load the existing state
         load_state_from_eeprom();

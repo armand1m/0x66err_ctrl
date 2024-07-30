@@ -65,19 +65,19 @@ void on_encoder_spin(EncoderButton& encoder)
 
     switch (id) {
     case 0:
-        state->ringGauge1 = control_value;
+        state->ring_gauge1 = control_value;
         break;
 
     case 1:
-        state->ringGauge2 = control_value;
+        state->ring_gauge2 = control_value;
         break;
 
     case 2:
-        state->ringGauge3 = control_value;
+        state->ring_gauge3 = control_value;
         break;
 
     case 3:
-        state->ringGauge4 = control_value;
+        state->ring_gauge4 = control_value;
         break;
     }
 

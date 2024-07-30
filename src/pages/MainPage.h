@@ -8,6 +8,7 @@
 #include "../components/RingGauge.h"
 #include "../components/Toggle.h"
 #include "../context/GuiContext.h"
+#include "../context/PagesContext.h"
 #include "../enums/ComponentEnums.h"
 #include "../enums/PageEnums.h"
 #include "../midi/CCMaps.h"
@@ -17,8 +18,6 @@
 #include "../state/EEPROMState.h"
 #include "../state/UIState.h"
 #include "PageHandlers.h"
-
-GuiContext mainpage_context = { .gui = &gui_global, .page = Pages::E_PG_MAIN };
 
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)

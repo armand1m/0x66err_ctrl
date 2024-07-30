@@ -4,6 +4,7 @@
 #include "../components/Button.h"
 #include "../components/ChannelToggle.h"
 #include "../components/XYMap.h"
+#include "../context/PagesContext.h"
 #include "../enums/ComponentEnums.h"
 #include "../enums/PageEnums.h"
 #include "../midi/CCMaps.h"
@@ -12,10 +13,6 @@
 #include "../state/UIState.h"
 #include "../utils/clamp.h"
 #include "PageHandlers.h"
-
-GuiContext xymap_page_context = { .gui = &gui_global, .page = Pages::E_PG_XYMAP };
-gslc_tsRect xymap_position = { 10, 40, 460, 235 };
-XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
 #define map_x_to_midi_cc(x) map(x, bounds.x_start, bounds.x_end, 0, 129)
 #define map_y_to_midi_cc(y) map(y, bounds.y_start, bounds.y_end, 127, -21)
@@ -74,6 +71,13 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(clamped_x), xymap_channel_state.channel);
     send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(clamped_y), xymap_channel_state.channel);
 
+    ChannelState* state = &eepromState.channel_states[xymap_channel_state.channel - 1];
+
+    state->xymap_x = touch_x;
+    state->xymap_y = touch_y;
+
+    save_state_to_eeprom();
+
     return true;
 }
 
@@ -102,6 +106,7 @@ bool on_xymap_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_
         .active = true,
     });
 
+    apply_eeprom_xymap_values(xymap_channel_state.channel - 1);
     return true;
 }
 
