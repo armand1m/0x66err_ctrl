@@ -76,14 +76,4 @@ bool switch_toggle_state(UpdateToggleStateProps props)
 
 #define get_toggle_state(element) gslc_ElemXTogglebtnGetState(&gui_global, element)
 
-#define slider(index, slider_label)                                                     \
-    SliderElements CONCAT(slider_, index) = createSlider({ .context = mainpage_context, \
-        .id = CONCAT(E_ELEM_SLIDER, index),                                             \
-        .position = { 140 + (50 * (index - 1)), 130, 20, 140 },                         \
-        .label = slider_label,                                                          \
-        .label_id = CONCAT(EQ_SLIDER_TEXT_, index),                                     \
-        .state = CONCAT(&SliderState, index),                                           \
-        .on_change = &on_slide_change });                                               \
-    CONCAT(EqSlider, index) = CONCAT(slider_, index).slider;
-
 #endif // TOGGLE_H
