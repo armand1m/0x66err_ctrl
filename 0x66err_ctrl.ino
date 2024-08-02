@@ -26,4 +26,5 @@ void loop()
     midiSerial.read();
     update_user_interface();
     update_encoders(encoders);
+    __eeprom_loop();
 }
