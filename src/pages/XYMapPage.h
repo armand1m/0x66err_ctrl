@@ -79,8 +79,6 @@ bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     __midi_send_cc(XY_MAP_CC_X, map_x_to_midi_cc(clamped_x), xymap_channel_state.channel);
     __midi_send_cc(XY_MAP_CC_Y, map_y_to_midi_cc(clamped_y), xymap_channel_state.channel);
 
-    __eeprom_save();
-
     return true;
 }
 

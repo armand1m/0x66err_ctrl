@@ -184,6 +184,34 @@ int gslc_ElemXSliderGetPos(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef)
 }
 
 // Update the slider control's current state
+void gslc_ElemXSliderSetPosNoCallback(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef,int16_t nPos)
+{
+  if ((pGui == NULL) || (pElemRef == NULL)) {
+    static const char GSLC_PMEM FUNCSTR[] = "ElemXSliderSetPos";
+    GSLC_DEBUG2_PRINT_CONST(ERRSTR_NULL,FUNCSTR);
+    return;
+  }
+  gslc_tsElem*      pElem = gslc_GetElemFromRef(pGui,pElemRef);
+  gslc_tsXSlider*   pSlider = (gslc_tsXSlider*)(pElem->pXData);
+  int16_t           nPosOld;
+  // Clip position
+  if (nPos < pSlider->nPosMin) { nPos = pSlider->nPosMin; }
+  else if (nPos > pSlider->nPosMax) { nPos = pSlider->nPosMax; }
+  // Update
+  nPosOld = pSlider->nPos;
+  pSlider->nPos = nPos;
+
+  // Only update if changed
+  if (nPos != nPosOld) {
+    // FORKED: disabled the callback when setting the position using this function
+
+    // Mark for redraw
+    // - Only need incremental redraw
+    gslc_ElemSetRedraw(pGui,pElemRef,GSLC_REDRAW_INC);
+  }
+
+}
+// Update the slider control's current state
 void gslc_ElemXSliderSetPos(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef,int16_t nPos)
 {
   if ((pGui == NULL) || (pElemRef == NULL)) {

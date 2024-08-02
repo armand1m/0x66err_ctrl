@@ -26,7 +26,7 @@ void handle_control_change(byte channel, byte number, byte value)
     if (toggle != NULL) {
         bool new_value = value > 0;
         gslc_tsElem* element = gslc_GetElemFromRef(&gui_global, toggle);
-        __eeprom_update_toggle_state(state, element->nId, new_value);
+        __eeprom_set_toggle_state(channel, element->nId, new_value);
 
         if (mainpage_channel_state.channel == channel) {
             set_toggle_state({
@@ -41,8 +41,7 @@ void handle_control_change(byte channel, byte number, byte value)
 
     if (slider != NULL) {
         gslc_tsElem* element = gslc_GetElemFromRef(&gui_global, slider);
-
-        __eeprom_update_slider_state(state, element->nId, value);
+        __eeprom_set_slider_state(channel, element->nId, value);
 
         if (mainpage_channel_state.channel == channel) {
             update_slider({
@@ -57,8 +56,7 @@ void handle_control_change(byte channel, byte number, byte value)
 
     if (gauge != NULL) {
         gslc_tsElem* element = gslc_GetElemFromRef(&gui_global, gauge);
-
-        __eeprom_update_knob_state(state, element->nId, value);
+        __eeprom_set_knob_state(channel, element->nId, value);
 
         if (mainpage_channel_state.channel == channel) {
             EncoderButton encoder = get_encoder_by_cc_number(number);
@@ -97,8 +95,6 @@ void handle_control_change(byte channel, byte number, byte value)
             .state = XyMapRenderedState,
             .erase = false });
     }
-
-    __eeprom_save();
 }
 
 void sendSysExRequest()

@@ -1,5 +1,6 @@
 #ifndef EEPROM_STATE_H
 #define EEPROM_STATE_H
+#include "../Loggers.h"
 #include "../components/RingGauge.h"
 #include "../components/Slider.h"
 #include "../components/Toggle.h"
@@ -39,21 +40,42 @@ typedef struct EEPROMState {
     ChannelState channel_states[4];
 } EEPROMState;
 
-EEPROMState eepromState;
+EEPROMState __eeprom_current_state;
+EEPROMState __eeprom_previous_state;
+unsigned long last_write_time = 0;
+const unsigned long write_interval = 60000; // 1 minute interval between writes
+
+bool __eeprom_has_state_changes(const EEPROMState& currentState, const EEPROMState& previousState)
+{
+    return memcmp(&currentState, &previousState, sizeof(EEPROMState)) != 0;
+}
 
 void __eeprom_save()
 {
-    EEPROM.put(EEPROM_STATE_ADDR, eepromState);
+    EEPROM.put(EEPROM_STATE_ADDR, __eeprom_current_state);
 }
 
-void __eeprom_load()
+void __eeprom_loop()
 {
-    EEPROM.get(EEPROM_STATE_ADDR, eepromState);
+    unsigned long current_time = millis();
+    bool should_write = __eeprom_has_state_changes(__eeprom_current_state, __eeprom_previous_state)
+        && (current_time - last_write_time > write_interval);
+    if (should_write) {
+        infolog("Writing EEPROM state");
+        __eeprom_save();
+        __eeprom_previous_state = __eeprom_current_state; // Update the previous state
+        last_write_time = current_time; // Update the last write time
+    }
+}
+
+void __eeprom_read(EEPROMState& state)
+{
+    EEPROM.get(EEPROM_STATE_ADDR, state);
 }
 
 ChannelState* __eeprom_get_channel_state(int channel_number)
 {
-    return &eepromState.channel_states[channel_number - 1];
+    return &__eeprom_current_state.channel_states[channel_number - 1];
 }
 
 void __eeprom_render_xymap_values(int channel_number)
@@ -84,7 +106,7 @@ void __eeprom_render_xymap_values(int channel_number)
     }
 }
 
-void __eeprom_update_component_values(int channel_number)
+void __eeprom_render_updated_components(int channel_number)
 {
     if (channel_number < 1 || channel_number > 4) {
         return;
@@ -148,20 +170,23 @@ void __eeprom_update_component_values(int channel_number)
     });
     encoders[3].resetPressedPosition(state->toggle4);
 
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider1, state->slider1);
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider2, state->slider2);
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider3, state->slider3);
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider4, state->slider4);
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider5, state->slider5);
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider6, state->slider6);
-    gslc_ElemXSliderSetPos(&gui_global, EqSlider7, state->slider7);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider1, state->slider1);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider2, state->slider2);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider3, state->slider3);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider4, state->slider4);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider5, state->slider5);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider6, state->slider6);
+    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider7, state->slider7);
 }
 
+/**
+ * Initialize the data in EEPROM
+ */
 void __eeprom_set_default_values()
 {
     for (int i = 0; i < 4; ++i) {
-        ChannelState* state = &eepromState.channel_states[i];
-        state->ring_gauge1 = 0; // Set default values as needed
+        ChannelState* state = &__eeprom_current_state.channel_states[i];
+        state->ring_gauge1 = 0;
         state->ring_gauge2 = 0;
         state->ring_gauge3 = 0;
         state->ring_gauge4 = 0;
@@ -179,7 +204,7 @@ void __eeprom_set_default_values()
         state->xymap_x = 0;
         state->xymap_y = 0;
     }
-    EEPROM.put(EEPROM_STATE_ADDR, eepromState);
+    EEPROM.put(EEPROM_STATE_ADDR, __eeprom_current_state);
     EEPROM.put(EEPROM_SIGNATURE_ADDR, EEPROM_SIGNATURE_VALUE);
 }
 
@@ -193,12 +218,13 @@ void setup_eeprom()
         __eeprom_set_default_values();
     } else {
         // Load the existing state
-        __eeprom_load();
+        __eeprom_read(__eeprom_current_state);
     }
 }
 
-void __eeprom_update_toggle_state(ChannelState* state, int element_id, bool new_value)
+void __eeprom_set_toggle_state(int channel_number, int element_id, bool new_value)
 {
+    ChannelState* state = __eeprom_get_channel_state(channel_number);
     switch (element_id) {
     case E_ELEM_TOGGLE1:
         state->toggle1 = new_value;
@@ -218,8 +244,9 @@ void __eeprom_update_toggle_state(ChannelState* state, int element_id, bool new_
     }
 }
 
-void __eeprom_update_slider_state(ChannelState* state, int element_id, int value)
+void __eeprom_set_slider_state(int channel_number, int element_id, int value)
 {
+    ChannelState* state = __eeprom_get_channel_state(channel_number);
     switch (element_id) {
     case E_ELEM_SLIDER1:
         state->slider1 = value;
@@ -251,8 +278,9 @@ void __eeprom_update_slider_state(ChannelState* state, int element_id, int value
     }
 }
 
-void __eeprom_update_knob_state(ChannelState* state, int element_id, int value)
+void __eeprom_set_knob_state(int channel_number, int element_id, int value)
 {
+    ChannelState* state = __eeprom_get_channel_state(channel_number);
     switch (element_id) {
     case E_ELEM_RINGGAUGE1:
         state->ring_gauge1 = value;
