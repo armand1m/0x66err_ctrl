@@ -27,4 +27,5 @@ void loop()
     update_user_interface();
     update_encoders(encoders);
     __eeprom_loop();
+    midi_transport_loop();
 }

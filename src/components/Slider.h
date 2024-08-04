@@ -14,7 +14,7 @@ typedef struct UpdateSliderProps {
 
 void update_slider(UpdateSliderProps props)
 {
-    return gslc_ElemXSliderSetPos(props.gui, props.element, map(props.value, 0, 127, 100, 0));
+    return gslc_ElemXSliderSetPosNoCallback(props.gui, props.element, map(props.value, 0, 127, 100, 0));
 }
 
 #endif // SLIDER_H

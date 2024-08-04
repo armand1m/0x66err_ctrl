@@ -16,7 +16,7 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial, midiSerial);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, midiSerial);
 #endif
 
-const byte sysexRequest[] = { 0xF0, 0x00, 0x01, 0x05, 0x7F, 0xF7 }; // Example SysEx request
+const byte sysex_request[] = { 0xF0, 0x00, 0x01, 0x05, 0x7F, 0xF7 }; // Example SysEx request
 
 void handle_control_change(byte channel, byte number, byte value)
 {
@@ -64,7 +64,7 @@ void handle_control_change(byte channel, byte number, byte value)
             update_ring_gauge({
                 .gui = &gui_global,
                 .element = gauge,
-                .value = value,
+                .value = value, // update_ring_gauge will map this to 0-100
             });
         }
     }
@@ -97,30 +97,65 @@ void handle_control_change(byte channel, byte number, byte value)
     }
 }
 
-void sendSysExRequest()
+#ifndef HIDUINO
+void parse_midi_serial_message(String message)
 {
-    midiSerial.sendSysEx(sizeof(sysexRequest), sysexRequest, true);
-}
+    message.trim();
 
-void handleSysEx(byte* data, unsigned length)
-{
-    char receivedMessage[256] = { 0 };
-    snprintf(receivedMessage, sizeof(receivedMessage), "Received SysEx: ");
-
-    for (unsigned i = 0; i < length; ++i) {
-        char byteStr[5];
-        snprintf(byteStr, sizeof(byteStr), "%02X ", data[i]);
-        strcat(receivedMessage, byteStr);
+    if (!message.startsWith("midi: ")) {
+        infolog("Invalid message prefix.");
+        return;
     }
+
+    // Remove "midi: " prefix
+    message = message.substring(6);
+
+    int first_comma = message.indexOf(',');
+    int second_comma = message.indexOf(',', first_comma + 1);
+
+    if (first_comma == -1 || second_comma == -1) {
+        infolog("Invalid message format. Could not find two commas.");
+        return;
+    }
+
+    int cc_number = message.substring(0, first_comma).toInt();
+    int cc_value = message.substring(first_comma + 1, second_comma).toInt();
+    int channel = message.substring(second_comma + 1).toInt();
+
+    handle_control_change((byte)channel, (byte)cc_number, (byte)cc_value);
+}
+#endif
+
+void midi_transport_loop()
+{
+#ifndef HIDUINO
+    static String input_string = "";
+    static bool string_complete = false;
+
+    // read all characters in the buffer
+    // until a line break comes in.
+    // make sure to set the line ending to be LF
+    // in the serial monitor configuration.
+    while (Serial.available()) {
+        char input_char = (char)Serial.read();
+        input_string += input_char;
+        if (input_char == '\n') {
+            string_complete = true;
+        }
+    }
+
+    if (string_complete) {
+        parse_midi_serial_message(input_string);
+        input_string = "";
+        string_complete = false;
+    }
+#endif
 }
 
 void setup_midi_handlers()
 {
     midiSerial.setHandleControlChange(handle_control_change);
-    midiSerial.setHandleSystemExclusive(handleSysEx);
-
-    // Send SysEx request
-    sendSysExRequest();
+    midiSerial.turnThruOff();
 }
 
 void midi_transport_begin()
@@ -137,24 +172,24 @@ void midi_transport_begin()
 }
 
 #ifndef HIDUINO
-static void log_midi_cc(int controlNumber, int controlValue, int channel)
+static void log_midi_cc(int control_number, int control_value, int channel)
 {
     infolog("Control Change: ");
-    infolog(String(controlNumber));
+    infolog(String(control_number));
     infolog(", ");
-    infolog(String(controlValue));
+    infolog(String(control_value));
     infolog(", ");
     infolog(String(channel));
     infolog("\n");
 }
 #endif
 
-void __midi_send_cc(int controlNumber, int controlValue, int channel)
+void __midi_send_cc(int control_number, int control_value, int channel)
 {
 #ifndef HIDUINO
-    log_midi_cc(controlNumber, controlValue, channel);
+    log_midi_cc(control_number, control_value, channel);
 #endif
-    midiSerial.sendControlChange(controlNumber, controlValue, channel);
+    midiSerial.sendControlChange(control_number, control_value, channel);
 }
 
 #endif // MIDI_TRANSPORT_H

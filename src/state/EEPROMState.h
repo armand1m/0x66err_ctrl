@@ -106,6 +106,17 @@ void __eeprom_render_xymap_values(int channel_number)
     }
 }
 
+#define __eeprom_update_knob(elem, enc, val) \
+    update_ring_gauge({                      \
+        .gui = &gui_global,                  \
+        .element = elem,                     \
+        .value = val,                        \
+    });                                      \
+    enc.resetPosition(val);
+
+#define __eeprom_update_toggle(elem, val) set_toggle_state({ .gui = &gui_global, .element = elem, .value = static_cast<bool>(val) })
+#define __eeprom_update_slider(elem, val) update_slider({ .gui = &gui_global, .element = elem, .value = val })
+
 void __eeprom_render_updated_components(int channel_number)
 {
     if (channel_number < 1 || channel_number > 4) {
@@ -114,69 +125,21 @@ void __eeprom_render_updated_components(int channel_number)
 
     ChannelState* state = __eeprom_get_channel_state(channel_number);
 
-    update_ring_gauge({
-        .gui = &gui_global,
-        .element = KnobGauge1,
-        .value = state->ring_gauge1,
-    });
-    encoders[0].resetPosition(state->ring_gauge1);
-
-    update_ring_gauge({
-        .gui = &gui_global,
-        .element = KnobGauge2,
-        .value = state->ring_gauge2,
-    });
-    encoders[1].resetPosition(state->ring_gauge2);
-
-    update_ring_gauge({
-        .gui = &gui_global,
-        .element = KnobGauge3,
-        .value = state->ring_gauge3,
-    });
-    encoders[2].resetPosition(state->ring_gauge3);
-
-    update_ring_gauge({
-        .gui = &gui_global,
-        .element = KnobGauge4,
-        .value = state->ring_gauge4,
-    });
-    encoders[3].resetPosition(state->ring_gauge4);
-
-    set_toggle_state({
-        .gui = &gui_global,
-        .element = Toggle1,
-        .value = static_cast<bool>(state->toggle1),
-    });
-    encoders[0].resetPressedPosition(state->toggle1);
-
-    set_toggle_state({
-        .gui = &gui_global,
-        .element = Toggle2,
-        .value = static_cast<bool>(state->toggle2),
-    });
-    encoders[1].resetPressedPosition(state->toggle2);
-
-    set_toggle_state({
-        .gui = &gui_global,
-        .element = Toggle3,
-        .value = static_cast<bool>(state->toggle3),
-    });
-    encoders[2].resetPressedPosition(state->toggle3);
-
-    set_toggle_state({
-        .gui = &gui_global,
-        .element = Toggle4,
-        .value = static_cast<bool>(state->toggle4),
-    });
-    encoders[3].resetPressedPosition(state->toggle4);
-
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider1, state->slider1);
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider2, state->slider2);
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider3, state->slider3);
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider4, state->slider4);
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider5, state->slider5);
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider6, state->slider6);
-    gslc_ElemXSliderSetPosNoCallback(&gui_global, EqSlider7, state->slider7);
+    __eeprom_update_knob(KnobGauge1, encoders[0], state->ring_gauge1);
+    __eeprom_update_knob(KnobGauge2, encoders[1], state->ring_gauge2);
+    __eeprom_update_knob(KnobGauge3, encoders[2], state->ring_gauge3);
+    __eeprom_update_knob(KnobGauge4, encoders[3], state->ring_gauge4);
+    __eeprom_update_toggle(Toggle1, state->toggle1);
+    __eeprom_update_toggle(Toggle2, state->toggle2);
+    __eeprom_update_toggle(Toggle3, state->toggle3);
+    __eeprom_update_toggle(Toggle4, state->toggle4);
+    __eeprom_update_slider(EqSlider1, state->slider1);
+    __eeprom_update_slider(EqSlider2, state->slider2);
+    __eeprom_update_slider(EqSlider3, state->slider3);
+    __eeprom_update_slider(EqSlider4, state->slider4);
+    __eeprom_update_slider(EqSlider5, state->slider5);
+    __eeprom_update_slider(EqSlider6, state->slider6);
+    __eeprom_update_slider(EqSlider7, state->slider7);
 }
 
 /**

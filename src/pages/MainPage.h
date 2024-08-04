@@ -79,6 +79,12 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
 
     __eeprom_render_updated_components(mainpage_channel_state.channel);
 
+    // TODO: enabled changing the background color based on the channel
+    // set_background_color(GSLC_COL_BLUE); sounds like enough but
+    // components also defined their frame fill colors, so it's not enough
+    // to change the background color only. We need to change the frame fill
+    // of the components as well.
+
     return true;
 }
 
@@ -120,7 +126,7 @@ void render_quote()
     gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_6, E_PG_MAIN, 250, 100, 210, 8, "And we were programmed just to suffer", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 }
 
-void render_slider()
+void render_sliders()
 {
     gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER1, E_PG_MAIN, 140, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider1 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER1);
@@ -201,7 +207,7 @@ void render_main_page()
     render_channel_selectors();
     render_gauges();
     render_toggles();
-    render_slider();
+    render_sliders();
     __eeprom_render_updated_components(mainpage_channel_state.channel);
 }
 
