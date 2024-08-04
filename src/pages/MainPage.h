@@ -8,16 +8,16 @@
 #include "../components/RingGauge.h"
 #include "../components/Toggle.h"
 #include "../context/GuiContext.h"
+#include "../context/PagesContext.h"
 #include "../enums/ComponentEnums.h"
 #include "../enums/PageEnums.h"
 #include "../midi/CCMaps.h"
 #include "../midi/Transport.h"
 #include "../references/ExternComponents.h"
 #include "../references/UIGlobalRefs.h"
+#include "../state/EEPROMState.h"
 #include "../state/UIState.h"
 #include "PageHandlers.h"
-
-GuiContext mainpage_context = { .gui = &gui_global, .page = Pages::E_PG_MAIN };
 
 bool on_xymap_button_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t _touch_x, int16_t _touch_y)
@@ -33,9 +33,11 @@ bool on_toggle_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch 
     __on_touch_only();
     __resolve_gui_context();
     int index = get_cc_index_by_element_id(element_id);
+    bool new_value = get_toggle_state(element_ref);
     int control_number = toggle_midi_cc[index];
-    int control_value = get_toggle_state(element_ref) ? 127 : 0;
-    send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
+    int control_value = new_value ? 127 : 0;
+    __midi_send_cc(control_number, control_value, mainpage_channel_state.channel);
+    __eeprom_set_toggle_state(mainpage_channel_state.channel, element_id, new_value);
     return true;
 }
 
@@ -45,7 +47,8 @@ bool on_slide_change(void* gui_pointer, void* element_ref_pointer, int16_t slide
     int index = get_cc_index_by_element_id(element_id);
     int control_number = slider_midi_cc[index];
     int control_value = map(slider_position, 0, 100, 127, 0);
-    send_midi_cc(control_number, control_value, mainpage_channel_state.channel);
+    __midi_send_cc(control_number, control_value, mainpage_channel_state.channel);
+    __eeprom_set_slider_state(mainpage_channel_state.channel, element_id, slider_position);
     return true;
 }
 
@@ -74,6 +77,14 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .active = true,
     });
 
+    __eeprom_render_updated_components(mainpage_channel_state.channel);
+
+    // TODO: enabled changing the background color based on the channel
+    // set_background_color(GSLC_COL_BLUE); sounds like enough but
+    // components also defined their frame fill colors, so it's not enough
+    // to change the background color only. We need to change the frame fill
+    // of the components as well.
+
     return true;
 }
 
@@ -85,7 +96,7 @@ bool on_main_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_t
         .position = { 15 + (60 * (index - 1)), 50, 45, 45 },                          \
         .ring_text = CONCAT(ring_gauge_text_, index),                                 \
         .label = gauge_label,                                                         \
-        .label_id = CONCAT(E_ELEM_KNOB_, index),                                      \
+        .label_id = CONCAT(E_ELEM_KNOB_LABEL_, index),                                \
         .state = CONCAT(&RingGaugeState, index) });                                   \
     CONCAT(KnobGauge, index) = CONCAT(ring_gauge_, index).ring_gauge;
 
@@ -115,7 +126,7 @@ void render_quote()
     gslc_ElemCreateTxt_P(&gui_global, QUOTE_TEXT_6, E_PG_MAIN, 250, 100, 210, 8, "And we were programmed just to suffer", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_LEFT, false, true);
 }
 
-void render_slider()
+void render_sliders()
 {
     gslc_ElemXSliderCreate_P(&gui_global, E_ELEM_SLIDER1, E_PG_MAIN, 140, 120, 20, 140, 0, 100, 50, 5, true, GSLC_COL_RED, GSLC_COL_BLACK);
     EqSlider1 = gslc_PageFindElemById(&gui_global, E_PG_MAIN, E_ELEM_SLIDER1);
@@ -196,7 +207,8 @@ void render_main_page()
     render_channel_selectors();
     render_gauges();
     render_toggles();
-    render_slider();
+    render_sliders();
+    __eeprom_render_updated_components(mainpage_channel_state.channel);
 }
 
 #endif // MAIN_PAGE_H

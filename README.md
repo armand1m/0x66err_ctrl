@@ -29,10 +29,11 @@ https://github.com/armand1m/0x66err_ctrl/raw/main/assets/xymap.mp4
     - Changing mapped properties in Ableton will change them in the device as well.
 - [x] 4 Channel Selection for both Amp page and XYMap page
     - You can switch between 4 midi channels individually on each page for each device.
+- [x] Storing settings and selections on EEPROM
+- [x] Syncing from DAW into EEPROM
 
 ### Next in line:
 
-- [ ] Storing settings and selections on EPROM
 - [ ] 8 rotary encoders
 - [ ] Preset selection screen
 - [ ] 4x4 drumpad physical module

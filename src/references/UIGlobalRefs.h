@@ -57,6 +57,14 @@ EncoderButton get_encoder_by_cc_number(int cc_number)
         return encoders[2];
     case KNOB_CC_4:
         return encoders[3];
+    case TOGGLE_CC_1:
+        return encoders[0];
+    case TOGGLE_CC_2:
+        return encoders[1];
+    case TOGGLE_CC_3:
+        return encoders[2];
+    case TOGGLE_CC_4:
+        return encoders[3];
     default:
         return NULL;
     }

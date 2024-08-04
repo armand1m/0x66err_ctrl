@@ -152,6 +152,18 @@ int gslc_ElemXSliderGetPos(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef);
 void gslc_ElemXSliderSetPos(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef,int16_t nPos);
 
 ///
+/// Set a Slider element's current position without calling the callback function
+///
+/// \param[in]  pGui:        Pointer to GUI
+/// \param[in]  pGui:        Pointer to GUI
+/// \param[in]  pElemRef:    Pointer to Element reference
+/// \param[in]  nPos:        New position value
+///
+/// \return none
+///
+void gslc_ElemXSliderSetPosNoCallback(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef,int16_t nPos);
+
+///
 /// Assign the position callback function for a slider
 ///
 /// \param[in]  pGui:        Pointer to GUI

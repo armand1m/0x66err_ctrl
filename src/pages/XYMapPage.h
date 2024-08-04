@@ -4,6 +4,7 @@
 #include "../components/Button.h"
 #include "../components/ChannelToggle.h"
 #include "../components/XYMap.h"
+#include "../context/PagesContext.h"
 #include "../enums/ComponentEnums.h"
 #include "../enums/PageEnums.h"
 #include "../midi/CCMaps.h"
@@ -12,10 +13,6 @@
 #include "../state/UIState.h"
 #include "../utils/clamp.h"
 #include "PageHandlers.h"
-
-GuiContext xymap_page_context = { .gui = &gui_global, .page = Pages::E_PG_XYMAP };
-gslc_tsRect xymap_position = { 10, 40, 460, 235 };
-XYMapLineBounds bounds = create_xymap_line_bounds(xymap_position);
 
 #define map_x_to_midi_cc(x) map(x, bounds.x_start, bounds.x_end, 0, 129)
 #define map_y_to_midi_cc(y) map(y, bounds.y_start, bounds.y_end, 127, -21)
@@ -32,7 +29,7 @@ bool on_sendx_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     int16_t _touch_x, int16_t _touch_y)
 {
     __on_touch_only();
-    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapState1.x), xymap_channel_state.channel);
+    __midi_send_cc(XY_MAP_CC_X, map_x_to_midi_cc(XyMapRenderedState.x), xymap_channel_state.channel);
     return true;
 }
 
@@ -40,39 +37,47 @@ bool on_sendy_press(void* gui_pointer, void* element_ref_pointer, gslc_teTouch t
     int16_t _touch_x, int16_t _touch_y)
 {
     __on_touch_only();
-    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapState1.y), xymap_channel_state.channel);
+    __midi_send_cc(XY_MAP_CC_Y, map_y_to_midi_cc(XyMapRenderedState.y), xymap_channel_state.channel);
     return true;
 }
 
 bool on_xymap_touch(void* gui_pointer, void* element_ref_pointer, gslc_teTouch touch_event,
     int16_t touch_x, int16_t touch_y)
 {
-    bool should_capture_event = touch_event == GSLC_TOUCH_DOWN_IN || touch_event == GSLC_TOUCH_MOVE_IN || touch_event == GSLC_TOUCH_UP_IN;
+    bool should_capture_event = touch_event == GSLC_TOUCH_DOWN_IN
+        || touch_event == GSLC_TOUCH_MOVE_IN
+        || touch_event == GSLC_TOUCH_UP_IN;
 
     if (!should_capture_event) {
         return true;
     }
 
+    ChannelState* state = __eeprom_get_channel_state(xymap_channel_state.channel);
+
     render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
-        .state = XyMapState1,
+        .border_color = GSLC_COL_GRAY_DK2,
+        .state = XyMapRenderedState,
         .erase = true });
 
-    XyMapState1.x = touch_x;
-    XyMapState1.y = touch_y;
+    XyMapRenderedState.x = touch_x;
+    XyMapRenderedState.y = touch_y;
+    state->xymap_x = touch_x;
+    state->xymap_y = touch_y;
 
     render_xymap_lines({ .context = xymap_page_context,
         .bounds = xymap_position,
         .color = GSLC_COL_GRAY_LT2,
-        .state = XyMapState1,
+        .border_color = GSLC_COL_GRAY_DK2,
+        .state = XyMapRenderedState,
         .erase = false });
 
-    int16_t clamped_x = clamp(XyMapState1.x, bounds.x_start, bounds.x_end);
-    int16_t clamped_y = clamp(XyMapState1.y, bounds.y_start, bounds.y_end);
+    int16_t clamped_x = clamp(XyMapRenderedState.x, bounds.x_start, bounds.x_end);
+    int16_t clamped_y = clamp(XyMapRenderedState.y, bounds.y_start, bounds.y_end);
 
-    send_midi_cc(XY_MAP_CC_X, map_x_to_midi_cc(clamped_x), xymap_channel_state.channel);
-    send_midi_cc(XY_MAP_CC_Y, map_y_to_midi_cc(clamped_y), xymap_channel_state.channel);
+    __midi_send_cc(XY_MAP_CC_X, map_x_to_midi_cc(clamped_x), xymap_channel_state.channel);
+    __midi_send_cc(XY_MAP_CC_Y, map_y_to_midi_cc(clamped_y), xymap_channel_state.channel);
 
     return true;
 }
@@ -102,6 +107,7 @@ bool on_xymap_channel_toggle(void* gui_pointer, void* element_ref_pointer, gslc_
         .active = true,
     });
 
+    __eeprom_render_xymap_values(xymap_channel_state.channel);
     return true;
 }
 
@@ -125,14 +131,29 @@ void render_top_buttons()
     gslc_ElemCreateBtnTxt_P(&gui_global, E_ELEM_BTN_SEND_Y_MSG, E_PG_XYMAP, 390, 10, 80, 20, "Send Y", &FontStore[Fonts::E_BUILTIN5X8], GSLC_COL_WHITE, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK4, GSLC_COL_GRAY_DK2, GSLC_COL_GRAY_DK1, GSLC_ALIGN_MID_MID, true, true, &on_sendy_press, NULL);
 }
 
+bool render_lines(void* pvGui, void* pvElemRef, gslc_teRedrawType eRedraw)
+{
+    render_xymap_lines({ .context = xymap_page_context,
+        .bounds = xymap_position,
+        .color = GSLC_COL_GRAY_LT2,
+        .border_color = GSLC_COL_GRAY_DK2,
+        .state = XyMapRenderedState,
+        .erase = false });
+
+    return true;
+}
+
 void render_xymap()
 {
+    ChannelState* state = __eeprom_get_channel_state(xymap_channel_state.channel);
+    XyMapRenderedState.x = state->xymap_x;
+    XyMapRenderedState.y = state->xymap_y;
     createXYMap({
         .context = xymap_page_context,
         .id = E_ELEM_XYMAP_BOX,
         .position = xymap_position,
         .on_touch = &on_xymap_touch,
-        .color = GSLC_COL_GRAY_LT2,
+        .on_draw = &render_lines,
     });
 }
 
@@ -141,6 +162,7 @@ void render_xymap_page()
     render_xymap_channel_selectors();
     render_top_buttons();
     render_xymap();
+    __eeprom_render_xymap_values(xymap_channel_state.channel);
 }
 
 #endif // XYMAPPAGE_H
