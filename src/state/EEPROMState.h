@@ -124,22 +124,85 @@ void __eeprom_render_updated_components(int channel_number)
     }
 
     ChannelState* state = __eeprom_get_channel_state(channel_number);
+    ChannelState* previous_state = &__eeprom_previous_state.channel_states[channel_number - 1];
 
-    __eeprom_update_knob(KnobGauge1, encoders[0], state->ring_gauge1);
-    __eeprom_update_knob(KnobGauge2, encoders[1], state->ring_gauge2);
-    __eeprom_update_knob(KnobGauge3, encoders[2], state->ring_gauge3);
-    __eeprom_update_knob(KnobGauge4, encoders[3], state->ring_gauge4);
-    __eeprom_update_toggle(Toggle1, state->toggle1);
-    __eeprom_update_toggle(Toggle2, state->toggle2);
-    __eeprom_update_toggle(Toggle3, state->toggle3);
-    __eeprom_update_toggle(Toggle4, state->toggle4);
-    __eeprom_update_slider(EqSlider1, state->slider1);
-    __eeprom_update_slider(EqSlider2, state->slider2);
-    __eeprom_update_slider(EqSlider3, state->slider3);
-    __eeprom_update_slider(EqSlider4, state->slider4);
-    __eeprom_update_slider(EqSlider5, state->slider5);
-    __eeprom_update_slider(EqSlider6, state->slider6);
-    __eeprom_update_slider(EqSlider7, state->slider7);
+    int& gauge1 = state->ring_gauge1;
+    int& gauge2 = state->ring_gauge2;
+    int& gauge3 = state->ring_gauge3;
+    int& gauge4 = state->ring_gauge4;
+    int& toggle1 = state->toggle1;
+    int& toggle2 = state->toggle2;
+    int& toggle3 = state->toggle3;
+    int& toggle4 = state->toggle4;
+    int& slider1 = state->slider1;
+    int& slider2 = state->slider2;
+    int& slider3 = state->slider3;
+    int& slider4 = state->slider4;
+    int& slider5 = state->slider5;
+    int& slider6 = state->slider6;
+    int& slider7 = state->slider7;
+
+    int& prev_gauge1 = previous_state->ring_gauge1;
+    int& prev_gauge2 = previous_state->ring_gauge2;
+    int& prev_gauge3 = previous_state->ring_gauge3;
+    int& prev_gauge4 = previous_state->ring_gauge4;
+    int& prev_toggle1 = previous_state->toggle1;
+    int& prev_toggle2 = previous_state->toggle2;
+    int& prev_toggle3 = previous_state->toggle3;
+    int& prev_toggle4 = previous_state->toggle4;
+    int& prev_slider1 = previous_state->slider1;
+    int& prev_slider2 = previous_state->slider2;
+    int& prev_slider3 = previous_state->slider3;
+    int& prev_slider4 = previous_state->slider4;
+    int& prev_slider5 = previous_state->slider5;
+    int& prev_slider6 = previous_state->slider6;
+    int& prev_slider7 = previous_state->slider7;
+
+    if (gauge1 != prev_gauge1) {
+        __eeprom_update_knob(KnobGauge1, encoders[0], gauge1);
+    }
+    if (gauge2 != prev_gauge2) {
+        __eeprom_update_knob(KnobGauge2, encoders[1], gauge2);
+    }
+    if (gauge3 != prev_gauge3) {
+        __eeprom_update_knob(KnobGauge3, encoders[2], gauge3);
+    }
+    if (gauge4 != prev_gauge4) {
+        __eeprom_update_knob(KnobGauge4, encoders[3], gauge4);
+    }
+    if (toggle1 != prev_toggle1) {
+        __eeprom_update_toggle(Toggle1, toggle1);
+    }
+    if (toggle2 != prev_toggle2) {
+        __eeprom_update_toggle(Toggle2, toggle2);
+    }
+    if (toggle3 != prev_toggle3) {
+        __eeprom_update_toggle(Toggle3, toggle3);
+    }
+    if (toggle4 != prev_toggle4) {
+        __eeprom_update_toggle(Toggle4, toggle4);
+    }
+    if (slider1 != prev_slider1) {
+        __eeprom_update_slider(EqSlider1, slider1);
+    }
+    if (slider2 != prev_slider2) {
+        __eeprom_update_slider(EqSlider2, slider2);
+    }
+    if (slider3 != prev_slider3) {
+        __eeprom_update_slider(EqSlider3, slider3);
+    }
+    if (slider4 != prev_slider4) {
+        __eeprom_update_slider(EqSlider4, slider4);
+    }
+    if (slider5 != prev_slider5) {
+        __eeprom_update_slider(EqSlider5, slider5);
+    }
+    if (slider6 != prev_slider6) {
+        __eeprom_update_slider(EqSlider6, slider6);
+    }
+    if (slider7 != prev_slider7) {
+        __eeprom_update_slider(EqSlider7, slider7);
+    }
 }
 
 /**
